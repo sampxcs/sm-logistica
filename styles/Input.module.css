@@ -1,0 +1,17 @@
+.input {
+  padding: 8px 10px;
+  outline: none;
+  font-size: var(--font-size-s);
+  border-radius: var(--border-radius-s);
+  border: 1px solid var(--color-gray-20);
+  transition: border-color 0.15s ease;
+  width: 100%;
+}
+
+.input[type='checkbox'] {
+  width: auto;
+}
+
+.input:focus {
+  border-color: var(--color-primary-100);
+}

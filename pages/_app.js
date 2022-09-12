@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import '../mongo'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {

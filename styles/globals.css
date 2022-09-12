@@ -1,25 +1,76 @@
 :root {
+  --color-primary-gradient: linear-gradient(166deg, #4299ff 15%, #0076ff 100%);
+  --color-primary-100: #0070f3;
+  --color-primary-100: #0070f3;
   --color-primary-100: #0070f3;
   --color-primary-80: #0072f5cc;
   --color-primary-60: #0072f599;
   --color-primary-40: #0072f566;
   --color-primary-20: #0072f533;
-  --color-secundary-100: #8400d1;
-  --color-secundary-80: #8400d1cc;
-  --color-secundary-60: #8400d199;
-  --color-secundary-40: #8400d166;
-  --color-secundary-20: #8400d133;
-  --black-1: #1b1b1b;
-  --white-1: #ffffff;
-  --white-2: #fafafa;
+  --color-secundary-gradient: linear-gradient(166deg, #ff8950 15%, #f85203 100%);
+  --color-secundary-100: #f85203;
+  --color-secundary-80: #f85203cc;
+  --color-secundary-60: #f8520399;
+  --color-secundary-40: #f8520366;
+  --color-secundary-20: #f8520333;
+  --color-yellow-warning-100: #ffbe0b;
+  --color-yellow-warning-80: #ffbe0bcc;
+  --color-yellow-warning-60: #ffbe0b99;
+  --color-yellow-warning-40: #ffbe0b66;
+  --color-yellow-warning-20: #ffbe0b33;
+  --color-green-ok-100: #00a400;
+  --color-green-ok-80: #00a400cc;
+  --color-green-ok-60: #00a40099;
+  --color-green-ok-40: #00a40066;
+  --color-green-ok-20: #00a40033;
+  --color-red-error-100: #ff1744;
+  --color-red-error-80: #ff1744cc;
+  --color-red-error-60: #ff174499;
+  --color-red-error-40: #ff174466;
+  --color-red-error-20: #ff174433;
+  --color-black-custom-100: #1b1b1b;
+  --color-black-custom-40: #1b1b1b66;
+  --color-black-custom-20: #1b1b1b33;
+  --color-black-custom-05: #1c1c1c0d;
+  --color-white-custom-100: #fafafa;
+  --color-white-custom-40: #fafafa66;
+  --color-white-custom-20: #fafafa33;
+  --color-white-custom-05: #fafafa0d;
+  --color-black-100: #000000;
+  --color-black-40: #00000066;
+  --color-black-20: #00000033;
+  --color-black-05: #0000000d;
+  --color-white-100: #ffffff;
+  --color-white-40: #ffffff66;
+  --color-white-20: #ffffff33;
+  --color-white-05: #ffffff0d;
+  --color-gray-100: #262729;
+  --color-gray-80: #262729cc;
+  --color-gray-60: #26272999;
+  --color-gray-40: #26272966;
+  --color-gray-20: #26272933;
+  --break-point-mobile: 480px;
+  --break-point-tablet: 768px;
+  --break-point-laptop: 1200px;
+  --break-point-deskrop: 1920px;
+  --border-radius-s: 5px;
+  --border-radius-m: 10px;
+  --border-radius-l: 20px;
+  --border-radius-xl: 30px;
+  --font-size-s: 1rem;
+  --font-size-m: 1.25rem;
+  --font-size-l: 1.5rem;
+  --font-size-xl: 3rem;
+  --font-family-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+  --font-family-code: monospace;
 }
 
-html,
-body {
+* {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  font-family: var(--font-family-primary);
 }
 
 a {
@@ -27,8 +78,10 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+@media (min-width: 480px) {
+  :root {
+    --font-size-xl: 4rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

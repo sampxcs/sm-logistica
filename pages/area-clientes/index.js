@@ -1,21 +1,25 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Container from '../../components/Container'
+import Spinner from '../../components/Spinner'
 
 export default function AreaClientes() {
   const router = useRouter()
   const user = undefined
 
-  !user && router.replace('/login')
+  setTimeout(() => {
+    !user && router.replace('/sign-in')
+  }, 1000)
+
   return (
-    <div>
+    <>
       <Head>
         <title>Area Clientes &middot; SM Logística</title>
       </Head>
-      <h1>Area Clientes</h1>
-      <Link href="/">
-        <a>back home</a>
-      </Link>
-    </div>
+      <Container>
+        <Spinner />
+      </Container>
+    </>
   )
 }

@@ -13,23 +13,23 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Bienvenido a <a href="/">SM Logística!</a>
+          Bienvenido a <Link href="/">SM Logística!</Link>
         </h1>
         <p className={styles.description}>Diseñamos soluciones logísticas a la medida de su negocio</p>
         <div className={styles.grid}>
-          <Link href="/area-clientes">
+          <Link href="/">
             <a className={styles.card}>
               <h2>Documentación &rarr;</h2>
               <p>Encuentre información detallada sobre las funciones y la API de SM Logistica</p>
             </a>
           </Link>
-          <Link href="/area-clientes">
+          <Link href="/">
             <a className={styles.card}>
               <h2>Cotizaciones online &rarr;</h2>
               <p>Cotiza rapidamente tu envio y escoge el metodo que mas se adapte a tus necesidades.</p>
             </a>
           </Link>
-          <Link href="/area-clientes">
+          <Link href="/">
             <a className={styles.card}>
               <h2>Sigue tu envio &rarr;</h2>
               <p>Descubre donde esta tu envio, su estado y la fecha estimada de llegada a tu localidad.</p>
