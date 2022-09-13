@@ -1,0 +1,36 @@
+// Create new user
+POST http://localhost:3000/api/users/post
+content-type: application/json
+
+{
+    "displayName": "Miguel",
+    "email": "Miasdadsasddasgussel@gmail.com",
+    "password": "3151"
+}
+
+###
+
+// Edit user by id
+POST http://localhost:3000/api/users/put/63208ca3a25c01bb3661b2dd
+content-type: application/json
+
+{
+    "displayName": "Samplesote",
+    "email": "samplecito@gmail.com",
+    "password": "3151"
+}
+
+### 
+
+// Get all users
+GET http://localhost:3000/api/users/get
+
+###
+
+// Get user by id
+GET http://localhost:3000/api/users/get/6320d36f9c1322f246cf4f74
+
+###
+
+// Delete user by id
+DELETE http://localhost:3000/api/users/delete/6320db229c1322f246cf4f9c
