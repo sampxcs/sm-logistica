@@ -43,9 +43,3 @@
     flex-direction: row;
   }
 }
-
-@media (prefers-color-scheme: dark) {
-  .form a {
-    color: var(--color-secundary-100);
-  }
-}

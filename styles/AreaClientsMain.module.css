@@ -1,0 +1,7 @@
+.main {
+  top: 110px;
+  left: 210px;
+  position: relative;
+  width: calc(100% - 210px);
+  min-height: calc(100vh - 110px);
+}

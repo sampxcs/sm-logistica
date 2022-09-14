@@ -3,7 +3,7 @@ import Input from '../Input'
 import Button from '../Button'
 import styles from '../../styles/Form.module.css'
 
-export default function FormSignIn() {
+export default function SignInForm() {
   return (
     <form className={styles.form}>
       <h1>Inicia sesion</h1>

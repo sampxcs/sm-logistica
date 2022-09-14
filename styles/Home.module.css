@@ -113,16 +113,6 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .card,
-  .footer {
-    border-color: var(--color-white-05);
-  }
-  .logo img {
-    filter: invert(1);
-  }
-}
-
 @keyframes show-up {
   0% {
     opacity: 0;

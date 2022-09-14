@@ -3,7 +3,7 @@ import Input from '../Input'
 import Button from '../Button'
 import styles from '../../styles/Form.module.css'
 
-export default function FormSignUp() {
+export default function SignUpForm() {
   return (
     <form className={styles.form}>
       <h1>Registrar usuario</h1>
