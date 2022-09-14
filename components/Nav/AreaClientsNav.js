@@ -1,10 +1,10 @@
 import styles from '../../styles/AreaClientsNav.module.css'
 import Link from 'next/link'
-import BoxesStackedIcon from '../Icons/BoxesStackedIcon'
 import UserRegularIcon from '../Icons/UserRegularIcon'
-import BoxSolidIcon from '../Icons/BoxSolidIcon'
-import BoxPackingSolidIcon from '../Icons/BoxPackingSolidIcon'
-import GripSolid from '../Icons/GripSolidIcon'
+import BoxIcon from '../Icons/BoxIcon'
+import BoxesIcon from '../Icons/BoxesIcon'
+import BoxUpIcon from '../Icons/BoxUpIcon'
+import GridIcon from '../Icons/GridIcon'
 
 export default function AreaClientsNav() {
   return (
@@ -12,7 +12,10 @@ export default function AreaClientsNav() {
       <ul>
         <li className={styles.active}>
           <Link href="/area-clientes">
-            <a>Inicio</a>
+            <a>
+              <GridIcon />
+              Inicio
+            </a>
           </Link>
         </li>
         <hr />
@@ -20,7 +23,7 @@ export default function AreaClientsNav() {
         <li>
           <Link href="/area-clientes">
             <a>
-              <BoxSolidIcon width="12" />
+            <BoxIcon width="16" />
               Crear Pedido
             </a>
           </Link>
@@ -28,7 +31,7 @@ export default function AreaClientsNav() {
         <li>
           <Link href="/area-clientes">
             <a>
-              <BoxPackingSolidIcon width="12" />
+              <BoxUpIcon width="15" />
               Importar Pedidos
             </a>
           </Link>
@@ -36,7 +39,7 @@ export default function AreaClientsNav() {
         <li>
           <Link href="/area-clientes">
             <a>
-              <BoxesStackedIcon width="12" />
+              <BoxesIcon width="16" />
               Mis Pedidos
             </a>
           </Link>
