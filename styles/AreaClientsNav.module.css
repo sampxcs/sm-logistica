@@ -13,19 +13,23 @@
 .nav a {
   padding: 10px 15px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  margin: 5px 0;
   align-items: center;
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-m);
+  border-radius: var(--border-radius-s);
+  transition: ease .15s;
+}
+.nav li {
   border-radius: var(--border-radius-s);
 }
-.nav a:hover {
+.nav li:not(.active):hover {
   background-color: var(--color-black-custom-05);
 }
 .nav .active {
   background-color: var(--color-primary-20);
   color: var(--color-primary-100);
   border-radius: var(--border-radius-s);
-  font-weight: 700;
   position: relative;
 }
 .nav .active::before {

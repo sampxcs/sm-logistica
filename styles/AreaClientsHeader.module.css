@@ -5,4 +5,8 @@
   box-shadow: 0 0 10px var(--color-gray-20);
   position: fixed;
   z-index: 100;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

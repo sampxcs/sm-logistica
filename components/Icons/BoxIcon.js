@@ -5,14 +5,14 @@ const BoxIcon = (props) => (
     <path
       d="M224 177.3V78.7a8.1 8.1 0 0 0-4.1-7l-88-49.5a7.8 7.8 0 0 0-7.8 0l-88 49.5a8.1 8.1 0 0 0-4.1 7v98.6a8.1 8.1 0 0 0 4.1 7l88 49.5a7.8 7.8 0 0 0 7.8 0l88-49.5a8.1 8.1 0 0 0 4.1-7Z"
       fill="none"
-      stroke="#000"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={16}
     />
     <path
       fill="none"
-      stroke="#000"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={16}
@@ -20,7 +20,7 @@ const BoxIcon = (props) => (
     />
     <path
       fill="none"
-      stroke="#000"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={16}

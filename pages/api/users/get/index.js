@@ -7,7 +7,7 @@ export default async function getUsers(req, res) {
     const users = await User.find({})
     res.json(users)
   } catch (error) {
-    console.log(error)
-    res.json({ error })
+    console.log(error.name)
+    res.json({ error: error.message })
   }
 }

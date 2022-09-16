@@ -9,7 +9,7 @@ export default async function getUserById(req, res) {
 
     user ? res.json(user) : res.status(404).json({ error: 'not found' })
   } catch (error) {
-    console.log(error)
-    res.json({ error })
+    console.log(error.name)
+    res.json({ error: error.message })
   }
 }

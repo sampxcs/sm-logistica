@@ -3,9 +3,9 @@ POST http://localhost:3000/api/users/post
 content-type: application/json
 
 {
-    "displayName": "Miguel",
-    "email": "Miasdadsasddasgussel@gmail.com",
-    "password": "3151"
+    "displayName": "Iansito",
+    "email": "Iansito@gmail.com",
+    "password": "31555117"
 }
 
 ###
@@ -18,6 +18,17 @@ content-type: application/json
     "displayName": "Samplesote",
     "email": "samplecito@gmail.com",
     "password": "3151"
+}
+
+###
+
+// Login user
+POST  http://localhost:3000/api/users/login
+content-type: application/json
+
+{
+    "email": "Iansito@gmail.com",
+    "password": "31555117"
 }
 
 ### 

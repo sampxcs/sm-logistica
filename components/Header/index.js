@@ -6,7 +6,7 @@ import AreaClientsHeader from './AreaClientsHeader'
 export default function Header() {
   const router = useRouter()
 
-  if (router.pathname === '/area-clientes') return <AreaClientsHeader />
+  if (router.pathname === '/area-clientes/[site]') return <AreaClientsHeader />
 
   return (
     <header className={styles.nav}>

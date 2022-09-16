@@ -10,9 +10,9 @@
 .spinner {
   font-size: 10px;
   border-top: 2px solid transparent;
-  border-right: 2px solid var(--color-secundary-100);
-  border-bottom: 2px solid var(--color-secundary-100);
-  border-left: 2px solid var(--color-secundary-100);
+  border-right: 2px solid var(--color-primary-100);
+  border-bottom: 2px solid var(--color-primary-100);
+  border-left: 2px solid var(--color-primary-100);
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

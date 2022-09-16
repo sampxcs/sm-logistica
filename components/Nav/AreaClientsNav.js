@@ -5,13 +5,20 @@ import BoxIcon from '../Icons/BoxIcon'
 import BoxesIcon from '../Icons/BoxesIcon'
 import BoxUpIcon from '../Icons/BoxUpIcon'
 import GridIcon from '../Icons/GridIcon'
+import { useRouter } from 'next/router'
 
 export default function AreaClientsNav() {
+  const router = useRouter()
+
+  const isActive = (pathname) => {
+    return router.asPath === pathname ? styles.active : ""
+  }
+
   return (
     <nav className={styles.nav}>
       <ul>
-        <li className={styles.active}>
-          <Link href="/area-clientes">
+        <li className={isActive("/area-clientes/inicio")}>
+          <Link href="/area-clientes/inicio">
             <a>
               <GridIcon />
               Inicio
@@ -20,24 +27,24 @@ export default function AreaClientsNav() {
         </li>
         <hr />
         <small>Pedidos</small>
-        <li>
-          <Link href="/area-clientes">
+        <li className={isActive("/area-clientes/crear-pedido")}>
+          <Link href="/area-clientes/crear-pedido">
             <a>
             <BoxIcon width="16" />
               Crear Pedido
             </a>
           </Link>
         </li>
-        <li>
-          <Link href="/area-clientes">
+        <li className={isActive("/area-clientes/importar-pedidos")}>
+          <Link href="/area-clientes/importar-pedidos">
             <a>
               <BoxUpIcon width="15" />
               Importar Pedidos
             </a>
           </Link>
         </li>
-        <li>
-          <Link href="/area-clientes">
+        <li className={isActive("/area-clientes/mis-pedidos")}>
+          <Link href="/area-clientes/mis-pedidos">
             <a>
               <BoxesIcon width="16" />
               Mis Pedidos
@@ -46,8 +53,8 @@ export default function AreaClientsNav() {
         </li>
         <hr />
         <small>Cuenta</small>
-        <li>
-          <Link href="/area-clientes">
+        <li className={isActive("/area-clientes/usuarios")}>
+          <Link href="/area-clientes/usuarios">
             <a>
               <UserRegularIcon width="12" />
               Usuarios

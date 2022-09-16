@@ -6,11 +6,6 @@ import AreaClientsNav from './AreaClientsNav'
 export default function Nav() {
   const router = useRouter()
 
-  if (router.pathname === '/area-clientes') return <AreaClientsNav />
-
-  return (
-    <nav className={styles.nav}>
-      <Link href="/">&larr;</Link>
-    </nav>
-  )
+  if (router.pathname === '/area-clientes/[site]') return <AreaClientsNav />
+  
 }

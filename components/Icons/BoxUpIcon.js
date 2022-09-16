@@ -8,7 +8,7 @@ const BoxUpIcon = (props) => (
   >
     <defs>
       <style>
-        {".cls-1{fill:none;stroke:#000;stroke-linejoin:round;stroke-width:2px}"}
+        {".cls-1{fill:none;stroke:currentColor;stroke-linejoin:round;stroke-width:2px}"}
       </style>
     </defs>
     <title />
