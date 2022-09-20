@@ -1,14 +1,66 @@
 .button {
-  background: var(--color-primary-gradient);
-  color: var(--color-white-100);
   border-radius: var(--border-radius-s);
   border: none;
+  background: inherit;
+  color: inherit;
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
-  font-size: var(--font-size-s);
-  font-weight: 600;
-  padding: 10px 20px;
-  transition: color 0.15s ease, background-color 0.15s ease, opacity 0.15s ease;
 }
-.button:hover {
-  opacity: 0.8;
+
+.button > .ripple {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: var(--color-white-20);
+  display: block;
+  content: '';
+  border-radius: 100%;
+  opacity: 1;
+  animation: 0.9s ease 1 forwards ripple-effect;
+}
+.button > .darkRipple {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: var(--color-primary-20);
+  display: block;
+  content: '';
+  border-radius: 100%;
+  opacity: 1;
+  animation: 0.9s ease 1 forwards ripple-effect;
+}
+.button > .lightRipple {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: var(--color-white-20);
+  display: block;
+  content: '';
+  border-radius: 100%;
+  opacity: 1;
+  animation: 0.9s ease 1 forwards ripple-effect;
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(30);
+    opacity: 0.375;
+  }
+  100% {
+    transform: scale(100);
+    opacity: 0;
+  }
+}
+
+.button > .content {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 2;
 }

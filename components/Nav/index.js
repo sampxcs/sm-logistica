@@ -1,11 +1,8 @@
-import styles from '../../styles/Nav.module.css'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
-import AreaClientsNav from './AreaClientsNav'
+import ClientsAreaNav from './ClientsAreaNav'
 
 export default function Nav() {
   const router = useRouter()
 
-  if (router.pathname === '/area-clientes/[site]') return <AreaClientsNav />
-  
+  if (router.pathname === '/clients-area/[site]') return <ClientsAreaNav />
 }

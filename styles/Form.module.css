@@ -22,6 +22,16 @@
 .form a {
   color: var(--color-secundary-100);
 }
+.form button {
+  background-color: var(--color-primary-100);
+  color: var(--color-white-100);
+  padding: 10px 15px;
+  font-size: var(--font-size-s);
+}
+
+.form button span {
+  justify-content: center;
+}
 
 .inputContainer {
   display: flex;

@@ -1,5 +1,5 @@
 .nav {
-  width: 210px;
+  width: 250px;
   top: 60px;
   height: 100vh;
   padding: 10px;
@@ -10,24 +10,23 @@
 .nav ul {
   margin-top: 10px;
 }
-.nav a {
+.nav button {
   padding: 10px 15px;
-  display: flex;
-  gap: 10px;
-  margin: 5px 0;
+  width: 100%;
   align-items: center;
-  font-size: var(--font-size-m);
+  font-size: var(--font-size-s);
   border-radius: var(--border-radius-s);
-  transition: ease .15s;
+  transition: ease 0.15s;
 }
 .nav li {
   border-radius: var(--border-radius-s);
+  margin: 5px 0;
 }
 .nav li:not(.active):hover {
   background-color: var(--color-black-custom-05);
 }
 .nav .active {
-  background-color: var(--color-primary-20);
+  background-color: var(--color-primary-05);
   color: var(--color-primary-100);
   border-radius: var(--border-radius-s);
   position: relative;

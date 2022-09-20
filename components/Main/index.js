@@ -1,16 +1,18 @@
 import { useRouter } from 'next/router'
-import AreaClientsHomeMain from './AreaClientsHomeMain'
-import AreaClientsCreateOrderMain from './AreaClientsCreateOrderMain'
-import AreaClientsImportOdersMain from './AreaClientsImportOrdersMain'
-import AreaClientsMyOrdersMain from './AreaClientsMyOrdersMain'
-import AreaClientsUsersMain from './AreaClientsUsersMain'
+import ClientsAreaAdmin from './ClientsAreaAdmin'
+import ClientsAreaCreateOrder from './ClientsAreaCreateOrder'
+import ClientsAreaImportOrders from './ClientsAreaImportOrders'
+import ClientsAreaMyOrders from './ClientsAreaMyOrders'
+import ClientsAreaUsers from './ClientsAreaUsers'
+import ClientsAreaProfile from './ClientsAreaProfile'
 
 export default function Main() {
   const router = useRouter()
 
-  if (router.asPath === '/area-clientes/inicio') return <AreaClientsHomeMain />
-  if (router.asPath === '/area-clientes/crear-pedido') return <AreaClientsCreateOrderMain />
-  if (router.asPath === '/area-clientes/importar-pedidos') return <AreaClientsImportOdersMain />
-  if (router.asPath === '/area-clientes/mis-pedidos') return <AreaClientsMyOrdersMain />
-  if (router.asPath === '/area-clientes/usuarios') return <AreaClientsUsersMain />
+  if (router.asPath === '/clients-area/admin') return <ClientsAreaAdmin />
+  if (router.asPath === '/clients-area/create-order') return <ClientsAreaCreateOrder />
+  if (router.asPath === '/clients-area/import-orders') return <ClientsAreaImportOrders />
+  if (router.asPath === '/clients-area/my-orders') return <ClientsAreaMyOrders />
+  if (router.asPath === '/clients-area/users') return <ClientsAreaUsers />
+  if (router.asPath === '/clients-area/profile') return <ClientsAreaProfile />
 }

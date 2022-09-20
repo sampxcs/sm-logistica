@@ -1,0 +1,20 @@
+.photo {
+  align-items: center;
+  background-color: var(--color-primary-100);
+  border-radius: 100%;
+  color: var(--color-white-100);
+  display: flex;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: 1px;
+  overflow: hidden;
+  width: 30px;
+}
+.photo:hover {
+  opacity: 0.8;
+}
+.photo:active {
+  opacity: 1;
+}

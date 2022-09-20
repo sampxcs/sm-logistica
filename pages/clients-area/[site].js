@@ -8,23 +8,29 @@ import Container from '../../components/Container'
 import Spinner from '../../components/Spinner'
 import { useRouter } from 'next/router'
 
-export default function AreaClientes() {
+export default function ClientsArea() {
   const router = useRouter()
   const [user, setUser] = useState(null)
-  console.log(user)
 
-  useEffect(() => {
-    !user && router.replace('/inicia-sesion')
-  }, [user, router])
+  /*  useEffect(() => {
+    !user && router.replace('/sign-in')
+  }, [user, router]) */
 
-  if (!user) return (
-    <>
-      <Head>
-        <title>Cargando...</title>
-      </Head>
-      <Container><Spinner /></Container>
-    </>
-  )
+  setTimeout(() => {
+    setUser('123')
+  }, 1000)
+
+  if (!user)
+    return (
+      <>
+        <Head>
+          <title>Cargando...</title>
+        </Head>
+        <Container>
+          <Spinner />
+        </Container>
+      </>
+    )
 
   return (
     <>

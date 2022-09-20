@@ -10,3 +10,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.header ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}

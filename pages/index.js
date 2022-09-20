@@ -35,7 +35,7 @@ export default function Home() {
               <p>Descubre donde esta tu envio, su estado y la fecha estimada de llegada a tu localidad.</p>
             </a>
           </Link>
-          <Link href="/area-clientes/inicio">
+          <Link href="/clients-area/admin">
             <a className={styles.card}>
               <h2>Area clientes &rarr;</h2>
               <p>Sección de acceso restringido de herramientas y consultas desarrolladas para nuestros Clientes.</p>
