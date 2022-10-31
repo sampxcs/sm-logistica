@@ -43,6 +43,7 @@
 }
 .nav small {
   margin: 0px 15px;
+  cursor: default;
 }
 .nav hr {
   width: 90%;
