@@ -2,15 +2,12 @@ import styles from '../../styles/AreaClientsMain.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import Container from '../Container'
+
 export default function ClientsAreaAdmin() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <Link href="#">
-          <div className={styles.headbandBox}>
-            <Image src="/cintillo_findes_rebajados.jpg" alt="as" layout="fill" />
-          </div>
-        </Link>
         <div className={styles.boxes}>
           <Link href="/clients-area/account">
             <div className={styles.box}>ESTADO DE CUENTA</div>
