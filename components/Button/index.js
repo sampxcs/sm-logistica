@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import styles from '../../styles/Button.module.css'
 
-export default function Button({ children, onClick, type, light, dark }) {
+export default function Button({ children, onClick, type, light, dark}) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [isRippling, setIsRippling] = useState(false)
 

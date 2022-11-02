@@ -30,17 +30,17 @@ export default function ClientsAreaAdmin() {
         <br />
         <div className={styles.boxes}>
           <Link href="#">
-            <div className={styles.publicityBox}>
+            <div className={styles.box}>
               <Image src="/envios_garantizados_-_promociones.jpg" alt="as" layout="fill" />
             </div>
           </Link>
           <Link href="#">
-            <div className={styles.publicityBox}>
+            <div className={styles.box}>
               <Image src="/te_portada2x.jpg" alt="as" layout="fill" />
             </div>
           </Link>
           <Link href="#">
-            <div className={styles.publicityBox}>
+            <div className={styles.box}>
               <Image src="/seguimiento-promociones22x.jpg" alt="as" layout="fill" />
             </div>
           </Link>

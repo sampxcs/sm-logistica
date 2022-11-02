@@ -5,7 +5,7 @@ import styles from '../../styles/Form.module.css'
 
 export default function SignUpForm() {
   return (
-    <form className={styles.form}>
+    <form className={styles.smallForm}>
       <h1>Registrar usuario</h1>
       <div className={styles.div}>
         <div className={styles.inputContainer}>
@@ -16,16 +16,16 @@ export default function SignUpForm() {
         <Input placeholder={'Contraseña'} />
         <Input placeholder={'Confirma la contraseña'} />
         <small className={styles.checkboxContainer}>
-          <Input type="checkbox" /> Acepto los <Link href="/conditions">Terminos y condiciones</Link>
+          <Input type="checkbox" /> Acepto los <Link href="/conditions"><a className={styles.a}>Terminos y condiciones</a></Link>
         </small>
       </div>
       <div className={styles.div}>
         <Button>Inicia Sesion</Button>
-        <p>O continua con</p>
+        <p className={styles.p}>O continua con</p>
         <Button type={'button'}>Google</Button>
         <Button type={'button'}>Git Hub</Button>
-        <small>
-          ¿Ya tenes una cuenta?, <Link href="/sign-in">Inicia sesion!</Link>
+        <small className={styles.small}>
+          ¿Ya tenes una cuenta?, <Link href="/sign-in"><a className={styles.a}>Inicia sesion!</a></Link>
         </small>
       </div>
     </form>

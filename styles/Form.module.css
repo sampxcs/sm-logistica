@@ -2,6 +2,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  border-radius: var(--border-radius-s);
+  box-shadow: 0 0 30px var(--color-black-custom-05);
+  padding: 20px 15px;
+}
+.smallForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   width: 100%;
   max-width: var(--break-point-mobile);
@@ -9,43 +19,55 @@
   border-radius: var(--border-radius-l);
   box-shadow: 0 0 30px var(--color-black-custom-05);
 }
-.form .div {
+.div {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-.form p {
+.p {
   text-align: center;
   font-size: var(--font-size-s);
 }
-.form a {
+.a {
   color: var(--color-secundary-100);
 }
-.form button {
+.smallForm button {
   background-color: var(--color-primary-100);
   color: var(--color-white-100);
   padding: 10px 15px;
   font-size: var(--font-size-s);
 }
-
+.smallForm button span,
 .form button span {
   justify-content: center;
 }
-
+.form button {
+  background-color: var(--color-primary-100);
+  color: var(--color-white-100);
+  padding: 10px 20px;
+  font-size: var(--font-size-s);
+  margin: 0 auto;
+}
 .inputContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
+.inputRadioContainer {
+  width: 200px;
+  display: flex;
+  gap: 15px;
+}
 .checkboxContainer {
   display: flex;
   gap: 5px;
   align-items: center;
 }
-
-@media (min-width: 480px) {
-  .form {
+.aSearchCP:hover {
+ color: var(--color-primary-100);
+}
+@media (min-width: 960px) {
+  .samllForm {
     justify-content: center;
   }
   .inputContainer {
