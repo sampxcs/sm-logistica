@@ -85,7 +85,18 @@ hr {
   height: 1px;
   background-color: var(--color-gray-20);
 }
-
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 @media (min-width: 480px) {
   :root {
     --font-size-xl: 4rem;

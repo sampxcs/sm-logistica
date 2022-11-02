@@ -4,7 +4,7 @@
   position: relative;
   width: calc(100% - 250px);
   min-height: calc(100vh - 110px);
-  padding: 25px 30px;
+  padding: 25px 60px;
 }
 .container {
   display: flex;
@@ -17,6 +17,7 @@
 .title {
   text-align: center;
   margin-bottom: -20px;
+  font-weight: 500;
 }
 .boxes {
   display: flex;
@@ -76,5 +77,8 @@
 @media (max-width: 960px) {
   .boxes {
     flex-direction: column;
+  }
+  .main {
+    padding: 25px;
   }
 }

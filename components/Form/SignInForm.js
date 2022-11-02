@@ -8,10 +8,12 @@ export default function SignInForm() {
     <form className={styles.smallForm}>
       <h1>Inicia sesion</h1>
       <div className={styles.div}>
-        <Input placeholder={'Email'} />
-        <Input placeholder={'Contraseña'} />
+        <Input label={'Email'} />
+        <Input label={'Contraseña'} />
         <small className={styles.small}>
-          <Link href="/sign-up"><a className={styles.a}>¿Has olvidado tu contraseña?</a></Link>
+          <Link href="/sign-up">
+            <a className={styles.a}>¿Has olvidado tu contraseña?</a>
+          </Link>
         </small>
       </div>
       <div className={styles.div}>
@@ -20,7 +22,10 @@ export default function SignInForm() {
         <Button type={'button'}>Google</Button>
         <Button type={'button'}>Git Hub</Button>
         <small className={styles.small}>
-          ¿No tenes una cuenta?, <Link href="/sign-up"><a className={styles.a}>Registrate ahora!</a></Link>
+          ¿No tenes una cuenta?,{' '}
+          <Link href="/sign-up">
+            <a className={styles.a}>Registrate ahora!</a>
+          </Link>
         </small>
       </div>
     </form>
