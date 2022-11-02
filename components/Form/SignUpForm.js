@@ -24,7 +24,7 @@ export default function SignUpForm() {
       </div>
       <div className={styles.div}>
         <Button>Inicia Sesion</Button>
-        <p className={styles.p}>O continua con</p>
+        <p className={styles.subTitle}>O continua con</p>
         <Button type={'button'}>Google</Button>
         <Button type={'button'}>Git Hub</Button>
         <small className={styles.small}>

@@ -24,9 +24,17 @@
   flex-direction: column;
   gap: 15px;
 }
-.p {
-  text-align: center;
+.warning {
+  color: var(--color-red-error-100);
+}
+.subTitle {
   font-size: var(--font-size-s);
+  text-align: center;
+}
+.p {
+  font-size: var(--font-size-s);
+  line-height: 1.5;
+  color: var(--color-black-custom-80);
 }
 .a {
   color: var(--color-secundary-100);

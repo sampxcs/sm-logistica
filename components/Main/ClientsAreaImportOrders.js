@@ -1,6 +1,11 @@
 import styles from '../../styles/AreaClientsMain.module.css'
-import Link from 'next/link'
+import Form from '../Form'
 
 export default function AreaClientsHomeMain() {
-  return <section className={styles.main}>Importar Pedidos</section>
+  return <section className={styles.main}>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Importar Pedidos</h2>
+      <Form />
+    </div>
+  </section>
 }

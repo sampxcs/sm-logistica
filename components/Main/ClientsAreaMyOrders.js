@@ -18,6 +18,7 @@ export default function ClientsAreaMyOrdersMain() {
               <th className={styles.th}>Transporte</th>
               <th className={styles.th}>Nro. guia</th>
               <th className={styles.th}>Estado</th>
+              <th className={styles.th}>Opciones</th>
             </tr>
           </thead>
           <tbody className={styles.tbody}>
@@ -32,6 +33,7 @@ export default function ClientsAreaMyOrdersMain() {
               <td className={styles.td}>CORREO ARGENTINO</td>
               <td className={styles.td}>3215ASD15JAH13F5AH5DF</td>
               <td className={styles.td}>ENVIADO</td>
+              <td className={styles.td}></td>
             </tr>
           </tbody>
         </table>
