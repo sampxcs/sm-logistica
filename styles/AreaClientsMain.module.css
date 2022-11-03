@@ -65,13 +65,38 @@
 .th {
   cursor: default;
 }
+.td {
+  font-size: var(--font-size-xs);
+}
 .th,
 .td {
   border-bottom: 1px solid var(--color-black-custom-05);
-  padding: 10px;
+  padding: 15px 5px;
 }
 .tbody .tr:hover {
   background-color: var(--color-primary-05);
+}
+.warning {
+  color: var(--color-red-error-100);
+  margin-left: 15px;
+}
+.tarifaTiempoRapido {
+  background-color: var(--color-green-ok-80);
+  color: var(--color-white-100);
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: var(--border-radius-s);
+}
+.tarifaTiempoNormal {
+  background-color: var(--color-yellow-warning-80);
+  color: var(--color-white-100);
+  margin-left: 5px;
+  padding: 5px 10px;
+  border-radius: var(--border-radius-s);
+}
+.btnVerMapa {
+  color: var(--color-primary-100);
+  cursor: pointer;
 }
 
 @media (max-width: 960px) {

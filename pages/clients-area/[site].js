@@ -12,7 +12,7 @@ export default function ClientsArea() {
   const router = useRouter()
   const [user, setUser] = useState(null)
 
-  /*  useEffect(() => {
+  /* useEffect(() => {
     !user && router.replace('/sign-in')
   }, [user, router]) */
 

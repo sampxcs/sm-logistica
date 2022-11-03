@@ -64,7 +64,7 @@
   position: absolute;
   left: 10px;
   pointer-events: none;
-  transform: translateY(50%);
+  transform: translateY(45%);
   transition: 0.15s ease;
   color: var(--color-black-custom-80);
 }

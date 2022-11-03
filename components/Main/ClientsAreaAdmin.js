@@ -13,7 +13,7 @@ export default function ClientsAreaAdmin() {
             <div className={styles.box}>ESTADO DE CUENTA</div>
           </Link>
           <Link href="/clients-area/rates">
-            <div className={styles.box}>MEMBRESIA Y PAGOS</div>
+            <div className={styles.box}>TARIFAS Y PAGOS</div>
           </Link>
         </div>
         <div className={styles.boxes}>

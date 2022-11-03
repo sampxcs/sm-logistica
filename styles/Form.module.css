@@ -65,10 +65,10 @@
   flex-direction: column;
   gap: 10px;
 }
-.inputRadioContainer {
-  width: 200px;
+.inputBoxContainer {
   display: flex;
-  gap: 15px;
+  margin-left: 10px;
+  gap: 10px;
 }
 .checkboxContainer {
   display: flex;

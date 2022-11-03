@@ -29,7 +29,7 @@ const provincias = [
   'Tierra del Fuego',
   'Tucumán',
 ]
-const expresos = ['Correo Argentino', 'OCA', 'Moto', 'Via Cargo', 'Expreso Tarifa Plana', 'Otros Expresos']
+const expresos = ['Correo Argentino', 'OCA', 'Moto Express', 'Via Cargo', 'Expreso Tarifa Plana', 'Otros Expresos']
 const bultos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export default function CreateOrderForm() {
@@ -57,7 +57,7 @@ export default function CreateOrderForm() {
       <h3 className={styles.h3}>Datos de Envio:</h3>
       <div className={styles.div}>
         <label>¿Donde quieres enviar el pedido? *</label>
-        <div className={styles.inputRadioContainer}>
+        <div className={styles.inputBoxContainer}>
           <label htmlFor="domicilio">Domicilio</label>
           <Input type="radio" id="domicilio" name="tipo-de-envio" value="domicilio" />
           <label htmlFor="sucursal">Sucursal</label>
@@ -104,7 +104,7 @@ export default function CreateOrderForm() {
       <h3 className={styles.h3}>Datos de Pedido:</h3>
       <div className={styles.div}>
         <div className={styles.inputsContainer}>
-          <Input type="number" id="valor" name="valor" label="Valor declarado *" info='Valor del pedido en pesos.' required />
+          <Input type="number" id="valor" name="valor" label="Valor declarado *" info="Valor del pedido en pesos." required />
           <Input
             type="select"
             options={bultos}
