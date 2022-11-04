@@ -60,7 +60,7 @@ export default function ClientsAreaNav() {
         <li className={isActive('/clients-area/users')}>
           <Link href="/clients-area/users">
             <Button dark>
-              <UserRegularIcon width="18" height='18' />
+              <UserRegularIcon width="18" height="18" />
               Usuarios
             </Button>
           </Link>
@@ -68,17 +68,25 @@ export default function ClientsAreaNav() {
         <li className={isActive('/clients-area/rates')}>
           <Link href="/clients-area/rates">
             <Button dark>
-              <CircleDollarIcon width='18' />
+              <CircleDollarIcon width="18" />
               Tarifas y Pagos
             </Button>
           </Link>
         </li>
         <small>Ayuda</small>
         <li>
-          <Link href="/">
+          <Link href="/docs/admin">
             <Button dark>
               <CircleQuestionIcon width="16" />
               Documentación
+            </Button>
+          </Link>
+        </li>
+        <li className={isActive('/docs/packing-conditions')}>
+          <Link href="/docs/packing-conditions">
+            <Button dark>
+              <BoxIcon width="18" />
+              Condiciones de Embalaje
             </Button>
           </Link>
         </li>

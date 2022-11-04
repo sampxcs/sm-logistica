@@ -1,6 +1,6 @@
 .main {
   top: 60px;
-  left: 250px;
+  left: 280px;
   position: relative;
   width: calc(100% - 250px);
   min-height: calc(100vh - 110px);
@@ -47,19 +47,32 @@
   overflow: hidden;
 }
 .publicityBox {
-  height: 180px;
+  height: 220px;
 }
 .saldoActual {
   color: var(--color-primary-100);
+  font-size: var(--font-size-l);
 }
 .tarifaBox {
   flex-direction: column;
   gap: 20px;
-  min-width: 300px;
+  width: 360px;
+  min-width: 360px;
   justify-content: flex-start;
   border-radius: var(--border-radius-xl);
   height: 500px;
   padding: 30px 40px;
+}
+.tarifaBox::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 50%;
+  width: 100%;
+  height: 80%;
+  transform: rotate(45deg);
+  opacity: 10%;
+  z-index: -1;
 }
 .tarifaBox ul {
   color: var(--color-black-custom-60);
@@ -74,6 +87,24 @@
   align-items: center;
   gap: 8px;
 }
+.promailLogo {
+  margin-top: -10px;
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+}
+.promailLogo span {
+  font-weight: 700;
+  color: var(--color-promail-100);
+}
+.tarifaBoxCorreoArgentino::before {
+  background-color: var(--color-correo-argentino-100);
+}
+.tarifaBoxCruzDelSur::before {
+  background-color: var(--color-cruz-del-sur-100);
+}
+.tarifaBoxPromail::before {
+  background-color: var(--color-promail-100);
+}
 .tarifaBoxCorreoArgentino button {
   background-color: var(--color-correo-argentino-100);
 }
@@ -83,6 +114,9 @@
 .tarifaBoxCruzDelSur button {
   background-color: var(--color-cruz-del-sur-100);
 }
+.tarifaBoxCruzDelSur .expressBox {
+  margin-top: 10px;
+}
 .tarifaBox button {
   color: var(--color-white-100);
   width: 60%;
@@ -91,10 +125,13 @@
   border-radius: var(--border-radius-xl);
   margin: 15px auto;
   position: absolute;
+  border: none;
   bottom: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
-.tarifaBox button span {
-  justify-content: center;
+.tarifaBox button:hover {
+  opacity: 0.8;
 }
 .checkIcon {
   color: var(--color-primary-80);
@@ -139,6 +176,7 @@
   cursor: pointer;
 }
 .boxSpaceBetween {
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -172,24 +210,6 @@
 .warning {
   color: var(--color-red-error-100);
   margin-left: 15px;
-}
-.tarifaTiempoRapido {
-  background-color: var(--color-green-ok-80);
-  color: var(--color-white-100);
-  margin-left: 5px;
-  padding: 5px 10px;
-  border-radius: var(--border-radius-s);
-}
-.tarifaTiempoNormal {
-  background-color: var(--color-yellow-warning-80);
-  color: var(--color-white-100);
-  margin-left: 5px;
-  padding: 5px 10px;
-  border-radius: var(--border-radius-s);
-}
-.btnVerMapa {
-  color: var(--color-primary-100);
-  cursor: pointer;
 }
 
 @media (max-width: 960px) {

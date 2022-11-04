@@ -17,7 +17,7 @@ export default function Home() {
         </h1>
         <p className={styles.description}>Diseñamos soluciones logísticas a la medida de su negocio</p>
         <div className={styles.grid}>
-          <Link href="/">
+          <Link href="/docs/admin">
             <a className={styles.card}>
               <h2>Documentación &rarr;</h2>
               <p>Encuentre información detallada sobre las funciones y la API de SM Logistica</p>
