@@ -30,17 +30,17 @@ export default function ClientsAreaAdmin() {
         <br />
         <div className={styles.boxes}>
           <Link href="#">
-            <div className={styles.box}>
+            <div className={styles.publicityBox}>
               <Image src="/envios_garantizados_-_promociones.jpg" alt="as" layout="fill" />
             </div>
           </Link>
           <Link href="#">
-            <div className={styles.box}>
+            <div className={styles.publicityBox}>
               <Image src="/te_portada2x.jpg" alt="as" layout="fill" />
             </div>
           </Link>
           <Link href="#">
-            <div className={styles.box}>
+            <div className={styles.publicityBox}>
               <Image src="/seguimiento-promociones22x.jpg" alt="as" layout="fill" />
             </div>
           </Link>
@@ -48,32 +48,17 @@ export default function ClientsAreaAdmin() {
         <div className={styles.boxes}>
           <Link href="#">
             <div className={styles.expressBox}>
-              <Image src="/logocorreoargentino.svg" alt="Correo Argentino" layout="fill" />
+              <Image src="/logocorreoargentino.svg" alt="Correo Argentino" width='140' height='60' />
             </div>
           </Link>
           <Link href="#">
             <div className={styles.expressBox}>
-              <Image src="/logooca.svg" alt="OCA" layout="fill" />
+              <Image src="/ProMail.Web_.Logo_.png" alt="Promail" width='240' height='40' />
             </div>
           </Link>
           <Link href="#">
             <div className={styles.expressBox}>
-              <Image src="/logoviacargo.svg" alt="Via Cargo" layout="fill" />
-            </div>
-          </Link>
-          <Link href="#">
-            <div className={styles.expressBox}>
-              <Image src="/descarga.png" alt="Moto Express" layout="fill" />
-            </div>
-          </Link>
-          <Link href="#">
-            <div className={styles.expressBox}>
-              <Image src="/logotarifaplana.webp" alt="Expreso Tarifa Plana" layout="fill" />
-            </div>
-          </Link>
-          <Link href="#">
-            <div className={styles.expressBox}>
-              <Image src="/logoexpresos.svg" alt="Otros Expresos" layout="fill" />
+              <Image src="/logocruzdelsur.jpg" alt="Cruz del Sur" width='210' height='40' />
             </div>
           </Link>
         </div>

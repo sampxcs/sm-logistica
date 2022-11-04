@@ -9,6 +9,7 @@ import { useRouter } from 'next/router'
 import Button from '../Button'
 import HeadsetIcon from '../Icons/HeadsetIcon'
 import CircleQuestionIcon from '../Icons/CircleQuestionIcon'
+import CircleDollarIcon from '../Icons/CircleDollarIcon'
 
 export default function ClientsAreaNav() {
   const router = useRouter()
@@ -59,8 +60,16 @@ export default function ClientsAreaNav() {
         <li className={isActive('/clients-area/users')}>
           <Link href="/clients-area/users">
             <Button dark>
-              <UserRegularIcon width="14" />
+              <UserRegularIcon width="18" height='18' />
               Usuarios
+            </Button>
+          </Link>
+        </li>
+        <li className={isActive('/clients-area/rates')}>
+          <Link href="/clients-area/rates">
+            <Button dark>
+              <CircleDollarIcon width='18' />
+              Tarifas y Pagos
             </Button>
           </Link>
         </li>
