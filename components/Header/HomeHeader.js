@@ -10,18 +10,25 @@ export default function ClientsAreaHeader() {
         <Title />
         <ul>
           <li>
-            <Link href={'/'}>SEGUI TU ENVIO</Link>
-          </li>
-          <li>
-            <Link href={'/'}>COTIZACIONES ONLINE</Link>
+            <Link href={'/'}>SERVICIOS</Link>
           </li>
           <li>
             <Link href={'/docs/admin'}>DOCUMENTACION</Link>
           </li>
+          <li>
+            <Link href={'/'}>SEGUI TU ENVIO</Link>
+          </li>
         </ul>
-        <Link href={'/clients-area/admin'}>
-          <a className={styles.button}>Area Clientes</a>
-        </Link>
+        <ul>
+          <li>
+            <Link href={'/'}>AYUDA</Link>
+          </li>
+          <li>
+            <Link href={'/clients-area/admin'}>
+              <a className={styles.button}>AREA CLIENTES</a>
+            </Link>
+          </li>
+        </ul>
       </div>
     </header>
   )

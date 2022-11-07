@@ -1,11 +1,11 @@
 :root {
   --color-primary-gradient: linear-gradient(166deg, #4299ff 15%, #0076ff 100%);
-  --color-primary-100: #0070f3;
-  --color-primary-80: #0072f5cc;
-  --color-primary-60: #0072f599;
-  --color-primary-40: #0072f566;
-  --color-primary-20: #0072f533;
-  --color-primary-05: #0072f50d;
+  --color-primary-100: #4748ee;
+  --color-primary-80: #4748eecc;
+  --color-primary-60: #4748ee99;
+  --color-primary-40: #4748ee66;
+  --color-primary-20: #4748ee33;
+  --color-primary-05: #4748ee0d;
   --color-secundary-gradient: linear-gradient(166deg, #ff8950 15%, #f85203 100%);
   --color-secundary-100: #e9625b;
   --color-secundary-80: #f85203cc;
@@ -71,6 +71,7 @@
   --font-family-primary: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     Helvetica Neue, sans-serif;
   --font-family-code: monospace;
+  scroll-behavior: smooth;
 }
 
 * {
