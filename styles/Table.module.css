@@ -1,0 +1,14 @@
+.container {
+  border-radius: var(--border-radius-s);
+  text-align: center;
+  box-shadow: 0 0 30px var(--color-black-custom-05);
+  padding: 15px 0;
+  border-spacing: 0;
+}
+.container div[role='rowgroup']:first-child {
+  cursor: pointer;
+  font-size: var(--font-size-s);
+}
+.container div[role='rowgroup']:first-child div div:hover {
+  color: var(--color-primary-100);
+}

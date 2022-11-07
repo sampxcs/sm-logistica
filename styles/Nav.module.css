@@ -49,3 +49,9 @@
   width: 90%;
   margin: 10px auto 0;
 }
+
+@media (max-width: 1440px) {
+  .nav {
+    height: 125vh;
+  }
+}

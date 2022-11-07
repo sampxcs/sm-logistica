@@ -1,7 +1,6 @@
-import styles from '../../styles/AreaClientsNav.module.css'
+import styles from '../../styles/Nav.module.css'
 import Link from 'next/link'
 import BoxIcon from '../Icons/BoxIcon'
-import GridIcon from '../Icons/GridIcon'
 import { useRouter } from 'next/router'
 import Button from '../Button'
 import HeadsetIcon from '../Icons/HeadsetIcon'
@@ -18,25 +17,25 @@ export default function ClientsAreaNav() {
     <nav className={styles.nav}>
       <ul>
         <li className={isActive('/docs/admin')}>
-          <Link href="/docs/admin">
+          <Link href='/docs/admin'>
             <Button dark>
-              <FolderIcon width="16" />
+              <FolderIcon width='16' />
               Documentacion
             </Button>
           </Link>
         </li>
         <li className={isActive('/docs/packing-conditions')}>
-          <Link href="/docs/packing-conditions">
+          <Link href='/docs/packing-conditions'>
             <Button dark>
-              <BoxIcon width="18" />
+              <BoxIcon width='18' />
               Condiciones de Embalaje
             </Button>
           </Link>
         </li>
         <li>
-          <Link href="#">
+          <Link href='#'>
             <Button dark>
-              <HeadsetIcon width="16" />
+              <HeadsetIcon width='16' />
               Atención al Cliente
             </Button>
           </Link>

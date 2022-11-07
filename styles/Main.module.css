@@ -2,7 +2,7 @@
   top: 60px;
   left: 280px;
   position: relative;
-  width: calc(100% - 250px);
+  width: calc(100% - 280px);
   min-height: calc(100vh - 110px);
   padding: 25px 60px;
   overflow: hidden;
@@ -16,10 +16,16 @@
   margin: 0 auto;
   color: var(--color-black-custom-100);
 }
+.main a {
+  color: var(--color-primary-100);
+}
 .title {
   text-align: center;
   margin-bottom: -15px;
   font-weight: 500;
+}
+.link {
+  cursor: pointer;
 }
 .boxes {
   display: flex;
@@ -36,7 +42,6 @@
   width: 100%;
   padding: 30px;
   display: flex;
-  cursor: default;
   font-weight: 500;
   color: var(--color-black-custom-100);
   align-items: center;
@@ -176,7 +181,6 @@
   cursor: pointer;
 }
 .boxSpaceBetween {
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -185,27 +189,6 @@
 .expressBox:hover,
 .publicityBox:hover {
   scale: 1.02;
-}
-.table {
-  border-radius: var(--border-radius-s);
-  text-align: center;
-  box-shadow: 0 0 30px var(--color-black-custom-05);
-  padding: 15px 0;
-  border-spacing: 0;
-}
-.th {
-  cursor: default;
-}
-.td {
-  font-size: var(--font-size-xs);
-}
-.th,
-.td {
-  border-bottom: 1px solid var(--color-black-custom-05);
-  padding: 15px 5px;
-}
-.tbody .tr:hover {
-  background-color: var(--color-primary-05);
 }
 .warning {
   color: var(--color-red-error-100);

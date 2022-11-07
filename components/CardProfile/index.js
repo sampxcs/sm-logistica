@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function CardProfile() {
   return (
-    <Link href="/clients-area/profile">
+    <Link href='/clients-area/profile'>
       <a className={styles.photo}>IR</a>
     </Link>
   )

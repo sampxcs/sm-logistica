@@ -16,8 +16,8 @@ export default function SignUpForm() {
         <Input label={'Contraseña'} />
         <Input label={'Confirma la contraseña'} />
         <small className={styles.checkboxContainer}>
-          <Input type="checkbox" /> Acepto los
-          <Link href="/conditions">
+          <Input type='checkbox' /> Acepto los
+          <Link href='/conditions'>
             <a className={styles.a}>Terminos y condiciones</a>
           </Link>
         </small>
@@ -29,7 +29,7 @@ export default function SignUpForm() {
         <Button type={'button'}>Git Hub</Button>
         <small className={styles.small}>
           ¿Ya tenes una cuenta?,{' '}
-          <Link href="/sign-in">
+          <Link href='/sign-in'>
             <a className={styles.a}>Inicia sesion!</a>
           </Link>
         </small>

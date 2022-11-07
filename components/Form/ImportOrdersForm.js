@@ -19,9 +19,9 @@ export default function ImportOrdersForm() {
 
       <h3 className={styles.h3}>CARGA DE ARCHIVO</h3>
       <Input
-        type="file"
-        info="Selecciona el archivo a importar."
-        accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+        type='file'
+        info='Selecciona el archivo a importar.'
+        accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
         required
       />
       <Button>IMPORTAR</Button>

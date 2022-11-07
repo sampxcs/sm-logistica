@@ -1,4 +1,4 @@
-import styles from '../../styles/AreaClientsHeader.module.css'
+import styles from '../../styles/Header.module.css'
 import CardProfile from '../CardProfile'
 import Title from '../Title'
 

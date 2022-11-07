@@ -1,4 +1,4 @@
-import styles from '../../styles/AreaClientsMain.module.css'
+import styles from '../../styles/Main.module.css'
 
 export default function DocsPackingConditions() {
   return (

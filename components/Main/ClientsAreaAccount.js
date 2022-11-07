@@ -1,5 +1,18 @@
-import styles from '../../styles/AreaClientsMain.module.css'
+import styles from '../../styles/Main.module.css'
+
+import Table from '../Table'
 
 export default function ClientsAreaAccount() {
-  return <section className={styles.main}>Estado de Cuenta</section>
+  return (
+    <section className={styles.main}>
+      <div className={styles.container}>
+        <h2 className={styles.title}>Estado de Cuenta</h2>
+        <div className={styles.boxSpaceBetween}>
+          <h3>HISTORIAL DE CUENTA CORRIENTE</h3> <h3 className={styles.saldoActual}>Saldo $25.000</h3>
+        </div>
+        <a href='#'>Descargar resumen de cuenta.</a>
+        <Table />
+      </div>
+    </section>
+  )
 }

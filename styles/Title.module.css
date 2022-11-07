@@ -2,6 +2,7 @@
   color: var(--color-primary-100);
   font-size: var(--font-size-l);
   font-weight: 700;
+  min-width: max-content;
 }
 .title:hover {
   opacity: 0.8;

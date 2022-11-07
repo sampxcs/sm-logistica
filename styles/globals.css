@@ -7,7 +7,7 @@
   --color-primary-20: #0072f533;
   --color-primary-05: #0072f50d;
   --color-secundary-gradient: linear-gradient(166deg, #ff8950 15%, #f85203 100%);
-  --color-secundary-100: #f85203;
+  --color-secundary-100: #e9625b;
   --color-secundary-80: #f85203cc;
   --color-secundary-60: #f8520399;
   --color-secundary-40: #f8520366;
@@ -56,7 +56,7 @@
   --color-gray-20: #26272933;
   --break-point-mobile: 480px;
   --break-point-tablet: 960px;
-  --break-point-laptop: 1200px;
+  --break-point-laptop: 1440px;
   --break-point-deskrop: 1920px;
   --border-radius-s: 5px;
   --border-radius-m: 10px;
@@ -110,6 +110,13 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+@media (max-width: 1440px) {
+  html {
+    zoom: 0.8;
+  }
+}
+
 @media (min-width: 480px) {
   :root {
     --font-size-xxl: 4rem;

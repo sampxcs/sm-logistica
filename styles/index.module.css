@@ -1,0 +1,108 @@
+.container {
+  padding: 90px 30px 0;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.header {
+  margin-top: -90px;
+  position: relative;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+.img {
+  position: relative;
+  z-index: -1;
+}
+.contentLeft {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contentRight {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textHeader {
+  font-size: var(--font-size-m);
+  color: var(--color-black-custom-100);
+}
+.textHeader p {
+  color: var(--color-primary-100);
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.buttonLight {
+  min-width: max-content;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-l);
+  border: 1px solid var(--color-primary-100);
+  color: var(--color-primary-100);
+  transition: 0.3s ease;
+}
+.buttonLight:hover {
+  background-color: var(--color-primary-100);
+  color: var(--color-white-100);
+}
+.button {
+  padding: 10px 20px;
+  min-width: max-content;
+  border-radius: var(--border-radius-l);
+  background-color: var(--color-primary-100);
+  color: var(--color-white-100);
+  transition: 0.3s ease;
+}
+.button:hover {
+  opacity: 0.8;
+}
+.arrowDownButton {
+  position: absolute;
+  z-index: 10;
+  bottom: 25px;
+  left: calc(50% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  min-width: max-content;
+  border-radius: 50%;
+  background-color: var(--color-primary-100);
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.arrowDownButton:hover {
+  scale: 1.1;
+}
+.arrowDown {
+  width: 15px;
+  height: 15px;
+  border-color: var(--color-white-100);
+  border-style: solid;
+  border-top: 1px;
+  border-right: 1px;
+  transform: rotate(-45deg) translateY(-1px) translateX(1px);
+}
+.main section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -60px 0;
+}
+.footer {
+  width: 100%;
+  text-align: center;
+}
+@media (max-width: 1440px) {
+  .header {
+    height: 120vh;
+  }
+}

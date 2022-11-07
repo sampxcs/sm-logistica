@@ -11,7 +11,7 @@ export default function SignInForm() {
         <Input label={'Email'} />
         <Input label={'Contraseña'} />
         <small className={styles.small}>
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>¿Has olvidado tu contraseña?</a>
           </Link>
         </small>
@@ -23,7 +23,7 @@ export default function SignInForm() {
         <Button type={'button'}>Git Hub</Button>
         <small className={styles.small}>
           ¿No tenes una cuenta?,{' '}
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>Registrate ahora!</a>
           </Link>
         </small>
