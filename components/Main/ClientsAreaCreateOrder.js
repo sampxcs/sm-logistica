@@ -5,7 +5,7 @@ export default function ClientsAreaHomeMain() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Nuevo Pedido</h2>
+        <h2 className={styles.title}>NUEVO PEDIDO</h2>
         <Form />
       </div>
     </section>

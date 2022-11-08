@@ -30,31 +30,14 @@ export default function ClientsAreaAdmin() {
         <br />
         <div className={styles.boxes}>
           <Link href='#'>
-            <div className={styles.publicityBox}>
-              <Image src='/envios_garantizados_-_promociones.jpg' alt='as' layout='fill' />
-            </div>
+            <div className={styles.publicityBox}></div>
           </Link>
           <Link href='#'>
-            <div className={styles.publicityBox}>
-              <Image src='/te_portada2x.jpg' alt='as' layout='fill' />
-            </div>
+            <div className={styles.publicityBox}></div>
           </Link>
           <Link href='#'>
-            <div className={styles.publicityBox}>
-              <Image src='/seguimiento-promociones22x.jpg' alt='as' layout='fill' />
-            </div>
+            <div className={styles.publicityBox}></div>
           </Link>
-        </div>
-        <div className={styles.boxes}>
-          <a href='https://www.correoargentino.com.ar/' target='_blank' rel='noreferrer' className={styles.expressBox}>
-            <Image src='/logocorreoargentino.svg' alt='Correo Argentino' width='140' height='60' />
-          </a>
-          <a href='http://promailcorreo.com.ar/' target='_blank' rel='noreferrer' className={styles.expressBox}>
-            <Image src='/ProMail.Web_.Logo_.png' alt='Promail' width='240' height='40' />
-          </a>
-          <a href='https://www.cruzdelsur.com/' target='_blank' rel='noreferrer' className={styles.expressBox}>
-            <Image src='/logocruzdelsur.png' alt='Cruz del Sur' width='200' height='35' />
-          </a>
         </div>
       </div>
     </section>

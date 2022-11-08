@@ -15,7 +15,7 @@
   width: 420px;
   height: 420px;
   position: absolute;
-  top: -210px;
+  bottom: -210px;
   left: -210px;
   border-radius: 50%;
   background-color: var(--color-primary-100);
@@ -54,20 +54,20 @@
   align-items: center;
   justify-content: center;
 }
-.textHeader {
+.textBox {
   font-size: var(--font-size-m);
   color: var(--color-black-custom-100);
 }
-.textHeader h2 {
+.subTitle {
   font-size: var(--font-size-xl);
   color: var(--color-primary-80);
   margin: 10px 0;
   line-height: 1.1;
 }
-.textHeader h2 span {
+.subTitle span {
   color: var(--color-primary-100);
 }
-.textHeader p {
+.textBox p {
   color: var(--color-primary-60);
   font-size: var(--font-size-l);
 }
@@ -134,10 +134,39 @@
   justify-content: center;
   margin: -60px 0;
 }
+.expressList {
+  display: flex;
+  flex-direction: column;
+  margin: 60px 0;
+  align-items: center;
+}
+.boxes {
+  display: flex;
+  gap: 60px;
+  margin: 30px 0;
+}
+.box {
+  transition: 0.3s ease;
+}
+.box:hover {
+  opacity: 0.8;
+}
+.promailLogo {
+  margin-top: -10px;
+  font-weight: 500;
+  font-size: var(--font-size-xl);
+  color: var(--color-black-custom-100);
+}
+.promailLogo span {
+  font-weight: 700;
+  color: var(--color-promail-100);
+}
 .footer {
   width: 100%;
   display: flex;
+  position: relative;
   align-items: center;
+  overflow: hidden;
   margin-top: 60px;
   justify-content: flex-end;
   border-top: 1px solid var(--color-primary-20);
@@ -150,13 +179,45 @@
   max-width: 1440px;
   display: flex;
   align-items: flex-start;
-  padding: 60px;
+  padding: 30px 30px 0;
   justify-content: space-between;
 }
 .footerContent .content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+.footerContent h2 {
+  font-size: var(--font-size-l);
+  color: var(--color-primary-100);
+}
+.footerContent h3 {
+  color: var(--color-primary-60);
+  margin: 10px 0;
+}
+.footerContent form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+.footerContent button {
+  background-color: var(--color-primary-100);
+  font-size: var(--font-size-s);
+  padding: 10px 15px;
+  width: 100%;
+  color: var(--color-white-100);
+}
+.footerContent button span {
+  justify-content: center;
+}
+.footerContent ul {
+  margin: 8px 0;
+  font-size: var(--font-size-s);
+  color: var(--color-primary-60);
+  font-weight: 600;
+  line-height: 2;
 }
 .copyright {
   text-align: center;

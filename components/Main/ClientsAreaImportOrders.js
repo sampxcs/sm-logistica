@@ -5,7 +5,7 @@ export default function AreaClientsHomeMain() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Importar Pedidos</h2>
+        <h2 className={styles.title}>IMPORTAR PEDIDOS</h2>
         <Form />
       </div>
     </section>

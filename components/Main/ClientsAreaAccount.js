@@ -6,7 +6,7 @@ export default function ClientsAreaAccount() {
   return (
     <section className={styles.main}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Estado de Cuenta</h2>
+        <h2 className={styles.title}>ESTADO DE CUENTA</h2>
         <div className={styles.boxSpaceBetween}>
           <h3>HISTORIAL DE CUENTA CORRIENTE</h3> <h3 className={styles.saldoActual}>Saldo $25.000</h3>
         </div>
