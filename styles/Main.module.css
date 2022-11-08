@@ -25,6 +25,32 @@
   color: var(--color-primary-100);
   font-weight: 500;
 }
+.dashboardData {
+  font-size: var(--font-size-s);
+  min-width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+.dashboardData span {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+}
+.dashboardDataNumberPendings {
+  color: var(--color-secundary-100);
+}
+.dashboardDataNumberOnDeposit {
+  color: var(--color-primary-100);
+}
+.dashboardDataNumberSends {
+  color: var(--color-green-ok-100);
+}
+.dashboardDataNumberTotal {
+  color: var(--color-primary-100);
+}
 .link {
   cursor: pointer;
 }
