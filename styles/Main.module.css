@@ -1,23 +1,23 @@
 .main {
-  top: 90px;
-  left: 280px;
-  position: relative;
-  width: calc(100% - 280px);
-  min-height: calc(100vh - 110px);
-  padding: 25px 60px;
-  overflow: hidden;
-}
-.container {
+  color: var(--color-black-custom-100);
   display: flex;
   flex-direction: column;
   gap: 30px;
+  justify-content: space-between;
+  left: 260px;
   max-width: 1680px;
+  min-height: calc(100vh - 90px);
   min-width: 400px;
-  margin: 0 auto;
-  color: var(--color-black-custom-100);
+  overflow: hidden;
+  padding: 25px 60px 0;
+  position: relative;
+  top: 90px;
+  width: calc(100% - 260px);
 }
-.main a {
-  color: var(--color-primary-100);
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 .title {
   text-align: center;

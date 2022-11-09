@@ -5,11 +5,12 @@ import Link from 'next/link'
 import Container from '../Container'
 import AreaChart from '../AreaChart'
 import PieChart from '../PieChart'
+import Footer from '../Footer'
 
 export default function ClientsAreaAdmin() {
   return (
     <section className={styles.main}>
-      <div className={styles.container}>
+      <div className={styles.content}>
         <h2 className={styles.title}>PEDIDOS</h2>
         <div className={styles.boxes}>
           <Link href="/clients-area/my-orders">
@@ -57,18 +58,8 @@ export default function ClientsAreaAdmin() {
             <div className={styles.box}>TARIFAS Y PAGOS</div>
           </Link>
         </div>
-        <div className={styles.boxes}>
-          <Link href="#">
-            <div className={styles.publicityBox}></div>
-          </Link>
-          <Link href="#">
-            <div className={styles.publicityBox}></div>
-          </Link>
-          <Link href="#">
-            <div className={styles.publicityBox}></div>
-          </Link>
-        </div>
       </div>
+      <Footer />
     </section>
   )
 }

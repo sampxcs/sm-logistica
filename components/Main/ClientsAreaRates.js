@@ -2,13 +2,14 @@ import styles from '../../styles/Main.module.css'
 import Image from 'next/image'
 import CircleCheckIcon from '../Icons/CircleCheckIcon'
 import Link from 'next/link'
+import Footer from '../Footer'
 
 export default function ClientsAreaRates() {
   return (
     <section className={styles.main}>
-      <div className={styles.container}>
+      <div className={styles.content}>
         <h2 className={styles.title}>TARIFAS Y PAGOS</h2>
-        <Link href='/clients-area/account'>
+        <Link href="/clients-area/account">
           <div className={`${styles.boxSpaceBetween} ${styles.link}`}>
             <h3>SALDO ACTUAL</h3>
             <h3 className={styles.saldoActual}>$25.000</h3>
@@ -22,8 +23,8 @@ export default function ClientsAreaRates() {
         </p>
         <div className={styles.boxes}>
           <div className={`${styles.tarifaBox} ${styles.tarifaBoxCorreoArgentino}`}>
-            <a href='https://www.correoargentino.com.ar/' target='_blank' rel='noreferrer' className={styles.expressBox}>
-              <Image src='/logocorreoargentino.png' alt='Correo Argentino' width='140' height='40' />
+            <a href="https://www.correoargentino.com.ar/" target="_blank" rel="noreferrer" className={styles.expressBox}>
+              <Image src="/logocorreoargentino.png" alt="Correo Argentino" width="140" height="40" />
             </a>
             <div className={styles.precioTarifa}>
               <div>
@@ -59,12 +60,12 @@ export default function ClientsAreaRates() {
                 <CircleCheckIcon className={styles.checkIcon} /> Actualizaciones de estado.
               </li>
             </ul>
-            <Link href='/clients-area/create-order'>
+            <Link href="/clients-area/create-order">
               <button>Crear Pedido</button>
             </Link>
           </div>
           <div className={`${styles.tarifaBox} ${styles.tarifaBoxPromail}`}>
-            <a href='http://promailcorreo.com.ar/' target='_blank' rel='noreferrer' className={styles.expressBox}>
+            <a href="http://promailcorreo.com.ar/" target="_blank" rel="noreferrer" className={styles.expressBox}>
               <h2 className={styles.promailLogo}>
                 <span>PRO</span>mail
               </h2>
@@ -106,13 +107,13 @@ export default function ClientsAreaRates() {
                 <CircleCheckIcon className={styles.checkIcon} /> Notificaciones de entrega.
               </li>
             </ul>
-            <Link href='/clients-area/create-order'>
+            <Link href="/clients-area/create-order">
               <button>Crear Pedido</button>
             </Link>
           </div>
           <div className={`${styles.tarifaBox} ${styles.tarifaBoxCruzDelSur}`}>
-            <a href='https://www.cruzdelsur.com/' target='_blank' rel='noreferrer' className={styles.expressBox}>
-              <Image src='/logocruzdelsur.png' alt='Cruz del Sur' width='200' height='35' />
+            <a href="https://www.cruzdelsur.com/" target="_blank" rel="noreferrer" className={styles.expressBox}>
+              <Image src="/logocruzdelsur.png" alt="Cruz del Sur" width="200" height="35" />
             </a>
             <div className={styles.precioTarifa}>
               <div>
@@ -145,12 +146,13 @@ export default function ClientsAreaRates() {
                 <CircleCheckIcon className={styles.checkIcon} /> Notificaciones de entrega.
               </li>
             </ul>
-            <Link href='/clients-area/create-order'>
+            <Link href="/clients-area/create-order">
               <button>Crear Pedido</button>
             </Link>
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   )
 }
