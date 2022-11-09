@@ -31,12 +31,12 @@ export default function Home() {
                 Diseñamos soluciones logísticas <br /> a la medida de su negocio.
               </p>
               <div className={styles.buttons}>
-                <Link href={'/docs/admin'}>
-                  <a className={styles.buttonLight}>SERVICIOS</a>
-                </Link>
-                <Link href={'/clients-area/admin'}>
-                  <a className={styles.button}>AREA CLIENTES</a>
-                </Link>
+                <Button href={'/clients-area/admin'} className='buttonPrimary' light>
+                  SERVICIOS
+                </Button>
+                <Button href={'/clients-area/admin'} className='buttonPrimary'>
+                  AREA CLIENTES
+                </Button>
               </div>
             </div>
           </div>
@@ -78,9 +78,9 @@ export default function Home() {
                   estabas esperando. Te invitamos a probar una experiencia única y smart de envíos.
                 </p>
                 <div className={styles.buttons}>
-                  <Link href={'/clients-area/admin'}>
-                    <a className={styles.button}>SABER MAS</a>
-                  </Link>
+                  <Button href={'/clients-area/admin'} className='buttonPrimary'>
+                    SABER MAS
+                  </Button>
                 </div>
               </div>
             </div>
@@ -97,9 +97,9 @@ export default function Home() {
                   importacion de pedidos podras realizar envios de forma masiva a <strong>todo el pais.</strong>
                 </p>
                 <div className={styles.buttons}>
-                  <Link href={'/clients-area/admin'}>
-                    <a className={styles.buttonLight}>SABER MAS</a>
-                  </Link>
+                  <Button href={'/clients-area/admin'} className='buttonPrimary' light>
+                    SABER MAS
+                  </Button>
                 </div>
               </div>
             </div>
@@ -137,9 +137,9 @@ export default function Home() {
                   <strong>atencion personalizada.</strong>
                 </p>
                 <div className={styles.buttons}>
-                  <Link href={'/clients-area/admin'}>
-                    <a className={styles.button}>SABER MAS</a>
-                  </Link>
+                  <Button href={'/clients-area/admin'} className='buttonPrimary'>
+                    SABER MAS
+                  </Button>
                 </div>
               </div>
             </div>

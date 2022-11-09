@@ -2,8 +2,9 @@ import styles from '../../styles/Header.module.css'
 
 import Link from 'next/link'
 import Title from '../Title'
+import Button from '../Button'
 
-export default function ClientsAreaHeader() {
+export default function HomeHeader() {
   return (
     <header className={styles.homeHeader}>
       <div className={styles.container}>
@@ -24,9 +25,9 @@ export default function ClientsAreaHeader() {
             <Link href={'/'}>AYUDA</Link>
           </li>
           <li>
-            <Link href={'/clients-area/admin'}>
-              <a className={styles.button}>AREA CLIENTES</a>
-            </Link>
+            <Button href={'/clients-area/admin'} className='buttonPrimary'>
+              AREA CLIENTES
+            </Button>
           </li>
         </ul>
       </div>

@@ -16,96 +16,76 @@ export default function ClientsAreaNav() {
   const router = useRouter()
 
   const isActive = (pathname) => {
-    return router.asPath === pathname ? styles.active : ''
+    return router.asPath === pathname ? true : false
   }
 
   return (
     <nav className={styles.nav}>
       <ul>
-        <li className={isActive('/clients-area/admin')}>
-          <Link href='/clients-area/admin'>
-            <Button dark>
-              <GridIcon />
-              Inicio
-            </Button>
-          </Link>
+        <li>
+          <Button href='/clients-area/admin' className='navLeftButton' light active={isActive('/clients-area/admin')}>
+            <GridIcon />
+            Inicio
+          </Button>
         </li>
         <hr />
         <small>Pedidos</small>
-        <li className={isActive('/clients-area/create-order')}>
-          <Link href='/clients-area/create-order'>
-            <Button dark>
-              <BoxIcon width='18' />
-              Crear Pedido
-            </Button>
-          </Link>
+        <li>
+          <Button href='/clients-area/create-order' className='navLeftButton' light active={isActive('/clients-area/create-order')}>
+            <BoxIcon width='18' />
+            Crear Pedido
+          </Button>
         </li>
         <li className={isActive('/clients-area/import-orders')}>
-          <Link href='/clients-area/import-orders'>
-            <Button dark>
-              <BoxUpIcon width='15' />
-              Importar Pedidos
-            </Button>
-          </Link>
+          <Button href='/clients-area/import-orders' className='navLeftButton' light active={isActive('/clients-area/import-orders')}>
+            <BoxUpIcon width='15' />
+            Importar Pedidos
+          </Button>
         </li>
         <li className={isActive('/clients-area/my-orders')}>
-          <Link href='/clients-area/my-orders'>
-            <Button dark>
-              <BoxesIcon width='16' />
-              Mis Pedidos
-            </Button>
-          </Link>
+          <Button href='/clients-area/my-orders' className='navLeftButton' light active={isActive('/clients-area/my-orders')}>
+            <BoxesIcon width='16' />
+            Mis Pedidos
+          </Button>
         </li>
         <hr />
         <small>Cuenta</small>
         <li className={isActive('/clients-area/users')}>
-          <Link href='/clients-area/users'>
-            <Button dark>
-              <UserRegularIcon width='18' height='18' />
-              Usuarios
-            </Button>
-          </Link>
+          <Button href='/clients-area/users' className='navLeftButton' light active={isActive('/clients-area/users')}>
+            <UserRegularIcon width='18' height='18' />
+            Usuarios
+          </Button>
         </li>
         <li className={isActive('/clients-area/account')}>
-          <Link href='/clients-area/account'>
-            <Button dark>
-              <FileInvoiceIcon width='18' height='18' />
-              Estado de Cuenta
-            </Button>
-          </Link>
+          <Button href='/clients-area/account' className='navLeftButton' light active={isActive('/clients-area/account')}>
+            <FileInvoiceIcon width='18' height='18' />
+            Estado de Cuenta
+          </Button>
         </li>
         <li className={isActive('/clients-area/rates')}>
-          <Link href='/clients-area/rates'>
-            <Button dark>
-              <CircleDollarIcon width='18' />
-              Tarifas y Pagos
-            </Button>
-          </Link>
+          <Button href='/clients-area/rates' className='navLeftButton' light active={isActive('/clients-area/rates')}>
+            <CircleDollarIcon width='18' />
+            Tarifas y Pagos
+          </Button>
         </li>
         <small>Ayuda</small>
         <li>
-          <Link href='/docs/admin'>
-            <Button dark>
-              <CircleQuestionIcon width='16' />
-              Documentación
-            </Button>
-          </Link>
-        </li>
-        <li className={isActive('/docs/packing-conditions')}>
-          <Link href='/docs/packing-conditions'>
-            <Button dark>
-              <BoxIcon width='18' />
-              Condiciones de Embalaje
-            </Button>
-          </Link>
+          <Button href='/docs/admin' className='navLeftButton' light>
+            <CircleQuestionIcon width='16' />
+            Documentación
+          </Button>
         </li>
         <li>
-          <Link href='/'>
-            <Button dark>
-              <HeadsetIcon width='16' />
-              Atención al Cliente
-            </Button>
-          </Link>
+          <Button href='/docs/packing-conditions' className='navLeftButton' light>
+            <BoxIcon width='18' />
+            Condiciones de Embalaje
+          </Button>
+        </li>
+        <li>
+          <Button href='/docs/admin' className='navLeftButton' light>
+            <HeadsetIcon width='16' />
+            Atención al Cliente
+          </Button>
         </li>
       </ul>
     </nav>

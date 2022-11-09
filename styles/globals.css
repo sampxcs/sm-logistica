@@ -112,12 +112,6 @@ select {
   -moz-appearance: none;
 }
 
-@media (max-width: 1440px) {
-  html {
-    zoom: 0.8;
-  }
-}
-
 @media (min-width: 480px) {
   :root {
     --font-size-xxl: 4rem;

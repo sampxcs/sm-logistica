@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import styles from '../../styles/Button.module.css'
 
-export default function Button({ children, onClick, type, light, dark }) {
+import Link from 'next/link'
+
+export default function Button({ className, href, children, onClick, type, light, active }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [isRippling, setIsRippling] = useState(false)
 
@@ -16,10 +18,38 @@ export default function Button({ children, onClick, type, light, dark }) {
     if (!isRippling) setCoords({ x: -1, y: -1 })
   }, [isRippling])
 
+  if (href)
+    return (
+      <Link href={href}>
+        <a
+          className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
+          onClick={(e) => {
+            const rect = e.target.getBoundingClientRect()
+            console.log(e.clientY, rect.top, e, rect)
+            setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top })
+            onClick && onClick(e)
+          }}
+        >
+          {isRippling ? (
+            <span
+              className={light ? styles.lightRipple : styles.ripple}
+              style={{
+                left: coords.x,
+                top: coords.y,
+              }}
+            />
+          ) : (
+            ''
+          )}
+          <span className={styles.content}>{children}</span>
+        </a>
+      </Link>
+    )
+
   return (
     <button
       type={type}
-      className={styles.button}
+      className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
       onClick={(e) => {
         const rect = e.target.getBoundingClientRect()
         setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top })
@@ -28,7 +58,7 @@ export default function Button({ children, onClick, type, light, dark }) {
     >
       {isRippling ? (
         <span
-          className={dark ? styles.darkRipple : light ? styles.lightRipple : styles.ripple}
+          className={light ? styles.lightRipple : styles.ripple}
           style={{
             left: coords.x,
             top: coords.y,
