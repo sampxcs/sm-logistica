@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import styles from '../../styles/Input.module.css'
 
-export default function Input({ type, placeholder, onChange, required, id, name, info, label, options }) {
+export default function Input({ type, title, placeholder, onChange, error, required, id, name, info, label, options, pattern }) {
   const [value, setValue] = useState()
 
   if (type === 'select')
@@ -38,7 +38,9 @@ export default function Input({ type, placeholder, onChange, required, id, name,
         </label>
       )}
       <input
-        className={styles.input}
+        pattern={pattern}
+        title={title}
+        className={`${styles.input} ${error && styles.error}`}
         type={type}
         id={id}
         name={name}
@@ -48,9 +50,9 @@ export default function Input({ type, placeholder, onChange, required, id, name,
           onChange && onChange(e)
         }}
         required={required}
-        autoComplete={false}
+        autoComplete={'false'}
       />
-      {info && <small className={styles.info}>{info}</small>}
+      {error ? <small className={styles.errorMessage}>{error}</small> : info && <small className={styles.info}>{info}</small>}
     </div>
   )
 }

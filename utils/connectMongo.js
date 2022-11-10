@@ -5,13 +5,15 @@ const connectionString = MONGO_DB_URI
 
 // conection to MongoDB
 const connectMongo = async () => {
-  mongoose
+  await mongoose
     .connect(connectionString)
     .then(() => {
       console.log('Database conected')
     })
     .catch((e) => {
-      console.error(e)
+      console.log('Database NO conected')
+      console.log(e)
+      throw new Error(e)
     })
 }
 

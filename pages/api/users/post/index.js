@@ -8,6 +8,9 @@ export default async function createUser(req, res) {
     const user = req.body
     const passwordHash = await bcrypt.hash(user.password, 10)
 
+    if (user.password.length < 6) throw new Error('La contraseña debe tener minimo 6 digitos')
+    if (user.displayName.length < 2) throw new Error('El nombre de usuario debe tener minimo 2 digitos')
+
     const newUser = new User({
       displayName: user.displayName,
       email: user.email,

@@ -3,21 +3,21 @@ POST http://localhost:3000/api/users/post
 content-type: application/json
 
 {
-    "displayName": "Iansito",
-    "email": "Iansito@gmail.com",
-    "password": "31555117"
+    "displayName": "I",
+    "email": "Iaweasdaadsasdsddaaasdsdsitoqwe@gmail.com",
+    "password": "32"
 }
 
 ###
 
 // Edit user by id
-POST http://localhost:3000/api/users/put/63208ca3a25c01bb3661b2dd
+POST http://localhost:3000/api/users/put/63208cbda25c01bb3661b2e0
 content-type: application/json
 
 {
-    "displayName": "Samplesote",
-    "email": "samplecito@gmail.com",
-    "password": "3151"
+    "displayName": "Ian Rosales",
+    "email": "ianrosales@gmail.com",
+    "password": "31555117"
 }
 
 ###
@@ -27,7 +27,7 @@ POST  http://localhost:3000/api/users/login
 content-type: application/json
 
 {
-    "email": "Iansito@gmail.com",
+    "email": "Ianasdsito@gmail.com",
     "password": "31555117"
 }
 
@@ -44,4 +44,4 @@ GET http://localhost:3000/api/users/get/6320d36f9c1322f246cf4f74
 ###
 
 // Delete user by id
-DELETE http://localhost:3000/api/users/delete/6320db229c1322f246cf4f9c
+DELETE http://localhost:3000/api/users/delete/6320d3e09c1322f246cf4f76
