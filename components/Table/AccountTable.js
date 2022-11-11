@@ -1,4 +1,4 @@
-import styles from '../../styles/Table.module.css'
+import styles from './Table.module.css'
 import DataTable, { createTheme } from 'react-data-table-component'
 
 const data = [
@@ -271,7 +271,7 @@ export default function AccountTable() {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme='solarized'
+        theme="solarized"
       />
     </div>
   )

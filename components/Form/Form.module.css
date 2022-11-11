@@ -15,9 +15,12 @@
   gap: 10px;
   width: 100%;
   max-width: var(--break-point-mobile);
-  padding: 30px 60px 50px;
+  padding: 50px 60px;
   border-radius: var(--border-radius-l);
   box-shadow: 0 0 30px var(--color-black-custom-05);
+}
+.title {
+  text-align: center;
 }
 .div {
   display: flex;
@@ -43,23 +46,6 @@
   font-weight: 400;
   color: var(--color-primary-100);
 }
-.smallForm button {
-  background-color: var(--color-primary-100);
-  color: var(--color-white-100);
-  padding: 10px 15px;
-  font-size: var(--font-size-s);
-}
-.smallForm button span,
-.form button span {
-  justify-content: center;
-}
-.form button {
-  background-color: var(--color-primary-100);
-  color: var(--color-white-100);
-  padding: 10px 20px;
-  font-size: var(--font-size-s);
-  margin: 15px auto;
-}
 .inputsContainer {
   display: flex;
   flex-direction: column;
@@ -69,11 +55,6 @@
   display: flex;
   margin-left: 10px;
   gap: 10px;
-}
-.checkboxContainer {
-  display: flex;
-  gap: 5px;
-  align-items: center;
 }
 .aSearchCP:hover {
   color: var(--color-primary-100);

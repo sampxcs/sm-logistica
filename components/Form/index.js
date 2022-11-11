@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 import Input from '../Input'
-import styles from '../../styles/Form.module.css'
+import styles from './Form.module.css'
 import SignInForm from './SignInForm'
 import SignUpForm from './SignUpForm'
 import CreateOrderForm from './CreateOrderForm'

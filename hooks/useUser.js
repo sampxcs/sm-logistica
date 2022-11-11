@@ -1,21 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
 import UserContext from '../context/userContext'
-
-const USER_STATUS = {
-  UNDEFINED: 0,
-  LOADING: 1,
-  OK: 2,
-  NULL: 3,
-}
-
-const ERRORS = {
-  NAME_REQUIRED: 'El nombre debe tener por lo menos dos caracteres',
-  EMAIL_REQUIRED: 'Por favor, introduzca una dirección de correo electrónico valida',
-  EMAIL_DUPLICATE: 'Ya existe una cuenta con esta direccion de correo electronico',
-  PASSWORD_REQUIRED: 'La contraseña debe tener minimo 6 digitos',
-  CONFIRM_PASSWORD_REQUIRED: 'Por favor, confirma la contraseña',
-  INVALID_CONFIRMED_PASSWORD: 'Las contraseñas no coinciden',
-}
+import { ERRORS, USER_STATUS } from '../utils/dictionary'
 
 const useUser = () => {
   const [userStatusCode, setUserStatusCode] = useState(USER_STATUS.UNDEFINED)
@@ -25,6 +10,8 @@ const useUser = () => {
     async (data) => {
       setUserStatusCode(USER_STATUS.LOADING)
       let error
+
+      if (!data.checkbox) error = ERRORS.CHECK_BOX_REQUIRED
       if (!data.confirmPassword) error = ERRORS.CONFIRM_PASSWORD_REQUIRED
       if (data.password !== data.confirmPassword) error = ERRORS.INVALID_CONFIRMED_PASSWORD
       if (data.password.length < 4) error = ERRORS.PASSWORD_REQUIRED
@@ -34,6 +21,8 @@ const useUser = () => {
       if (!error) {
         const newUser = {
           displayName: `${data.name} ${data.lastName && data.lastName}`,
+          company: data.company,
+          role: data.role,
           email: data.email,
           password: data.password,
         }
@@ -49,12 +38,57 @@ const useUser = () => {
         try {
           const response = await fetch(endpoint, options)
           const result = await response.json()
+          console.log(result)
           if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
-          if (response.status === 400) throw new Error(result)
+          if (response.status === 400) throw new Error(result.error.message)
           if (response.status === 201) setUser(result)
           setUserStatusCode(USER_STATUS.OK)
         } catch (e) {
           setUserStatusCode(USER_STATUS.UNDEFINED)
+          console.log({ e })
+          throw new Error(e.message)
+        }
+      } else {
+        setUserStatusCode(USER_STATUS.UNDEFINED)
+        throw new Error(error)
+      }
+    },
+    [setUser]
+  )
+
+  const signIn = useCallback(
+    async (data) => {
+      setUserStatusCode(USER_STATUS.LOADING)
+      let error
+
+      if (!data.password) error = ERRORS.PASSWORD_REQUIRED
+      if (!data.email) error = ERRORS.EMAIL_REQUIRED
+
+      if (!error) {
+        const user = {
+          email: data.email,
+          password: data.password,
+        }
+
+        const endpoint = '/api/users/login'
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        }
+
+        try {
+          const response = await fetch(endpoint, options)
+          const result = await response.json()
+          console.log(result)
+          if (response.status === 401) throw new Error(result.message)
+          if (response.status === 200) setUser(result)
+          setUserStatusCode(USER_STATUS.OK)
+        } catch (e) {
+          setUserStatusCode(USER_STATUS.UNDEFINED)
+          console.log({ e })
           throw new Error(e.message)
         }
       } else {
@@ -69,6 +103,7 @@ const useUser = () => {
     user,
     userStatusCode,
     createUserWithEmail,
+    signIn,
   }
 }
 

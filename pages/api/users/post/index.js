@@ -13,6 +13,8 @@ export default async function createUser(req, res) {
 
     const newUser = new User({
       displayName: user.displayName,
+      company: user.company,
+      role: user.role,
       email: user.email,
       password: passwordHash,
     })

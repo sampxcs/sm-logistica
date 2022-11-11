@@ -1,4 +1,4 @@
-import styles from '../../styles/Header.module.css'
+import styles from './Header.module.css'
 
 import Link from 'next/link'
 import Title from '../Title'
@@ -25,7 +25,7 @@ export default function HomeHeader() {
             <Link href={'/'}>AYUDA</Link>
           </li>
           <li>
-            <Button href={'/clients-area/admin'} className='buttonPrimary'>
+            <Button href={'/clients-area/admin'} className="buttonPrimary">
               AREA CLIENTES
             </Button>
           </li>

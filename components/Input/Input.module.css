@@ -6,16 +6,10 @@
   gap: 2px;
   position: relative;
 }
-.radioGroup {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  width: auto;
-}
 .activeGroup .label {
   transform: translateY(-65%);
   scale: 0.8;
-  left: 6px;
+  left: 0px;
   border-radius: var(--border-radius-m);
   background-color: var(--color-white-100);
   padding: 0 5px;
@@ -23,25 +17,41 @@
 .activeGroup:focus-within .label {
   color: var(--color-primary-100);
 }
+.group small,
+.activeGroup small {
+  font-size: var(--font-size-xs);
+}
 .group i,
 .activeGroup i {
   position: absolute;
   right: 15px;
-  top: calc(50% - 13px);
+  display: block;
+}
+.selectButton,
+.selectButton {
   width: 6px;
   height: 6px;
-  display: block;
+  top: 17.5px;
   border-left: 1px solid var(--color-black-custom-80);
   border-bottom: 1px solid var(--color-black-custom-80);
   transform: rotate(-45deg);
   transition: all 0.25s ease;
 }
-.group:focus-within i,
-.activeGroup:focus-within i {
+.group:focus-within .selectButton,
+.activeGroup:focus-within .selectButton {
   border-color: var(--color-primary-100);
 }
+.icon {
+  top: 6px;
+  color: var(--color-black-custom-60);
+  cursor: pointer;
+}
+.icon:hover {
+  color: var(--color-black-custom-100);
+}
 .input {
-  padding: 8px 10px;
+  padding: 0 10px;
+  height: 35px;
   outline: none;
   font-size: var(--font-size-s);
   border-radius: var(--border-radius-s);
@@ -63,22 +73,36 @@
   position: absolute;
   left: 10px;
   pointer-events: none;
-  transform: translateY(45%);
+  transform: translateY(calc(50% - 5px));
   transition: 0.15s ease;
   color: var(--color-black-custom-80);
 }
 .group:focus-within .label {
   transform: translateY(-65%);
   scale: 0.8;
-  left: 6px;
+  left: 0px;
   border-radius: var(--border-radius-m);
   background-color: var(--color-white-100);
   padding: 0 5px;
   color: var(--color-primary-100);
 }
-.info {
-  margin: 0 0 0 5px;
+.radioGroup {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 3px;
+  margin-top: -10px;
 }
+.radioGroup .label {
+  position: static;
+  transform: none;
+}
+.radioGroup small {
+  position: absolute;
+  font-size: var(--font-size-xs);
+  bottom: -5px;
+}
+
 .error {
   border-color: var(--color-red-error-100);
 }

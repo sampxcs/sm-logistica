@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import styles from './Button.module.css'
 
+import Spinner from '../Spinner'
+
 import Link from 'next/link'
 
 export default function Button({ className, href, children, onClick, type, light, active, disabled }) {
@@ -67,7 +69,7 @@ export default function Button({ className, href, children, onClick, type, light
       ) : (
         ''
       )}
-      <span className={styles.content}>{children}</span>
+      <span className={styles.content}>{disabled ? <Spinner light={!light} /> : children}</span>
     </button>
   )
 }

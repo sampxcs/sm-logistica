@@ -1,4 +1,4 @@
-import styles from '../../styles/Table.module.css'
+import styles from './Table.module.css'
 import DataTable, { createTheme } from 'react-data-table-component'
 import DotMenuIcon from '../Icons/DotMenuIcon'
 
@@ -30,7 +30,7 @@ const columns = [
   { name: 'Pedidos Creados', selector: 'pedidosCreados', sortable: true },
   { name: 'Perfil', selector: 'perfil', sortable: true },
   { name: 'Estado', selector: 'estado', sortable: true },
-  { name: 'Opciones', cell: (row) => <DotMenuIcon width='18' />, allowOverflow: true, button: true, style: { cursor: 'pointer' } },
+  { name: 'Opciones', cell: (row) => <DotMenuIcon width="18" />, allowOverflow: true, button: true, style: { cursor: 'pointer' } },
 ]
 
 const pagination = {
@@ -101,7 +101,7 @@ export default function UsersTable() {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme='solarized'
+        theme="solarized"
       />
     </div>
   )

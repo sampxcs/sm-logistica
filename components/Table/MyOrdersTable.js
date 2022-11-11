@@ -1,4 +1,4 @@
-import styles from '../../styles/Table.module.css'
+import styles from './Table.module.css'
 import DataTable, { createTheme } from 'react-data-table-component'
 import DotMenuIcon from '../Icons/DotMenuIcon'
 
@@ -602,7 +602,7 @@ const columns = [
   { name: 'Creado', selector: 'creado', sortable: true },
   { name: 'Nro. de Guia', selector: 'nroGuia', sortable: true },
   { name: 'Estado', selector: 'estado', sortable: true },
-  { name: 'Opciones', cell: (row) => <DotMenuIcon width='18' />, allowOverflow: true, button: true, style: { cursor: 'pointer' } },
+  { name: 'Opciones', cell: (row) => <DotMenuIcon width="18" />, allowOverflow: true, button: true, style: { cursor: 'pointer' } },
 ]
 
 const pagination = {
@@ -671,7 +671,7 @@ export default function MyOrdersTable() {
         paginationPerPage={25}
         paginationRowsPerPageOptions={[10, 25, 50]}
         responsive
-        theme='solarized'
+        theme="solarized"
       />
     </div>
   )
