@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import styles from '../../styles/Button.module.css'
+import styles from './Button.module.css'
 
 import Link from 'next/link'
 
-export default function Button({ className, href, children, onClick, type, light, active }) {
+export default function Button({ className, href, children, onClick, type, light, active, disabled }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [isRippling, setIsRippling] = useState(false)
 
@@ -25,7 +25,6 @@ export default function Button({ className, href, children, onClick, type, light
           className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
           onClick={(e) => {
             const rect = e.target.getBoundingClientRect()
-            console.log(e.clientY, rect.top, e, rect)
             setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top })
             onClick && onClick(e)
           }}
@@ -49,6 +48,7 @@ export default function Button({ className, href, children, onClick, type, light
   return (
     <button
       type={type}
+      disabled={disabled}
       className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
       onClick={(e) => {
         const rect = e.target.getBoundingClientRect()

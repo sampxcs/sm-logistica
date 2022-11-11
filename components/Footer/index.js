@@ -1,4 +1,4 @@
-import styles from '../../styles/Footer.module.css'
+import styles from './Footer.module.css'
 
 import Link from 'next/link'
 
@@ -87,9 +87,9 @@ export default function Footer() {
       </div>
       <div className={styles.content}>
         <span>&copy; 2022 SM LOGISTICA &middot; Todos los derechos reservados.</span>
-        <Link href="#">Términos y condiciones</Link>
-        <Link href="#">Política de privacidad</Link>
-        <Link href="#">Seguimiento de envío</Link>
+        <Link href='#'>Términos y condiciones</Link>
+        <Link href='#'>Política de privacidad</Link>
+        <Link href='#'>Seguimiento de envío</Link>
       </div>
     </footer>
   )

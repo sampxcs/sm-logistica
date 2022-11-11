@@ -7,18 +7,15 @@ import { useEffect, useState } from 'react'
 import Container from '../../components/Container'
 import Spinner from '../../components/Spinner'
 import { useRouter } from 'next/router'
+import useUser from '../../hooks/useUser'
 
 export default function ClientsArea() {
   const router = useRouter()
-  const [user, setUser] = useState(null)
+  const { user } = useUser()
 
-  /* useEffect(() => {
+  useEffect(() => {
     !user && router.replace('/sign-in')
-  }, [user, router]) */
-
-  setTimeout(() => {
-    setUser('123')
-  }, 1000)
+  }, [user, router])
 
   if (!user)
     return (

@@ -1,4 +1,4 @@
-import styles from '../../styles/Main.module.css'
+import styles from './Main.module.css'
 
 import Table from '../Table'
 import Footer from '../Footer'

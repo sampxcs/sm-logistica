@@ -37,6 +37,9 @@
   align-items: center;
   z-index: 2;
 }
+.button:disabled {
+  opacity: 0.5;
+}
 /* ----------------- BUTTON PRIMARY ------------------ */
 
 .buttonPrimary {

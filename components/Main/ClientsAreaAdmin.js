@@ -1,4 +1,4 @@
-import styles from '../../styles/Main.module.css'
+import styles from './Main.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -13,28 +13,28 @@ export default function ClientsAreaAdmin() {
       <div className={styles.content}>
         <h2 className={styles.title}>PEDIDOS</h2>
         <div className={styles.boxes}>
-          <Link href="/clients-area/my-orders">
+          <Link href='/clients-area/my-orders'>
             <div className={styles.box}>
               <span className={styles.dashboardData}>
                 PENDIENTES <span className={styles.dashboardDataNumberPendings}>15</span>
               </span>
             </div>
           </Link>
-          <Link href="/clients-area/my-orders">
+          <Link href='/clients-area/my-orders'>
             <div className={styles.box}>
               <span className={styles.dashboardData}>
                 EN CENTRO DE DISTRIBUCION<span className={styles.dashboardDataNumberOnDeposit}>9</span>
               </span>
             </div>
           </Link>
-          <Link href="/clients-area/my-orders">
+          <Link href='/clients-area/my-orders'>
             <div className={styles.box}>
               <span className={styles.dashboardData}>
                 ENVIADOS <span className={styles.dashboardDataNumberSends}>1693</span>
               </span>
             </div>
           </Link>
-          <Link href="/clients-area/my-orders">
+          <Link href='/clients-area/my-orders'>
             <div className={styles.box}>
               <span className={styles.dashboardData}>
                 TOTAL <span className={styles.dashboardDataNumberTotal}>1760</span>
@@ -51,10 +51,10 @@ export default function ClientsAreaAdmin() {
           </div>
         </div>
         <div className={styles.boxes}>
-          <Link href="/clients-area/account">
+          <Link href='/clients-area/account'>
             <div className={styles.box}>ESTADO DE CUENTA</div>
           </Link>
-          <Link href="/clients-area/rates">
+          <Link href='/clients-area/rates'>
             <div className={styles.box}>TARIFAS Y PAGOS</div>
           </Link>
         </div>

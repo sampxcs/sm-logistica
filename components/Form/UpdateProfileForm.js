@@ -1,6 +1,6 @@
 import Input from '../Input'
 import Button from '../Button'
-import styles from '../../styles/Form.module.css'
+import styles from './Form.module.css'
 
 export default function UpdateProfileForm() {
   return (

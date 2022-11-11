@@ -5,7 +5,6 @@
   flex-direction: column;
   gap: 2px;
   position: relative;
-  margin: 2px 0;
 }
 .radioGroup {
   display: flex;

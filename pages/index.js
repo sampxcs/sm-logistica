@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Header from '../components/Header'
-import styles from '../styles/index.module.css'
+import styles from './index.module.css'
 
 import Imput from '../components/Input'
 import Button from '../components/Button'

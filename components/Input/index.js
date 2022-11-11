@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import styles from '../../styles/Input.module.css'
+import styles from './Input.module.css'
 
 export default function Input({ type, title, placeholder, onChange, error, required, id, name, info, label, options, pattern }) {
   const [value, setValue] = useState()
@@ -32,11 +32,6 @@ export default function Input({ type, title, placeholder, onChange, error, requi
 
   return (
     <div className={type == 'radio' || type == 'checkbox' ? styles.radioGroup : value ? styles.activeGroup : styles.group}>
-      {label && (
-        <label htmlFor={id} className={styles.label}>
-          {label}
-        </label>
-      )}
       <input
         pattern={pattern}
         title={title}
@@ -52,6 +47,11 @@ export default function Input({ type, title, placeholder, onChange, error, requi
         required={required}
         autoComplete={'false'}
       />
+      {label && (
+        <label htmlFor={id} className={styles.label}>
+          {label}
+        </label>
+      )}
       {error ? <small className={styles.errorMessage}>{error}</small> : info && <small className={styles.info}>{info}</small>}
     </div>
   )

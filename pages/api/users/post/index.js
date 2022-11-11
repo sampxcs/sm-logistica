@@ -20,7 +20,6 @@ export default async function createUser(req, res) {
     const saveUser = await newUser.save()
     res.status(201).json(saveUser)
   } catch (error) {
-    console.log(error)
-    res.status(400).json({ error: error.message })
+    res.status(400).json({ error })
   }
 }
