@@ -24,21 +24,16 @@ export default async function createOrder(req, res) {
       department,
       specification,
       transport,
-      transportName,
       amount,
       cant,
       weight,
       description,
       date,
       status,
+      traking,
     } = order
 
-    const user = await User.findById(userId).populate('orders', {
-      userId: 0,
-    })
-
-    // if (user.password.length < 6) throw new Error('La contraseña debe tener minimo 6 digitos')
-    // if (user.displayName.length < 2) throw new Error('El nombre de usuario debe tener minimo 2 digitos')
+    const user = await User.findById(userId).populate('orders')
 
     const newOrder = new Order({
       user: user._id,
@@ -58,13 +53,13 @@ export default async function createOrder(req, res) {
       department,
       specification,
       transport,
-      transportName,
       amount,
       cant,
       weight,
       description,
       date,
       status,
+      traking,
     })
 
     const saveOrder = await newOrder.save()

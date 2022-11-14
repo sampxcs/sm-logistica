@@ -9,9 +9,7 @@ export default async function login(req, res) {
   try {
     await connectMongo()
     const { email: requestEmail, password: requestPassword } = req.body
-    const user = await User.findOne({ email: requestEmail }).populate('orders', {
-      userId: 0,
-    })
+    const user = await User.findOne({ email: requestEmail })
 
     if (user) {
       const passwordCurrent = await bcrypt.compare(requestPassword, user.password)

@@ -40,7 +40,7 @@ GET http://localhost:3000/api/users/get
 ###
 
 // Get user by id
-GET http://localhost:3000/api/users/get/63714be13ba2ec1bca1c37c0
+GET http://localhost:3000/api/users/get/637187a7f9a5f536bde1c253
 
 ###
 

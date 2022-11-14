@@ -8,7 +8,7 @@ import EditIcon from '../Icons/EditIcon'
 import EyeIcon from '../Icons/EyeIcon'
 import PrintIcon from '../Icons/PrintIcon'
 
-export default function MyOrdersTableModal({ closeModal, coords }) {
+export default function MyOrdersTableModal({ closeModal, coords, select, deleteOrder }) {
   return ReactDOM.createPortal(
     <div className={styles.container} onClick={closeModal}>
       <div
@@ -19,20 +19,20 @@ export default function MyOrdersTableModal({ closeModal, coords }) {
         }}
       >
         <div className={styles.main}>
-          <Button href='/clients-area/profile' className='navLeftButton' light>
-            <EyeIcon width='16' height='16' />
+          <Button href="/clients-area/profile" className="navLeftButton" light>
+            <EyeIcon width="16" height="16" />
             Ver
           </Button>
-          <Button href='/clients-area/profile' className='navLeftButton' light>
-            <EditIcon width='16' height='16' />
+          <Button href="/clients-area/profile" className="navLeftButton" light>
+            <EditIcon width="16" height="16" />
             Editar
           </Button>
-          <Button href='/clients-area/profile' className='navLeftButton' light>
-            <PrintIcon width='16' height='16' />
+          <Button className="navLeftButton" light>
+            <PrintIcon width="16" height="16" />
             Imprimir
           </Button>
-          <Button href='/clients-area/profile' className='navLeftButton' red light>
-            <TrashCanIcon width='16' height='16' />
+          <Button className="navLeftButton" onClick={() => deleteOrder(select)} red light>
+            <TrashCanIcon width="16" height="16" />
             Eliminar
           </Button>
         </div>

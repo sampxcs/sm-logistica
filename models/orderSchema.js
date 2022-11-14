@@ -3,7 +3,7 @@ import { Schema, model, models } from 'mongoose'
 const orderSchema = new Schema({
   orderId: { type: String },
   user: { type: Schema.Types.ObjectId, ref: 'User' },
-  date: { Date },
+  date: { type: String },
   name: { type: String },
   document: { type: String },
   cuit: { type: String },
@@ -19,12 +19,12 @@ const orderSchema = new Schema({
   department: { type: String },
   specification: { type: String },
   transport: { type: String },
-  transportName: { type: String },
   amount: { type: String },
   cant: { type: String },
   weight: { type: String },
   description: { type: String },
   status: { type: String },
+  traking: { type: String },
 })
 
 orderSchema.set('toJSON', {

@@ -62,9 +62,10 @@ const customStyles = {
   },
 }
 
-export default function MyOrdersTable({ user }) {
+export default function MyOrdersTable({ user, deleteOrder }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [showModal, setShowModal] = useState()
+  const [selectRow, setSelectRow] = useState()
 
   const data = user.orders
 
@@ -75,21 +76,27 @@ export default function MyOrdersTable({ user }) {
     showModal ? setShowModal(false) : setShowModal(true)
   }
 
+  const handleClickButton = (e, row) => {
+    console.log(e, row)
+    handleShowModal(e)
+    setSelectRow(row)
+  }
+
   const columns = [
-    { name: 'Nro. de Pedido', selector: 'orderId', sortable: true },
-    { name: 'Nombre', selector: 'name', sortable: true },
-    { name: 'Localidad', selector: 'location', sortable: true },
-    { name: 'CP', selector: 'cp', sortable: true },
-    { name: 'Tipo De Envio', selector: 'type', sortable: true },
-    { name: 'Transporte', selector: 'transport', sortable: true },
-    { name: 'Creado', selector: 'date', sortable: true },
-    { name: 'Nro. de Guia', selector: 'cant', sortable: true },
-    { name: 'Estado', selector: 'status', sortable: true },
+    { name: 'Nro. de Pedido', selector: (row) => row['orderId'], sortable: true },
+    { name: 'Nombre', selector: (row) => row['name'], sortable: true },
+    { name: 'Localidad', selector: (row) => row['location'], sortable: true },
+    { name: 'CP', selector: (row) => row['cp'], sortable: true },
+    { name: 'Tipo De Envio', selector: (row) => row['type'], sortable: true },
+    { name: 'Transporte', selector: (row) => row['transport'], sortable: true },
+    { name: 'Creado', selector: (row) => row['date'], sortable: true },
+    { name: 'Nro. de Guia', selector: (row) => row['cant'], sortable: true },
+    { name: 'Estado', selector: (row) => row['status'], sortable: true },
     {
       name: 'Opciones',
       cell: (row) => (
-        <Button className={'circleButton'} light onClick={handleShowModal}>
-          <DotMenuIcon width='18' />
+        <Button className={'circleButton'} light onClick={(e) => handleClickButton(e, row)}>
+          <DotMenuIcon width="18" />
         </Button>
       ),
     },
@@ -107,10 +114,14 @@ export default function MyOrdersTable({ user }) {
         paginationPerPage={25}
         paginationRowsPerPageOptions={[10, 25, 50]}
         responsive
-        theme='solarized'
+        selectableRows
+        selectableRowsHighlight
+        theme="solarized"
         noDataComponent={<NoDataTable />}
       />
-      {showModal && <Modal className={'myOrdersTableModal'} closeModal={handleShowModal} coords={coords} />}
+      {showModal && (
+        <Modal className={'myOrdersTableModal'} closeModal={handleShowModal} deleteOrder={deleteOrder} select={selectRow} coords={coords} />
+      )}
     </div>
   )
 }

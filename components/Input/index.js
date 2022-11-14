@@ -27,13 +27,8 @@ export default function Input({
   if (type === 'select')
     return (
       <div className={value ? styles.activeGroup : styles.group}>
-        {label && (
-          <label htmlFor={id} className={styles.label}>
-            {label}
-          </label>
-        )}
         <select
-          className={styles.input}
+          className={`${styles.input} ${error && styles.error}`}
           id={id}
           name={name}
           onChange={(e) => {
@@ -49,7 +44,13 @@ export default function Input({
             </option>
           ))}
         </select>
+        {label && (
+          <label htmlFor={id} className={styles.label}>
+            {label}
+          </label>
+        )}
         <i className={styles.selectButton}></i>
+        {error ? <small className={styles.errorMessage}>{error}</small> : info && <small className={styles.info}>{info}</small>}
       </div>
     )
 

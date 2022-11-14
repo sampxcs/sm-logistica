@@ -8,6 +8,7 @@ const useUser = () => {
   const [userStatusCode, setUserStatusCode] = useState(USER_STATUS.UNDEFINED)
   const [orderStatusCode, setOrderStatusCode] = useState(CREATE_ORDER_STATUS.UNDEFINED)
   const { user, setUser } = useContext(UserContext)
+  const [updateUser, setUpdateUser] = useState()
 
   useEffect(() => {
     setUserStatusCode(USER_STATUS.LOADING)
@@ -20,6 +21,33 @@ const useUser = () => {
       setUserStatusCode(USER_STATUS.NULL)
     }
   }, [setUser])
+
+  useEffect(() => {
+    if (updateUser) {
+      console.log(1)
+      const endpoint = `/api/users/get/${updateUser.userId}`
+      const options = { method: 'GET' }
+      console.log(2)
+      const fetchUser = async () => {
+        console.log(3)
+        const response = await fetch(endpoint, options)
+        console.log(response)
+        const user = await response.json()
+        console.log(user)
+        return user
+      }
+
+      fetchUser()
+        .then((user) => {
+          console.log('user en then: ', user)
+          window.localStorage.setItem('loggedUser', JSON.stringify(user))
+          setUser(user)
+        })
+        .catch((e) => {
+          console.log(e)
+        })
+    }
+  }, [updateUser, setUser])
 
   const createUserWithEmail = useCallback(
     async (data) => {
@@ -72,52 +100,48 @@ const useUser = () => {
     [router]
   )
 
-  const signIn = useCallback(
-    async (data) => {
-      setUserStatusCode(USER_STATUS.LOADING)
-      const { password, email } = data
-      let error
+  const signIn = useCallback(async (data) => {
+    setUserStatusCode(USER_STATUS.LOADING)
+    const { password, email } = data
+    let error
 
-      if (!password) error = ERRORS.PASSWORD_REQUIRED
-      if (!email) error = ERRORS.EMAIL_REQUIRED
+    if (!password) error = ERRORS.PASSWORD_REQUIRED
+    if (!email) error = ERRORS.EMAIL_REQUIRED
 
-      if (!error) {
-        const user = {
-          email: email,
-          password: password,
-        }
-
-        const endpoint = '/api/users/login'
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(user),
-        }
-
-        try {
-          const response = await fetch(endpoint, options)
-          const result = await response.json()
-          console.log(result)
-          if (response.status === 401) throw new Error(result.message)
-          if (response.status === 200) {
-            setUser(result)
-            window.localStorage.setItem('loggedUser', JSON.stringify(result))
-          }
-          setUserStatusCode(USER_STATUS.OK)
-        } catch (e) {
-          setUserStatusCode(USER_STATUS.NULL)
-          console.log({ e })
-          throw new Error(e.message)
-        }
-      } else {
-        setUserStatusCode(USER_STATUS.NULL)
-        throw new Error(error)
+    if (!error) {
+      const user = {
+        email: email,
+        password: password,
       }
-    },
-    [setUser]
-  )
+
+      const endpoint = '/api/users/login'
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      }
+
+      try {
+        const response = await fetch(endpoint, options)
+        const result = await response.json()
+        console.log(result)
+        if (response.status === 401) throw new Error(result.message)
+        if (response.status === 200) {
+          setUpdateUser({ userId: result.id, date: new Date() })
+        }
+        setUserStatusCode(USER_STATUS.OK)
+      } catch (e) {
+        setUserStatusCode(USER_STATUS.NULL)
+        console.log({ e })
+        throw new Error(e.message)
+      }
+    } else {
+      setUserStatusCode(USER_STATUS.NULL)
+      throw new Error(error)
+    }
+  }, [])
 
   const signOut = useCallback(() => {
     setUserStatusCode(USER_STATUS.NULL)
@@ -147,12 +171,24 @@ const useUser = () => {
         department,
         specification,
         transport,
-        transportName,
         amount,
         cant,
         weight,
         description,
       } = data
+
+      if (!amount) error = ERRORS.AMOUNT_REQUIRED
+      if (!transport) error = ERRORS.TRANSPORT_REQUIRED
+      if (!streetHeight) error = ERRORS.STREET_HEIGHT_REQUIRED
+      if (!street) error = ERRORS.STREET_REQUIRED
+      if (!location) error = ERRORS.LOCATION_REQUIRED
+      if (!province) error = ERRORS.PROVINCE_REQUIRED
+      if (!cp) error = ERRORS.CP_REQUIRED
+      if (!email) error = ERRORS.EMAIL_REQUIRED
+      if (!tel) error = ERRORS.TEL_REQUIRED
+      // if (!cuit) error = ERRORS.INVALID_CUIT
+      if (!document) error = ERRORS.DOCUMENT_REQUIRED
+      if (name.length < 2) error = ERRORS.NAME_REQUIRED
 
       if (!error) {
         const newOrder = {
@@ -173,13 +209,13 @@ const useUser = () => {
           department,
           specification,
           transport,
-          transportName,
           amount,
           cant,
           weight,
           description,
-          date: new Date(),
+          date: new Date().toLocaleDateString(),
           status: ORDER_STATUS.PENDING,
+          traking: '',
         }
 
         const endpoint = '/api/orders/post'
@@ -199,8 +235,8 @@ const useUser = () => {
           if (response.status === 201) {
             setUser(result)
             window.localStorage.setItem('loggedUser', JSON.stringify(result))
+            setOrderStatusCode(CREATE_ORDER_STATUS.OK)
           }
-          setOrderStatusCode(CREATE_ORDER_STATUS.OK)
         } catch (e) {
           setOrderStatusCode(CREATE_ORDER_STATUS.NULL)
           console.log({ e })
@@ -214,13 +250,36 @@ const useUser = () => {
     [setUser]
   )
 
+  const deleteOrder = useCallback(async (data) => {
+    console.log(data)
+    const endpoint = `/api/orders/delete`
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+
+    try {
+      const response = await fetch(endpoint, options)
+      if (response.status === 204) {
+        setUpdateUser({ userId: data.user, date: new Date() })
+      }
+    } catch (e) {
+      console.log({ e })
+    }
+  }, [])
+
   return {
     user,
     userStatusCode,
+    orderStatusCode,
     createUserWithEmail,
     signIn,
     signOut,
     createOrder,
+    deleteOrder,
   }
 }
 

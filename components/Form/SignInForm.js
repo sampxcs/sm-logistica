@@ -44,11 +44,8 @@ export default function SignInForm() {
           name={'email'}
           label={'Email'}
           error={
-            errorMessage === ERRORS.EMAIL_REQUIRED
-              ? ERRORS.EMAIL_REQUIRED
-              : errorMessage === ERRORS.INVALID_EMAIL
-              ? ERRORS.INVALID_EMAIL
-              : false
+            (errorMessage === ERRORS.EMAIL_REQUIRED && ERRORS.EMAIL_REQUIRED) ||
+            (errorMessage === ERRORS.INVALID_EMAIL && ERRORS.INVALID_EMAIL)
           }
           title={'Introduce tu email'}
         />
@@ -57,16 +54,13 @@ export default function SignInForm() {
           name={'password'}
           label={'Contraseña'}
           error={
-            errorMessage === ERRORS.PASSWORD_REQUIRED
-              ? ERRORS.PASSWORD_REQUIRED
-              : errorMessage === ERRORS.INVALID_PASSWORD
-              ? ERRORS.INVALID_PASSWORD
-              : false
+            (errorMessage === ERRORS.PASSWORD_REQUIRED && ERRORS.PASSWORD_REQUIRED) ||
+            (errorMessage === ERRORS.INVALID_PASSWORD && ERRORS.INVALID_PASSWORD)
           }
-          title='Por favor, introduzca su contraseña'
+          title="Por favor, introduzca su contraseña"
         />
         <small className={styles.small}>
-          <Link href='/sign-up'>
+          <Link href="/sign-up">
             <a className={styles.a}>¿Has olvidado tu contraseña?</a>
           </Link>
         </small>
@@ -81,7 +75,7 @@ export default function SignInForm() {
         </Button>
         <small className={styles.small}>
           ¿No tenes una cuenta?,{' '}
-          <Link href='/sign-up'>
+          <Link href="/sign-up">
             <a className={styles.a}>Registrate ahora!</a>
           </Link>
         </small>
