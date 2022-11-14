@@ -24,7 +24,9 @@ export default function ImportOrdersForm() {
         accept='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel'
         required
       />
-      <Button>IMPORTAR</Button>
+      <Button className={'formButton'} width={'max-content'}>
+        IMPORTAR
+      </Button>
     </form>
   )
 }

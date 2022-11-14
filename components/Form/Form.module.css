@@ -53,8 +53,12 @@
 }
 .inputBoxContainer {
   display: flex;
+  align-items: center;
   margin-left: 10px;
   gap: 10px;
+}
+.inputBoxContainer > label {
+  margin-top: -10px;
 }
 .aSearchCP:hover {
   color: var(--color-primary-100);

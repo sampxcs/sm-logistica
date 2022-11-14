@@ -1,6 +1,10 @@
 import styles from './Table.module.css'
+import { useState } from 'react'
+
 import DataTable, { createTheme } from 'react-data-table-component'
 import DotMenuIcon from '../Icons/DotMenuIcon'
+import Modal from '../Modal'
+import Button from '../Button'
 
 const data = [
   {
@@ -21,16 +25,6 @@ const data = [
     estado: 'En Linea',
     opciones: '',
   },
-]
-
-const columns = [
-  { name: 'ID', selector: 'id', sortable: true },
-  { name: 'Nombre', selector: 'nombre', sortable: true },
-  { name: 'Email', selector: 'email', sortable: true },
-  { name: 'Pedidos Creados', selector: 'pedidosCreados', sortable: true },
-  { name: 'Perfil', selector: 'perfil', sortable: true },
-  { name: 'Estado', selector: 'estado', sortable: true },
-  { name: 'Opciones', cell: (row) => <DotMenuIcon width="18" />, allowOverflow: true, button: true, style: { cursor: 'pointer' } },
 ]
 
 const pagination = {
@@ -87,6 +81,36 @@ const customStyles = {
 }
 
 export default function UsersTable() {
+  const [coords, setCoords] = useState({ x: -1, y: -1 })
+  const [showModal, setShowModal] = useState()
+
+  const handleShowModal = (e) => {
+    const rect = e.target.getBoundingClientRect()
+    console.log(rect.left, rect.top)
+    setCoords({ x: rect.left, y: rect.top + 30 })
+    showModal ? setShowModal(false) : setShowModal(true)
+  }
+
+  const columns = [
+    { name: 'ID', selector: 'id', sortable: true },
+    { name: 'Nombre', selector: 'nombre', sortable: true },
+    { name: 'Email', selector: 'email', sortable: true },
+    { name: 'Pedidos Creados', selector: 'pedidosCreados', sortable: true },
+    { name: 'Perfil', selector: 'perfil', sortable: true },
+    { name: 'Estado', selector: 'estado', sortable: true },
+    {
+      name: 'Opciones',
+      cell: (row) => (
+        <Button className={'circleButton'} light onClick={handleShowModal}>
+          <DotMenuIcon width='18' />
+        </Button>
+      ),
+      allowOverflow: true,
+      button: true,
+      style: { cursor: 'pointer' },
+    },
+  ]
+
   return (
     <div className={styles.container}>
       <DataTable
@@ -101,8 +125,9 @@ export default function UsersTable() {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme="solarized"
+        theme='solarized'
       />
+      {showModal && <Modal className={'usersTableModal'} closeModal={handleShowModal} coords={coords} />}
     </div>
   )
 }

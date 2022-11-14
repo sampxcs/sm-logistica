@@ -285,7 +285,7 @@ export default function Home() {
             <h3>No te pierdas de toda la información nueva y promociones en SM LOGISTICA</h3>
             <form>
               <Imput label='Introduce tu correo electronico' />
-              <Button>SUSCRIBIRSE</Button>
+              <Button className={'formButton'}>SUSCRIBIRSE</Button>
             </form>
           </div>
         </div>

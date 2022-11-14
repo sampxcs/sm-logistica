@@ -11,7 +11,9 @@ export default function ClientsAreaAccount() {
         <div className={styles.boxSpaceBetween}>
           <h3>HISTORIAL DE CUENTA CORRIENTE</h3> <h3 className={styles.saldoActual}>Saldo $25.000</h3>
         </div>
-        <a href='#'>Descargar resumen de cuenta.</a>
+        <a href='#' className={styles.link}>
+          Descargar resumen de cuenta.
+        </a>
         <Table />
       </div>
       <Footer />

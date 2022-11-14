@@ -74,6 +74,10 @@
   border-radius: var(--border-radius-s);
   transition: ease 0.15s;
   margin: 5px 0;
+  font-weight: 500;
+}
+.navLeftButton.red {
+  color: var(--color-red-error-100);
 }
 .navLeftButton:not(.active):hover {
   background-color: var(--color-black-custom-05);
@@ -98,16 +102,69 @@
 /* ----------------- FORM BUTTON ------------------ */
 
 .formButton {
+  align-items: center;
   background-color: var(--color-primary-100);
+  width: 100%;
   color: var(--color-white-100);
+  font-size: var(--font-size-s);
   height: 35px;
   justify-content: center;
-  align-items: center;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 .formButton.light {
   background: none;
   color: var(--color-primary-100);
   border: 1px solid var(--color-primary-100);
+}
+
+/* -----------------  PROFILE BUTTON ------------------ */
+
+.profileButton {
+  align-items: center;
+  border: 1px solid var(--color-black-custom-05);
+  border-radius: var(--border-radius-l);
+  font-size: var(--font-size-s);
+  padding: 8px 16px;
+  color: var(--color-black-custom-100);
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  background: none;
+}
+.profileButton:hover {
+  opacity: 0.8;
+}
+.profileButton:active {
+  opacity: 1;
+}
+.profileButton i {
+  width: 6px;
+  height: 6px;
+  border-bottom: 2px solid var(--color-black-custom-60);
+  border-right: 2px solid var(--color-black-custom-60);
+  transform: rotate(45deg);
+}
+
+/* --------------------- CIRCLE BUTTON ---------------------- */
+
+.circleButton {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: var(--color-primary-100);
+  color: var(--color-white-100);
+}
+.circleButton:hover {
+  opacity: 0.8;
+}
+.circleButton.light {
+  background: none;
+  color: var(--color-black-custom-100);
+}
+.circleButton.light:hover {
+  background-color: var(--color-black-custom-05);
 }
 
 @keyframes ripple-effect {

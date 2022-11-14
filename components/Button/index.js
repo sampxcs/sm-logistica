@@ -5,7 +5,7 @@ import Spinner from '../Spinner'
 
 import Link from 'next/link'
 
-export default function Button({ className, href, children, onClick, type, light, active, disabled }) {
+export default function Button({ className, href, children, onClick, type, red, light, active, disabled, width }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [isRippling, setIsRippling] = useState(false)
 
@@ -24,7 +24,7 @@ export default function Button({ className, href, children, onClick, type, light
     return (
       <Link href={href}>
         <a
-          className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
+          className={`${styles.button} ${styles[className]} ${light && styles.light} ${red && styles.red} ${active && styles.active}`}
           onClick={(e) => {
             const rect = e.target.getBoundingClientRect()
             setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top })
@@ -49,9 +49,10 @@ export default function Button({ className, href, children, onClick, type, light
 
   return (
     <button
+      style={{ width: width }}
       type={type}
       disabled={disabled}
-      className={`${styles.button} ${styles[className]} ${light && styles.light} ${active && styles.active}`}
+      className={`${styles.button} ${styles[className]} ${light && styles.light} ${red && styles.red} ${active && styles.active}`}
       onClick={(e) => {
         const rect = e.target.getBoundingClientRect()
         setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top })

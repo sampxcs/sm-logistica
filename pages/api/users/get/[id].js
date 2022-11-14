@@ -5,8 +5,9 @@ export default async function getUserById(req, res) {
   const { id } = req.query
   try {
     await connectMongo()
-    const user = await User.findById(id)
-
+    const user = await User.findById(id).populate('orders', {
+      userId: 0,
+    })
     user ? res.json(user) : res.status(404).json({ error: 'not found' })
   } catch (error) {
     console.log(error.name)

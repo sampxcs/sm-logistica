@@ -1,7 +1,7 @@
 import connectMongo from '../../../../utils/connectMongo'
 import User from '../../../../models/userSchema'
 
-export default async function createUser(req, res) {
+export default async function EditUserById(req, res) {
   try {
     await connectMongo()
 

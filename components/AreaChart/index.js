@@ -19,5 +19,5 @@ const options = {
 }
 
 export default function AreaChart() {
-  return <Chart options={options} data={data} width="100%" height="300px" chartType="Line" />
+  return <Chart options={options} data={data} width='100%' height='200px' chartType='Line' />
 }

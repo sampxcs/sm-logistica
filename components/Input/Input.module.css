@@ -31,7 +31,7 @@
 .selectButton {
   width: 6px;
   height: 6px;
-  top: 17.5px;
+  top: 13px;
   border-left: 1px solid var(--color-black-custom-80);
   border-bottom: 1px solid var(--color-black-custom-80);
   transform: rotate(-45deg);
@@ -73,7 +73,7 @@
   position: absolute;
   left: 10px;
   pointer-events: none;
-  transform: translateY(calc(50% - 5px));
+  transform: translateY(calc(50% - 8px));
   transition: 0.15s ease;
   color: var(--color-black-custom-80);
 }

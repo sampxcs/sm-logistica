@@ -2,7 +2,6 @@ import styles from './Main.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import Container from '../Container'
 import AreaChart from '../AreaChart'
 import PieChart from '../PieChart'
 import Footer from '../Footer'
@@ -14,31 +13,25 @@ export default function ClientsAreaAdmin() {
         <h2 className={styles.title}>PEDIDOS</h2>
         <div className={styles.boxes}>
           <Link href='/clients-area/my-orders'>
-            <div className={styles.box}>
+            <div className={styles.dashboardDataBox}>
               <span className={styles.dashboardData}>
-                PENDIENTES <span className={styles.dashboardDataNumberPendings}>15</span>
+                <p>
+                  PENDIENTES <span className={styles.dashboardDataNumberPendings}>15</span>
+                </p>
+                <p>
+                  EN CENTRO DE DISTRIBUCION <span className={styles.dashboardDataNumberOnDeposit}>9</span>
+                </p>
+                <p>
+                  TOTAL <span className={styles.dashboardDataNumberTotal}>1760</span>
+                </p>
+                <p>
+                  ENVIADOS <span className={styles.dashboardDataNumberSends}>1693</span>
+                </p>
+                <p>
+                  TOTAL <span className={styles.dashboardDataNumberTotal}>1760</span>
+                </p>
               </span>
-            </div>
-          </Link>
-          <Link href='/clients-area/my-orders'>
-            <div className={styles.box}>
-              <span className={styles.dashboardData}>
-                EN CENTRO DE DISTRIBUCION<span className={styles.dashboardDataNumberOnDeposit}>9</span>
-              </span>
-            </div>
-          </Link>
-          <Link href='/clients-area/my-orders'>
-            <div className={styles.box}>
-              <span className={styles.dashboardData}>
-                ENVIADOS <span className={styles.dashboardDataNumberSends}>1693</span>
-              </span>
-            </div>
-          </Link>
-          <Link href='/clients-area/my-orders'>
-            <div className={styles.box}>
-              <span className={styles.dashboardData}>
-                TOTAL <span className={styles.dashboardDataNumberTotal}>1760</span>
-              </span>
+              <span className={styles.dashboardData}>MIS PEDIDOS</span>
             </div>
           </Link>
         </div>

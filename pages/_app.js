@@ -6,6 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserContextProvaider>
       <Component {...pageProps} />
+      <div id='modal-root'></div>
     </UserContextProvaider>
   )
 }

@@ -12,17 +12,16 @@ import Button from '../Button'
 
 export default function SignInForm() {
   const router = useRouter()
-  const [error, setError] = useState()
+  const [errorMessage, setErrorMessage] = useState()
   const { user, userStatusCode, signIn } = useUser()
 
   useEffect(() => {
-    console.log(user)
     user && router.replace('/clients-area/admin')
   }, [user, router])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
+    setErrorMessage('')
 
     const data = {
       email: e.target.email.value,
@@ -32,7 +31,7 @@ export default function SignInForm() {
     try {
       await signIn(data)
     } catch (e) {
-      setError(e.message)
+      setErrorMessage(e.message)
     }
   }
 
@@ -44,7 +43,13 @@ export default function SignInForm() {
           type={'email'}
           name={'email'}
           label={'Email'}
-          error={error === ERRORS.EMAIL_REQUIRED ? ERRORS.EMAIL_REQUIRED : error === ERRORS.INVALID_EMAIL ? ERRORS.INVALID_EMAIL : false}
+          error={
+            errorMessage === ERRORS.EMAIL_REQUIRED
+              ? ERRORS.EMAIL_REQUIRED
+              : errorMessage === ERRORS.INVALID_EMAIL
+              ? ERRORS.INVALID_EMAIL
+              : false
+          }
           title={'Introduce tu email'}
         />
         <Input
@@ -52,16 +57,16 @@ export default function SignInForm() {
           name={'password'}
           label={'Contraseña'}
           error={
-            error === ERRORS.PASSWORD_REQUIRED
+            errorMessage === ERRORS.PASSWORD_REQUIRED
               ? ERRORS.PASSWORD_REQUIRED
-              : error === ERRORS.INVALID_PASSWORD
+              : errorMessage === ERRORS.INVALID_PASSWORD
               ? ERRORS.INVALID_PASSWORD
               : false
           }
-          title="Por favor, introduzca su contraseña"
+          title='Por favor, introduzca su contraseña'
         />
         <small className={styles.small}>
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>¿Has olvidado tu contraseña?</a>
           </Link>
         </small>
@@ -76,7 +81,7 @@ export default function SignInForm() {
         </Button>
         <small className={styles.small}>
           ¿No tenes una cuenta?,{' '}
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>Registrate ahora!</a>
           </Link>
         </small>

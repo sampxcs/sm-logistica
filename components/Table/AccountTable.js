@@ -1,6 +1,8 @@
 import styles from './Table.module.css'
 import DataTable, { createTheme } from 'react-data-table-component'
 
+import NoDataTable from './NoDataTable'
+
 const data = [
   {
     operacion: 'CREDITO',
@@ -271,7 +273,8 @@ export default function AccountTable() {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme="solarized"
+        theme='solarized'
+        noDataComponent={<NoDataTable />}
       />
     </div>
   )

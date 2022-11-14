@@ -10,7 +10,7 @@ export default function ClientsAreaRates() {
       <div className={styles.content}>
         <h2 className={styles.title}>TARIFAS Y PAGOS</h2>
         <Link href='/clients-area/account'>
-          <div className={`${styles.boxSpaceBetween} ${styles.link}`}>
+          <div className={styles.boxSpaceBetween} style={{ cursor: 'pointer' }}>
             <h3>SALDO ACTUAL</h3>
             <h3 className={styles.saldoActual}>$25.000</h3>
           </div>

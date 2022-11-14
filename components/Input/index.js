@@ -3,8 +3,25 @@ import styles from './Input.module.css'
 import EyeIcon from '../Icons/EyeIcon'
 import EyeSlashIcon from '../Icons/EyeSlashIcon'
 
-export default function Input({ type, title, placeholder, onChange, error, required, id, name, info, label, options, pattern }) {
-  const [value, setValue] = useState()
+export default function Input({
+  defaultValue,
+  disabled,
+  error,
+  id,
+  info,
+  label,
+  name,
+  onChange,
+  options,
+  pattern,
+  placeholder,
+  required,
+  title,
+  autofocus,
+  type,
+  checked,
+}) {
+  const [value, setValue] = useState(defaultValue || '')
   const [inputType, setInputType] = useState(type)
 
   if (type === 'select')
@@ -17,12 +34,15 @@ export default function Input({ type, title, placeholder, onChange, error, requi
         )}
         <select
           className={styles.input}
+          id={id}
+          name={name}
           onChange={(e) => {
             setValue(e.target.value)
             onChange && onChange(e)
           }}
+          value={value}
         >
-          <option style={{ display: 'none' }} selected></option>
+          <option style={{ display: 'none' }}></option>
           {options.map((option) => (
             <option key={option} value={option}>
               {option}
@@ -37,19 +57,22 @@ export default function Input({ type, title, placeholder, onChange, error, requi
     <>
       <div className={type == 'radio' || type == 'checkbox' ? styles.radioGroup : value ? styles.activeGroup : styles.group}>
         <input
-          pattern={pattern}
-          title={title}
+          disabled={disabled}
           className={`${styles.input} ${error && styles.error}`}
-          type={inputType}
           id={id}
           name={name}
+          pattern={pattern}
           placeholder={placeholder}
+          required={required}
+          title={title}
+          type={inputType}
+          value={value}
+          checked={checked}
+          autoFocus={autofocus}
           onChange={(e) => {
             setValue(e.target.value)
             onChange && onChange(e)
           }}
-          required={required}
-          autoComplete={'false'}
         />
         {label && (
           <label htmlFor={id} className={styles.label}>

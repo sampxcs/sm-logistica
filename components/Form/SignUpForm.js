@@ -13,7 +13,6 @@ export default function SignUpForm() {
   const { user, userStatusCode, createUserWithEmail } = useUser()
 
   useEffect(() => {
-    console.log(user)
     user && router.replace('/clients-area/admin')
   }, [user, router])
 
@@ -47,16 +46,16 @@ export default function SignUpForm() {
         <div className={styles.inputsContainer}>
           <Input
             type={'text'}
-            name="name"
+            name='name'
             label={'Nombre *'}
             error={error === ERRORS.NAME_REQUIRED ? ERRORS.NAME_REQUIRED : false}
             title={'El nombre debe tener por lo menos 2 caracteres'}
           />
-          <Input type={'text'} name="lastName" label={'Apellido'} title={'Introduce tu apellido'} />
+          <Input type={'text'} name='lastName' label={'Apellido'} title={'Introduce tu apellido'} />
         </div>
         <Input
           type={'text'}
-          name="company"
+          name='company'
           label={'Nombre de comercio'}
           title={'Nombre que queres que aparezca en los envios como remitente"'}
         />
@@ -72,9 +71,9 @@ export default function SignUpForm() {
         <Input
           type={'password'}
           name={'password'}
-          label={'Contraseña *'}
+          label={'Contraseña (min 6 digitos) *'}
           error={error === ERRORS.PASSWORD_REQUIRED ? ERRORS.PASSWORD_REQUIRED : false}
-          title="La contraseña debe tener por lo menos 6 caracteres"
+          title='La contraseña debe tener por lo menos 6 caracteres'
         />
         <Input
           type={'password'}
@@ -87,14 +86,14 @@ export default function SignUpForm() {
               ? ERRORS.INVALID_CONFIRMED_PASSWORD
               : false
           }
-          title="Las contraseñas deben coincidir"
+          title='Las contraseñas deben coincidir'
         />
         <Input
-          type="checkbox"
+          type='checkbox'
           name={'checkbox'}
           label={`Acepto los teminos y condiciones *`}
           error={error === ERRORS.CHECK_BOX_REQUIRED ? ERRORS.CHECK_BOX_REQUIRED : false}
-          title="Acepta los teminos y condiciones"
+          title='Acepta los teminos y condiciones'
         />
       </div>
       <div className={styles.div}>
@@ -107,8 +106,8 @@ export default function SignUpForm() {
         </Button>
         <small className={styles.small}>
           ¿Ya tenes una cuenta?,
-          <Link href="/sign-in">
-            <a className={styles.a}>Inicia sesion!</a>
+          <Link href='/sign-in'>
+            <a className={styles.a}> Inicia sesion!</a>
           </Link>
         </small>
       </div>

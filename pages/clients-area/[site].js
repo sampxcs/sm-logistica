@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import Main from '../../components/Main'
 import { useEffect, useState } from 'react'
 
+import { USER_STATUS } from '../../utils/dictionary'
 import Container from '../../components/Container'
 import Spinner from '../../components/Spinner'
 import { useRouter } from 'next/router'
@@ -11,13 +12,13 @@ import useUser from '../../hooks/useUser'
 
 export default function ClientsArea() {
   const router = useRouter()
-  const { user } = useUser()
+  const { userStatusCode } = useUser()
 
   useEffect(() => {
-    !user && router.replace('/sign-in')
-  }, [user, router])
+    userStatusCode === USER_STATUS.NULL && router.replace('/sign-in')
+  }, [userStatusCode, router])
 
-  if (!user)
+  if (userStatusCode === USER_STATUS.LOADING)
     return (
       <>
         <Head>
@@ -29,16 +30,17 @@ export default function ClientsArea() {
       </>
     )
 
-  return (
-    <>
-      <Head>
-        <title>Area Clientes &middot; SM Logística</title>
-      </Head>
-      <div>
-        <Header />
-        <Nav />
-        <Main />
-      </div>
-    </>
-  )
+  if (userStatusCode === USER_STATUS.OK)
+    return (
+      <>
+        <Head>
+          <title>Area Clientes &middot; SM Logística</title>
+        </Head>
+        <div>
+          <Header />
+          <Nav />
+          <Main />
+        </div>
+      </>
+    )
 }

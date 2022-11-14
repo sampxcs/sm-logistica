@@ -13,5 +13,5 @@ const options = {
 }
 
 export default function PieChart() {
-  return <Chart options={options} data={data} width="100%" height="360px" chartType="PieChart" />
+  return <Chart options={options} data={data} width='100%' height='260px' chartType='PieChart' />
 }

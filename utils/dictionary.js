@@ -16,3 +16,16 @@ export const USER_STATUS = {
   OK: 2,
   NULL: 3,
 }
+
+export const CREATE_ORDER_STATUS = {
+  UNDEFINED: 0,
+  LOADING: 1,
+  OK: 2,
+  NULL: 3,
+}
+
+export const ORDER_STATUS = {
+  PENDING: 'PENDIENTE',
+  ON_DEPOSIT: 'EN DEPOSITO',
+  SEND: 'ENVIADO',
+}

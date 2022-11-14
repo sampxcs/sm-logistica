@@ -1,6 +1,7 @@
 import styles from './Main.module.css'
-import Footer from '../Footer'
+import Link from 'next/link'
 
+import Footer from '../Footer'
 import Table from '../Table'
 
 export default function ClientsAreaImportOrdersMain() {
@@ -8,6 +9,9 @@ export default function ClientsAreaImportOrdersMain() {
     <section className={styles.main}>
       <div className={styles.content}>
         <h2 className={styles.title}>USUARIOS</h2>
+        <Link href={'/clients-area/admin'}>
+          <div className={styles.link}>(+) Crear usuario</div>
+        </Link>
         <Table />
       </div>
       <Footer />
