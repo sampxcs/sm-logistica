@@ -75,6 +75,7 @@
   transition: ease 0.15s;
   margin: 5px 0;
   font-weight: 500;
+  transition: 0.3s ease;
 }
 .navLeftButton.red {
   color: var(--color-red-error-100);
@@ -132,6 +133,7 @@
   gap: 5px;
   overflow: hidden;
   cursor: pointer;
+  transition: 0.3s ease;
   background: none;
 }
 .profileButton:hover {
@@ -155,6 +157,7 @@
   border-radius: 50%;
   background-color: var(--color-primary-100);
   color: var(--color-white-100);
+  transition: 0.3s ease;
 }
 .circleButton:hover {
   opacity: 0.8;

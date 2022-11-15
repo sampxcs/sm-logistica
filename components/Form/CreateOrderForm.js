@@ -10,12 +10,12 @@ import { ERRORS, CREATE_ORDER_STATUS } from '../../utils/dictionary'
 const bultos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 export default function CreateOrderForm({ user, createOrder, orderStatusCode }) {
-  const [error, setError] = useState()
+  const [errorMessage, setErrorMessage] = useState()
   const [radioValue, setRadioValue] = useState('domicilio')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setError('')
+    setErrorMessage('')
 
     const orderId = (user.orders.length + 1).toString()
     const data = {
@@ -47,7 +47,7 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
       e.target.reset()
     } catch (e) {
       console.log({ e })
-      setError(e.message)
+      setErrorMessage(e.message)
     }
   }
   return (
@@ -61,7 +61,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="name"
             label="Nombre y Apellido *"
             value=""
-            error={error === ERRORS.NAME_REQUIRED && ERRORS.NAME_REQUIRED}
+            error={errorMessage === ERRORS.NAME_REQUIRED && ERRORS.NAME_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="number"
@@ -69,7 +70,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="document"
             label="Documento *"
             info="Documento sin puntos, barras ni comas."
-            error={error === ERRORS.DOCUMENT_REQUIRED && ERRORS.DOCUMENT_REQUIRED}
+            error={errorMessage === ERRORS.DOCUMENT_REQUIRED && ERRORS.DOCUMENT_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
         </div>
         <div className={styles.inputsContainer}>
@@ -79,7 +81,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="cuit"
             label="CUIT"
             info="CUIT sin puntos, barras ni comas."
-            /* error={error === ERRORS.NAME_REQUIRED && ERRORS.NAME_REQUIRED} */
+            /* error={errorMessage === ERRORS.NAME_REQUIRED && ERRORS.NAME_REQUIRED} */
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="tel"
@@ -87,7 +90,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="tel"
             label="Telefono *"
             info="Código de área + Nº. Ejemplo: 1123456789."
-            error={error === ERRORS.TEL_REQUIRED && ERRORS.TEL_REQUIRED}
+            error={errorMessage === ERRORS.TEL_REQUIRED && ERRORS.TEL_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="email"
@@ -95,7 +99,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="email"
             label="Email *"
             info="Email para informar al cliente sobre la evolución de su envio."
-            error={error === ERRORS.EMAIL_REQUIRED && ERRORS.EMAIL_REQUIRED}
+            error={errorMessage === ERRORS.EMAIL_REQUIRED && ERRORS.EMAIL_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
         </div>
       </div>
@@ -104,9 +109,28 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
         <label>¿Donde quieres enviar el pedido? *</label>
         <div className={styles.inputBoxContainer} id="type">
           <label htmlFor="domicilio">Domicilio</label>
-          <Input type="radio" id="domicilio" name="type" value="domicilio" onChange={(e) => setRadioValue(e.target.id)} checked />
+          <Input
+            type="radio"
+            id="domicilio"
+            name="type"
+            value="domicilio"
+            onChange={(e) => {
+              setRadioValue(e.target.id)
+              setErrorMessage('')
+            }}
+            checked
+          />
           <label htmlFor="sucursal">Sucursal</label>
-          <Input type="radio" id="sucursal" name="type" value="sucursal" onChange={(e) => setRadioValue(e.target.id)} />
+          <Input
+            type="radio"
+            id="sucursal"
+            name="type"
+            value="sucursal"
+            onChange={(e) => {
+              setRadioValue(e.target.id)
+              setErrorMessage('')
+            }}
+          />
         </div>
       </div>
       <div className={styles.div}>
@@ -121,7 +145,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
                 (+) BUSCAR CODIGO POSTAL
               </a>
             }
-            error={error === ERRORS.CP_REQUIRED && ERRORS.CP_REQUIRED}
+            error={errorMessage === ERRORS.CP_REQUIRED && ERRORS.CP_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="select"
@@ -129,9 +154,16 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="province"
             options={provinces}
             label="Provincia *"
-            error={error === ERRORS.PROVINCE_REQUIRED && ERRORS.PROVINCE_REQUIRED}
+            error={errorMessage === ERRORS.PROVINCE_REQUIRED && ERRORS.PROVINCE_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
-          <Input label="Localidad *" id="location" name="location" error={error === ERRORS.LOCATION_REQUIRED && ERRORS.LOCATION_REQUIRED} />
+          <Input
+            label="Localidad *"
+            id="location"
+            name="location"
+            error={errorMessage === ERRORS.LOCATION_REQUIRED && ERRORS.LOCATION_REQUIRED}
+            onChange={() => setErrorMessage('')}
+          />
         </div>
         <div className={styles.inputsContainer}>
           <Input
@@ -139,17 +171,19 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             id="street"
             name="street"
             label="Nombre de la calle *"
-            error={error === ERRORS.STREET_REQUIRED && ERRORS.STREET_REQUIRED}
+            error={errorMessage === ERRORS.STREET_REQUIRED && ERRORS.STREET_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="text"
             id="streetHeight"
             name="streetHeight"
             label="Altura *"
-            error={error === ERRORS.STREET_HEIGHT_REQUIRED && ERRORS.STREET_HEIGHT_REQUIRED}
+            error={errorMessage === ERRORS.STREET_HEIGHT_REQUIRED && ERRORS.STREET_HEIGHT_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
-          <Input type="text" id="flat" name="flat" label="Piso" />
-          <Input type="text" id="department" name="department" label="Departamento" />
+          <Input type="text" id="flat" name="flat" label="Piso" onChange={() => setErrorMessage('')} />
+          <Input type="text" id="department" name="department" label="Departamento" onChange={() => setErrorMessage('')} />
         </div>
         <div className={styles.inputsContainer}>
           <Input
@@ -158,6 +192,7 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="specification"
             label="Especificacion de la direccion"
             info="Información adicional como bloque, torre, local, galeria, entre calles, etc."
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="select"
@@ -165,7 +200,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="transport"
             options={transports}
             label="Seleccione el tipo de transporte *"
-            error={error === ERRORS.TRANSPORT_REQUIRED && ERRORS.TRANSPORT_REQUIRED}
+            error={errorMessage === ERRORS.TRANSPORT_REQUIRED && ERRORS.TRANSPORT_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
         </div>
       </div>
@@ -178,7 +214,8 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="amount"
             label="Valor declarado *"
             info="Valor del pedido en pesos."
-            error={error === ERRORS.AMOUNT_REQUIRED && ERRORS.AMOUNT_REQUIRED}
+            error={errorMessage === ERRORS.AMOUNT_REQUIRED && ERRORS.AMOUNT_REQUIRED}
+            onChange={() => setErrorMessage('')}
           />
           <Input
             type="select"
@@ -187,14 +224,22 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
             name="cant"
             label="Cantidad de bultos"
             info="Los bultos deben tener tamaños similares."
+            onChange={() => setErrorMessage('')}
           />
-          <Input type="number" id="weight" name="weight" label="Peso total (Kg)" info="Peso Total de Todos los bultos." />
+          <Input
+            type="number"
+            id="weight"
+            name="weight"
+            label="Peso total (Kg)"
+            info="Peso Total de Todos los bultos."
+            onChange={() => setErrorMessage('')}
+          />
         </div>
         <div className={styles.inputsContainer}>
-          <Input type="text" id="description" name="description" label="Descripcion" />
+          <Input type="text" id="description" name="description" label="Descripcion" onChange={() => setErrorMessage('')} />
         </div>
       </div>
-      <Button className={'formButton'} width={'max-content'} disabled={orderStatusCode === CREATE_ORDER_STATUS.LOADING}>
+      <Button className={'formButton'} width={'130px'} disabled={orderStatusCode === CREATE_ORDER_STATUS.LOADING}>
         CREAR PEDIDO
       </Button>
     </form>

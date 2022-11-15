@@ -10,9 +10,10 @@ export default function ClientsAreaAdmin() {
   return (
     <section className={styles.main}>
       <div className={styles.content}>
-        <h2 className={styles.title}>PEDIDOS</h2>
+        Dashboard
+        {/* <h2 className={styles.title}>PEDIDOS</h2>
         <div className={styles.boxes}>
-          <Link href='/clients-area/my-orders'>
+          <Link href="/clients-area/my-orders">
             <div className={styles.dashboardDataBox}>
               <span className={styles.dashboardData}>
                 <p>
@@ -44,13 +45,13 @@ export default function ClientsAreaAdmin() {
           </div>
         </div>
         <div className={styles.boxes}>
-          <Link href='/clients-area/account'>
+          <Link href="/clients-area/account">
             <div className={styles.box}>ESTADO DE CUENTA</div>
           </Link>
-          <Link href='/clients-area/rates'>
+          <Link href="/clients-area/rates">
             <div className={styles.box}>TARIFAS Y PAGOS</div>
           </Link>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </section>

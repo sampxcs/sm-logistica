@@ -8,7 +8,7 @@ import CreateOrderForm from './CreateOrderForm'
 import ImportOrdersForm from './ImportOrdersForm'
 import UpdateProfileForm from './UpdateProfileForm'
 
-export default function Form({ user, createOrder, orderStatusCode }) {
+export default function Form({ user, updateProfile, userStatusCode, createOrder, orderStatusCode }) {
   const router = useRouter()
 
   if (router.asPath === '/sign-in') return <SignInForm />
@@ -16,7 +16,8 @@ export default function Form({ user, createOrder, orderStatusCode }) {
   if (router.asPath === '/clients-area/create-order')
     return <CreateOrderForm user={user} createOrder={createOrder} orderStatusCode={orderStatusCode} />
   if (router.asPath === '/clients-area/import-orders') return <ImportOrdersForm user={user} />
-  if (router.asPath === '/clients-area/profile') return <UpdateProfileForm user={user} />
+  if (router.asPath === '/clients-area/profile')
+    return <UpdateProfileForm user={user} updateProfile={updateProfile} userStatusCode={userStatusCode} />
 
   return (
     <form className={styles.form}>

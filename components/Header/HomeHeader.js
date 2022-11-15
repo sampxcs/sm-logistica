@@ -8,7 +8,7 @@ export default function HomeHeader() {
   return (
     <header className={styles.homeHeader}>
       <div className={styles.container}>
-        <Title />
+        <Title color={'var(--color-white-100)'} />
         <ul>
           <li>
             <Link href={'/'}>SERVICIOS</Link>
@@ -25,7 +25,7 @@ export default function HomeHeader() {
             <Link href={'/'}>AYUDA</Link>
           </li>
           <li>
-            <Button href={'/clients-area/admin'} className='buttonPrimary'>
+            <Button href={'/clients-area/admin'} className="buttonPrimary" background={'var(--color-primary-80)'}>
               AREA CLIENTES
             </Button>
           </li>

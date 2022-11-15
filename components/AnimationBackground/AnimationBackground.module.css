@@ -1,0 +1,20 @@
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.svg {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+}
+.top {
+  transform-origin: 73px 69px;
+  animation: rotate 50s linear infinite;
+}
+.bottom {
+  transform-origin: 134px 222px;
+  animation: rotate 50s linear infinite;
+}

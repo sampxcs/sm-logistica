@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { ERRORS } from '../../utils/dictionary'
 import useUser from '../../hooks/useUser'
 
+import Title from '../Title'
 import Input from '../Input'
 import Button from '../Button'
 
@@ -37,6 +38,7 @@ export default function SignInForm() {
 
   return (
     <form className={styles.smallForm} onSubmit={handleSubmit}>
+      <Title />
       <h1 className={styles.title}>Inicia sesion</h1>
       <div className={styles.div}>
         <Input
@@ -48,6 +50,7 @@ export default function SignInForm() {
             (errorMessage === ERRORS.INVALID_EMAIL && ERRORS.INVALID_EMAIL)
           }
           title={'Introduce tu email'}
+          onChange={() => setErrorMessage('')}
         />
         <Input
           type={'password'}
@@ -58,6 +61,7 @@ export default function SignInForm() {
             (errorMessage === ERRORS.INVALID_PASSWORD && ERRORS.INVALID_PASSWORD)
           }
           title="Por favor, introduzca su contraseña"
+          onChange={() => setErrorMessage('')}
         />
         <small className={styles.small}>
           <Link href="/sign-up">

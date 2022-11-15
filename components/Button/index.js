@@ -5,7 +5,7 @@ import Spinner from '../Spinner'
 
 import Link from 'next/link'
 
-export default function Button({ className, href, children, onClick, type, red, light, active, disabled, width }) {
+export default function Button({ className, href, children, onClick, type, red, light, active, disabled, width, color, background }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [isRippling, setIsRippling] = useState(false)
 
@@ -24,6 +24,7 @@ export default function Button({ className, href, children, onClick, type, red, 
     return (
       <Link href={href}>
         <a
+          style={{ width: width, color: color, borderColor: color, backgroundColor: background }}
           className={`${styles.button} ${styles[className]} ${light && styles.light} ${red && styles.red} ${active && styles.active}`}
           onClick={(e) => {
             const rect = e.target.getBoundingClientRect()
@@ -49,7 +50,7 @@ export default function Button({ className, href, children, onClick, type, red, 
 
   return (
     <button
-      style={{ width: width }}
+      style={{ width: width, color: color, borderColor: color, backgroundColor: background }}
       type={type}
       disabled={disabled}
       className={`${styles.button} ${styles[className]} ${light && styles.light} ${red && styles.red} ${active && styles.active}`}

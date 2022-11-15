@@ -49,6 +49,10 @@ const useUser = () => {
     }
   }, [updateUser, setUser])
 
+  /* ---------------------- USER --------------------------- */
+
+  // CREATE USER WITH EMAIL AND PASSWORD
+
   const createUserWithEmail = useCallback(
     async (data) => {
       setUserStatusCode(USER_STATUS.LOADING)
@@ -100,6 +104,15 @@ const useUser = () => {
     [router]
   )
 
+  // UPDATE PROFILE
+
+  const updateProfile = useCallback(() => {
+    setUserStatusCode(USER_STATUS.LOADING)
+    setTimeout(() => setUserStatusCode(USER_STATUS.OK), 3000)
+  }, [])
+
+  // SIGN IN
+
   const signIn = useCallback(async (data) => {
     setUserStatusCode(USER_STATUS.LOADING)
     const { password, email } = data
@@ -143,11 +156,17 @@ const useUser = () => {
     }
   }, [])
 
+  // SIGN OUT
+
   const signOut = useCallback(() => {
     setUserStatusCode(USER_STATUS.NULL)
     window.localStorage.removeItem('loggedUser')
     window.location.reload()
   }, [])
+
+  /* ---------------------- ORDER --------------------------- */
+
+  // CREATE ORDER
 
   const createOrder = useCallback(
     async (data) => {
@@ -250,6 +269,8 @@ const useUser = () => {
     [setUser]
   )
 
+  // DELETE ORDER
+
   const deleteOrder = useCallback(async (data) => {
     console.log(data)
     const endpoint = `/api/orders/delete`
@@ -271,11 +292,14 @@ const useUser = () => {
     }
   }, [])
 
+  /* -------------------------------------------------------- */
+
   return {
     user,
     userStatusCode,
     orderStatusCode,
     createUserWithEmail,
+    updateProfile,
     signIn,
     signOut,
     createOrder,

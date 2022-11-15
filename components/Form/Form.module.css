@@ -15,12 +15,15 @@
   gap: 10px;
   width: 100%;
   max-width: var(--break-point-mobile);
+  background-color: var(--color-white-100);
   padding: 50px 60px;
   border-radius: var(--border-radius-l);
   box-shadow: 0 0 30px var(--color-black-custom-05);
 }
 .title {
   text-align: center;
+  margin-top: -10px;
+  font-size: var(--font-size-m);
 }
 .div {
   display: flex;

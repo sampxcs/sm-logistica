@@ -3,13 +3,13 @@
 :root {
   --color-primary-gradient: linear-gradient(166deg, #4299ff 15%, #0076ff 100%);
   --color-primary-100: #4748ee;
-  --color-primary-80: #4748eecc;
+  --color-primary-80: #6d6dff;
   --color-primary-60: #4748ee99;
   --color-primary-40: #4748ee66;
   --color-primary-20: #4748ee33;
   --color-primary-05: #4748ee0d;
   --color-secundary-gradient: linear-gradient(166deg, #ff8950 15%, #f85203 100%);
-  --color-secundary-100: #e9625b;
+  --color-secundary-100: #3d3ec3;
   --color-secundary-80: #f85203cc;
   --color-secundary-60: #f8520399;
   --color-secundary-40: #f8520366;
@@ -117,3 +117,5 @@ select {
     --font-size-xxl: 4rem;
   }
 }
+
+/* #3d3ec3 */

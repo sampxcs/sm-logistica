@@ -22,7 +22,7 @@
   min-width: max-content;
 }
 .homeHeader ul li:hover {
-  color: var(--color-primary-100);
+  opacity: 0.8;
 }
 .homeHeader {
   align-items: center;
@@ -31,7 +31,7 @@
   padding: 0 25px;
   justify-content: center;
   position: fixed;
-  background-color: var(--color-white-40);
+  color: var(--color-white-100);
   font-size: var(--font-size-s);
   backdrop-filter: blur(25px);
   width: 100%;
