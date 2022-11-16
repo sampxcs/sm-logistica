@@ -182,6 +182,12 @@
   font-weight: 900;
   font-size: var(--font-size-l);
 }
+.sectionTitle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
 .sectionTitle small {
   color: var(--color-black-custom-100);
   display: block;

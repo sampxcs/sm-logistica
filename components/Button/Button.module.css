@@ -6,7 +6,7 @@
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
 }
 .button > .ripple {
   width: 20px;

@@ -1,12 +1,18 @@
-import Link from 'next/link'
-import Input from '../Input'
-import Button from '../Button'
 import styles from './Form.module.css'
+
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import useUser from '../../hooks/useUser'
+import Link from 'next/link'
+
 import { ERRORS } from '../../utils/dictionary'
+import useUser from '../../hooks/useUser'
+
+import Button from '../Button'
+import Input from '../Input'
 import Title from '../Title'
+
+import ArrowRightToBracketIcon from '../Icons/ArrowRightToBracketIcon'
+import GoogleIcon from '../Icons/GoogleIcon'
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -104,11 +110,11 @@ export default function SignUpForm() {
       </div>
       <div className={styles.div}>
         <Button disabled={userStatusCode === 1} className={'formButton'}>
-          Crear Cuenta
+          Crear Cuenta <ArrowRightToBracketIcon width={16} />
         </Button>
         <p className={styles.subTitle}>O continua con</p>
         <Button type={'button'} light className={'formButton'}>
-          Google
+          Google <GoogleIcon width={16} />
         </Button>
         <small className={styles.small}>
           ¿Ya tenes una cuenta?,

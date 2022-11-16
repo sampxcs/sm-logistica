@@ -11,6 +11,9 @@ import Title from '../Title'
 import Input from '../Input'
 import Button from '../Button'
 
+import ArrowRightToBracketIcon from '../Icons/ArrowRightToBracketIcon'
+import GoogleIcon from '../Icons/GoogleIcon'
+
 export default function SignInForm() {
   const router = useRouter()
   const [errorMessage, setErrorMessage] = useState()
@@ -71,10 +74,11 @@ export default function SignInForm() {
       </div>
       <div className={styles.div}>
         <Button disabled={userStatusCode === 1} className={'formButton'}>
-          Inicia Sesion
+          Inicia Sesion <ArrowRightToBracketIcon width={16} />
         </Button>
         <p className={styles.subTitle}>O continua con</p>
         <Button type={'button'} light className={'formButton'}>
+          <GoogleIcon width={16} />
           Google
         </Button>
         <small className={styles.small}>
