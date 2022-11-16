@@ -3,14 +3,14 @@
 :root {
   --color-primary-gradient: linear-gradient(166deg, #4299ff 15%, #0076ff 100%);
   --color-primary-100: #4748ee;
-  --color-primary-80: #6d6dff;
+  --color-primary-80: #5a5aed;
   --color-primary-60: #4748ee99;
   --color-primary-40: #4748ee66;
   --color-primary-20: #4748ee33;
   --color-primary-05: #4748ee0d;
   --color-secundary-gradient: linear-gradient(166deg, #ff8950 15%, #f85203 100%);
   --color-secundary-100: #3d3ec3;
-  --color-secundary-80: #f85203cc;
+  --color-secundary-80: #0f1066;
   --color-secundary-60: #f8520399;
   --color-secundary-40: #f8520366;
   --color-secundary-20: #f8520333;
@@ -39,10 +39,10 @@
   --color-black-custom-40: #5f545466;
   --color-black-custom-20: #1b1b1b33;
   --color-black-custom-05: #1c1c1c0d;
-  --color-white-custom-100: #fafafa;
-  --color-white-custom-40: #fafafa66;
-  --color-white-custom-20: #fafafa33;
-  --color-white-custom-05: #fafafa0d;
+  --color-white-custom-100: #f8f8f8;
+  --color-white-custom-40: #f8f8f866;
+  --color-white-custom-20: #f8f8f833;
+  --color-white-custom-05: #f8f8f80d;
   --color-black-100: #000000;
   --color-black-40: #00000066;
   --color-black-20: #00000033;

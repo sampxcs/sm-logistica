@@ -1,23 +1,15 @@
 const BoxIcon = (props) => (
-  <svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg' {...props}>
-    <path fill='none' d='M0 0h256v256H0z' />
+  <svg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg' fill='currentColor' {...props}>
+    <path className='cls-1' d='M10 1h6v5.13a.87.87 0 0 1-.87.87h-4.26a.87.87 0 0 1-.87-.87V1Z' />
     <path
-      d='M224 177.3V78.7a8.1 8.1 0 0 0-4.1-7l-88-49.5a7.8 7.8 0 0 0-7.8 0l-88 49.5a8.1 8.1 0 0 0-4.1 7v98.6a8.1 8.1 0 0 0 4.1 7l88 49.5a7.8 7.8 0 0 0 7.8 0l88-49.5a8.1 8.1 0 0 0 4.1-7Z'
-      fill='none'
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth={16}
+      className='cls-2'
+      d='M11 26H3a3 3 0 0 1-3-3V3a3 3 0 0 1 3-3h20a3 3 0 0 1 3 3v8a1 1 0 0 1-2 0V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v20a1 1 0 0 0 1 1h8a1 1 0 0 1 0 2Z'
     />
-    <path fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth={16} d='M177 152.5v-52L80 47' />
     <path
-      fill='none'
-      stroke='currentColor'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth={16}
-      d='m222.9 74.6-94 53.4-95.8-53.4M128.9 128l-.9 106.8'
+      className='cls-2'
+      d='M7 22H5a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2ZM23 32a9 9 0 1 1 9-9 9 9 0 0 1-9 9Zm0-16a7 7 0 1 0 7 7 7 7 0 0 0-7-7Z'
     />
+    <path className='cls-2' d='M25 22h-1v-1a1 1 0 0 0-2 0v1h-1a1 1 0 0 0 0 2h1v1a1 1 0 0 0 2 0v-1h1a1 1 0 0 0 0-2Z' />
   </svg>
 )
 

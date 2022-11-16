@@ -31,6 +31,7 @@
   padding: 0 25px;
   justify-content: center;
   position: fixed;
+  transition: 0.3s ease;
   color: var(--color-white-100);
   font-size: var(--font-size-s);
   backdrop-filter: blur(25px);
