@@ -73,7 +73,7 @@ export default function SignInForm() {
         </small>
       </div>
       <div className={styles.div}>
-        <Button disabled={userStatusCode === 1} className={'formButton'}>
+        <Button loading={userStatusCode === 1} className={'formButton'}>
           Inicia Sesion <ArrowRightToBracketIcon width={16} />
         </Button>
         <p className={styles.subTitle}>O continua con</p>

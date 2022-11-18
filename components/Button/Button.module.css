@@ -12,7 +12,7 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  background: var(--color-white-20);
+  background: var(--color-white-100);
   display: block;
   content: '';
   border-radius: 100%;
@@ -23,11 +23,11 @@
   width: 20px;
   height: 20px;
   position: absolute;
-  background: var(--color-primary-20);
+  background: currentColor;
   display: block;
   content: '';
   border-radius: 100%;
-  opacity: 1;
+  opacity: 0.5;
   animation: 0.9s ease 1 forwards ripple-effect;
 }
 .button > .content {
@@ -50,6 +50,8 @@
   background-color: var(--color-primary-100);
   color: var(--color-white-100);
   transition: 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 .buttonPrimary:hover {
   opacity: 0.8;
@@ -62,6 +64,14 @@
   background: none;
   color: var(--color-primary-100);
   transition: 0.3s ease;
+}
+.buttonPrimary.light.red {
+  color: var(--color-red-error-100);
+  border-color: var(--color-red-error-100);
+  background: none;
+}
+.buttonPrimary.red {
+  background-color: var(--color-red-error-100);
 }
 
 /* ----------------- NAV LEFT BUTTON ------------------ */
@@ -173,11 +183,11 @@
 @keyframes ripple-effect {
   0% {
     transform: scale(1);
-    opacity: 1;
+    opacity: 0.2;
   }
   50% {
     transform: scale(30);
-    opacity: 0.375;
+    opacity: 0.05;
   }
   100% {
     transform: scale(100);

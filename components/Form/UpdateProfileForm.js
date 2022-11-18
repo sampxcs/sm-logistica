@@ -76,7 +76,7 @@ export default function UpdateProfileForm({ user, updateProfile, userStatusCode 
         <Input type="checkbox" disabled={user.role !== 'admin'} id="notificaciones" />{' '}
         <label htmlFor="notificaciones">Recibir notificaciones por correo.</label>
       </div>
-      <Button className={'formButton'} width={'120px'} disabled={userStatusCode === USER_STATUS.LOADING}>
+      <Button className={'formButton'} width={'120px'} loading={userStatusCode === USER_STATUS.LOADING}>
         GUARDAR
       </Button>
     </form>

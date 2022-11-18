@@ -25,4 +25,4 @@ export const provinces = [
   'Tierra del Fuego',
   'Tucumán',
 ]
-export const transports = ['Correo Argentino', 'OCA', 'Moto Express', 'Via Cargo', 'Expreso Tarifa Plana', 'Otros Expresos']
+export const transports = ['Correo Argentino', 'OCA', 'Promail', 'Cruz del Sur']

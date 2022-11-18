@@ -171,7 +171,6 @@ const useUser = () => {
   const createOrder = useCallback(
     async (data) => {
       setOrderStatusCode(CREATE_ORDER_STATUS.LOADING)
-      let error
       const {
         orderId,
         userId,
@@ -196,81 +195,63 @@ const useUser = () => {
         description,
       } = data
 
-      if (!amount) error = ERRORS.AMOUNT_REQUIRED
-      if (!transport) error = ERRORS.TRANSPORT_REQUIRED
-      if (!streetHeight) error = ERRORS.STREET_HEIGHT_REQUIRED
-      if (!street) error = ERRORS.STREET_REQUIRED
-      if (!location) error = ERRORS.LOCATION_REQUIRED
-      if (!province) error = ERRORS.PROVINCE_REQUIRED
-      if (!cp) error = ERRORS.CP_REQUIRED
-      if (!email) error = ERRORS.EMAIL_REQUIRED
-      if (!tel) error = ERRORS.TEL_REQUIRED
-      // if (!cuit) error = ERRORS.INVALID_CUIT
-      if (!document) error = ERRORS.DOCUMENT_REQUIRED
-      if (name.length < 2) error = ERRORS.NAME_REQUIRED
+      const date = new Date()
+      let hours = date.getHours()
+      let minutes = date.getMinutes()
 
-      if (!error) {
-        const date = new Date()
-        let hours = date.getHours()
-        let minutes = date.getMinutes()
+      if (hours < 10) hours = `0${hours}`
+      if (minutes < 10) minutes = `0${minutes}`
 
-        if (hours < 10) hours = `0${hours}`
-        if (minutes < 10) minutes = `0${minutes}`
+      const newOrder = {
+        orderId,
+        userId,
+        name,
+        document,
+        cuit,
+        tel,
+        email,
+        type,
+        cp,
+        province,
+        location,
+        street,
+        streetHeight,
+        flat,
+        department,
+        specification,
+        transport,
+        amount,
+        cant,
+        weight,
+        description,
+        date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
+        status: ORDER_STATUS.PENDING,
+        traking: '',
+      }
 
-        const newOrder = {
-          orderId,
-          userId,
-          name,
-          document,
-          cuit,
-          tel,
-          email,
-          type,
-          cp,
-          province,
-          location,
-          street,
-          streetHeight,
-          flat,
-          department,
-          specification,
-          transport,
-          amount,
-          cant,
-          weight,
-          description,
-          date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
-          status: ORDER_STATUS.PENDING,
-          traking: '',
+      const endpoint = '/api/orders/post'
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newOrder),
+      }
+      try {
+        const response = await fetch(endpoint, options)
+        const result = await response.json()
+        console.log(result)
+        if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
+        if (response.status === 400) throw new Error(result.error.message)
+        if (response.status === 201) {
+          setUser(result)
+          window.localStorage.setItem('loggedUser', JSON.stringify(result))
+          setOrderStatusCode(CREATE_ORDER_STATUS.OK)
         }
-
-        const endpoint = '/api/orders/post'
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newOrder),
-        }
-        try {
-          const response = await fetch(endpoint, options)
-          const result = await response.json()
-          console.log(result)
-          if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
-          if (response.status === 400) throw new Error(result.error.message)
-          if (response.status === 201) {
-            setUser(result)
-            window.localStorage.setItem('loggedUser', JSON.stringify(result))
-            setOrderStatusCode(CREATE_ORDER_STATUS.OK)
-          }
-        } catch (e) {
-          setOrderStatusCode(CREATE_ORDER_STATUS.NULL)
-          console.log({ e })
-          throw new Error(e.message)
-        }
-      } else {
+      } catch (e) {
         setOrderStatusCode(CREATE_ORDER_STATUS.NULL)
-        throw new Error(error)
+        console.log({ e })
+        throw new Error(e.message)
       }
     },
     [setUser]
