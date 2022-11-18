@@ -210,6 +210,13 @@ const useUser = () => {
       if (name.length < 2) error = ERRORS.NAME_REQUIRED
 
       if (!error) {
+        const date = new Date()
+        let hours = date.getHours()
+        let minutes = date.getMinutes()
+
+        if (hours < 10) hours = `0${hours}`
+        if (minutes < 10) minutes = `0${minutes}`
+
         const newOrder = {
           orderId,
           userId,
@@ -232,7 +239,7 @@ const useUser = () => {
           cant,
           weight,
           description,
-          date: new Date().toLocaleDateString(),
+          date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
           status: ORDER_STATUS.PENDING,
           traking: '',
         }

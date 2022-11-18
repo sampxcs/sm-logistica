@@ -7,5 +7,6 @@ export default function Nav() {
   const router = useRouter()
 
   if (router.pathname === '/clients-area/[site]') return <ClientsAreaNav />
+  if (router.pathname === '/clients-area/order/[id]') return <ClientsAreaNav />
   if (router.pathname === '/docs/[site]') return <DocsNav />
 }

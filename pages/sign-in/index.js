@@ -8,7 +8,7 @@ export default function SignIn() {
   return (
     <>
       <Head>
-        <title>Sign In &middot; SM Logística</title>
+        <title>Inicia Sesion &middot; SM Logística</title>
       </Head>
       <Container>
         <Form />

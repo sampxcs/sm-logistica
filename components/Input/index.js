@@ -20,6 +20,7 @@ export default function Input({
   autofocus,
   type,
   checked,
+  selected,
 }) {
   const [value, setValue] = useState(defaultValue || '')
   const [inputType, setInputType] = useState(type)
@@ -35,11 +36,10 @@ export default function Input({
             setValue(e.target.value)
             onChange && onChange(e)
           }}
-          value={value}
         >
           <option style={{ display: 'none' }}></option>
           {options.map((option) => (
-            <option key={option} value={option}>
+            <option key={option} selected={option === selected} value={option}>
               {option}
             </option>
           ))}

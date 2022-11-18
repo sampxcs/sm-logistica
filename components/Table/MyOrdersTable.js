@@ -96,7 +96,7 @@ export default function MyOrdersTable({ user, deleteOrder }) {
       name: 'Opciones',
       cell: (row) => (
         <Button className={'circleButton'} light onClick={(e) => handleClickButton(e, row)}>
-          <DotMenuIcon width="18" />
+          <DotMenuIcon width='18' />
         </Button>
       ),
     },
@@ -116,7 +116,7 @@ export default function MyOrdersTable({ user, deleteOrder }) {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme="solarized"
+        theme='solarized'
         noDataComponent={<NoDataTable />}
       />
       {showModal && (

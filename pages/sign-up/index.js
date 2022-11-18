@@ -8,7 +8,7 @@ export default function SignUp() {
   return (
     <>
       <Head>
-        <title>Sign Up &middot; SM Logística</title>
+        <title>Crear Cuenta &middot; SM Logística</title>
       </Head>
       <Container>
         <Form />

@@ -11,6 +11,7 @@ import ClientsAreaAccount from './ClientsAreaAccount'
 import ClientsAreaRates from './ClientsAreaRates'
 
 import DocsPackingConditions from './DocsPackingConditions'
+import ClientsAreaOrder from './ClientsAreaOrder'
 
 export default function Main() {
   const { user, orderStatusCode, userStatusCode, updateProfile, createOrder, deleteOrder } = useUser()
@@ -23,7 +24,7 @@ export default function Main() {
     return <ClientsAreaCreateOrder user={user} createOrder={createOrder} orderStatusCode={orderStatusCode} />
   if (router.asPath === '/clients-area/import-orders') return <ClientsAreaImportOrders user={user} />
   if (router.asPath === '/clients-area/my-orders') return <ClientsAreaMyOrders user={user} deleteOrder={deleteOrder} />
-  if (router.asPath === `/clients-area/order/${id}`) return <h1>ORDER ID IS {id}</h1>
+  if (router.asPath === `/clients-area/order/${id}`) return <ClientsAreaOrder user={user} id={id} />
   if (router.asPath === '/clients-area/users') return <ClientsAreaUsers user={user} />
   if (router.asPath === '/clients-area/profile')
     return <ClientsAreaProfile user={user} updateProfile={updateProfile} userStatusCode={userStatusCode} />
@@ -31,5 +32,5 @@ export default function Main() {
   if (router.asPath === '/clients-area/rates') return <ClientsAreaRates user={user} />
   if (router.asPath === '/docs/packing-conditions') return <DocsPackingConditions />
 
-  return router.replace('/404')
+  return
 }

@@ -27,6 +27,11 @@
   color: var(--color-primary-100);
   font-weight: 500;
 }
+.subTitle {
+  margin-bottom: -15px;
+  font-size: var(--font-size-m);
+  font-weight: 500;
+}
 .dashboardData {
   font-size: var(--font-size-s);
   min-width: max-content;
@@ -72,9 +77,6 @@
   display: flex;
   font-weight: 500;
   color: var(--color-black-custom-100);
-  align-items: center;
-  text-align: center;
-  justify-content: center;
   border-radius: var(--border-radius-s);
   box-shadow: 0 0 15px var(--color-black-custom-05);
   overflow: hidden;
@@ -231,6 +233,34 @@
   margin-left: 15px;
 }
 
+/* --------------------------------------------------------------- */
+
+.orderInfo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px 50px;
+  flex-wrap: wrap;
+}
+.orderTraking a {
+  color: var(--color-primary-100);
+  font-size: var(--font-size-s);
+}
+.orderButton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.orderItem {
+  width: max-content;
+}
+.orderItem span {
+  font-size: var(--font-size-s);
+  font-weight: 600;
+}
+.orderItem p {
+  font-size: var(--font-size-s);
+}
 @media (max-width: 960px) {
   .boxes {
     flex-direction: column;
