@@ -1,16 +1,16 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import Nav from '../../../components/Nav'
-import Header from '../../../components/Header'
-import Main from '../../../components/Main'
-import Spinner from '../../../components/Spinner'
-import Container from '../../../components/Container'
+import Nav from '../../components/Nav'
+import Header from '../../components/Header'
+import Main from '../../components/Main'
+import Spinner from '../../components/Spinner'
+import Container from '../../components/Container'
 
-import useUser from '../../../hooks/useUser'
+import useUser from '../../hooks/useUser'
 
-import { USER_STATUS } from '../../../utils/dictionary'
+import { USER_STATUS } from '../../utils/dictionary'
 
 export default function ClientsArea() {
   const router = useRouter()

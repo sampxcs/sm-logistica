@@ -8,7 +8,7 @@ export default function ClientsAreaMyOrdersMain({ user, deleteOrder }) {
     <section className={styles.main}>
       <div className={styles.content}>
         <h2 className={styles.title}>PEDIDOS</h2>
-        <Table user={user} deleteOrder={deleteOrder} />
+        <Table className={'myOrdersTable'} user={user} deleteOrder={deleteOrder} />
       </div>
       <Footer />
     </section>

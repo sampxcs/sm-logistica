@@ -11,14 +11,6 @@
   background-color: var(--color-black-custom-05);
   backdrop-filter: blur(2px);
 }
-/* .container {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-} */
 .content {
   background-color: var(--color-white-100);
   border-radius: var(--border-radius-l);
@@ -86,8 +78,11 @@
 /* ------------------- FULL SCREEN MODAL -------------------- */
 
 .fullScreenModal {
-  width: 550px;
+  width: max-content;
+  max-width: 550px;
   height: max-content;
+  max-height: 90vh;
+  overflow: scroll;
   position: fixed;
   padding: 20px;
   left: 0;
@@ -95,12 +90,6 @@
   right: 0;
   top: 0;
   bottom: 0;
-}
-.orderLabel {
-  height: 350px;
-  border: 2px dotted var(--color-black-custom-20);
-  margin: 15px;
-  border-radius: var(--border-radius-s);
 }
 .orderPayment {
   height: 90px;

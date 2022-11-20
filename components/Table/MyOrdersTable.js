@@ -62,6 +62,20 @@ const customStyles = {
   },
 }
 
+const customSort = (rows, selector, direction) => {
+  return rows.sort((a, b) => {
+    const aField = selector(a).toLowerCase()
+    const bField = selector(b).toLowerCase()
+    let comparison = 0
+    if (aField > bField) {
+      comparison = -1
+    } else if (aField < bField) {
+      comparison = 1
+    }
+    return direction === 'desc' ? comparison * -1 : comparison
+  })
+}
+
 export default function MyOrdersTable({ user, deleteOrder }) {
   const [coords, setCoords] = useState({ x: -1, y: -1 })
   const [showModal, setShowModal] = useState()
@@ -89,7 +103,7 @@ export default function MyOrdersTable({ user, deleteOrder }) {
     { name: 'CP', selector: (row) => row['cp'], sortable: true },
     { name: 'Tipo De Envio', selector: (row) => row['type'], sortable: true },
     { name: 'Transporte', selector: (row) => row['transport'], sortable: true },
-    { name: 'Creado', selector: (row) => row['date'], sortable: true },
+    { id: 'date', name: 'Creado', selector: (row) => row['date'], sortable: true },
     { name: 'Nro. de Guia', selector: (row) => row['cant'], sortable: true },
     { name: 'Estado', selector: (row) => row['status'], sortable: true },
     {
@@ -118,6 +132,8 @@ export default function MyOrdersTable({ user, deleteOrder }) {
         selectableRowsHighlight
         theme='solarized'
         noDataComponent={<NoDataTable />}
+        defaultSortFieldId='date'
+        sortFunction={customSort}
       />
       {showModal && (
         <Modal className={'myOrdersTableModal'} closeModal={handleShowModal} deleteOrder={deleteOrder} select={selectRow} coords={coords} />

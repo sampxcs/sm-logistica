@@ -4,10 +4,8 @@ import MyOrdersTable from './MyOrdersTable'
 import UsersTable from './UsersTable'
 import AccountTable from './AccountTable'
 
-export default function Table({ user, deleteOrder }) {
-  const router = useRouter()
-
-  if (router.asPath === '/clients-area/my-orders') return <MyOrdersTable user={user} deleteOrder={deleteOrder} />
-  if (router.asPath === '/clients-area/users') return <UsersTable user={user} />
-  if (router.asPath === '/clients-area/account') return <AccountTable user={user} />
+export default function Table({ className, user, deleteOrder }) {
+  if (className === 'myOrdersTable') return <MyOrdersTable user={user} deleteOrder={deleteOrder} />
+  if (className === 'usersTable') return <UsersTable user={user} />
+  if (className === 'accountTable') return <AccountTable user={user} />
 }

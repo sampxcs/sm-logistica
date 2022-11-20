@@ -293,7 +293,6 @@
     font-size: var(--font-size-s);
   }
 }
-
 @keyframes show-up {
   0% {
     transform: translateY(15px);

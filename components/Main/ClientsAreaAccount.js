@@ -14,7 +14,7 @@ export default function ClientsAreaAccount() {
         <a href='#' className={styles.link}>
           Descargar resumen de cuenta.
         </a>
-        <Table />
+        <Table className={'accountTable'} />
       </div>
       <Footer />
     </section>

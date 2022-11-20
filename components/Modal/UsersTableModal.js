@@ -8,8 +8,7 @@ import EditIcon from '../Icons/EditIcon'
 
 export default function UsersTableModal({ closeModal, coords }) {
   return ReactDOM.createPortal(
-    <>
-      <div className={styles.lightBG} onClick={closeModal} />
+    <div className={styles.lightBG} onClick={closeModal}>
       <div
         className={`${styles.content} ${styles.tableModal}`}
         style={{
@@ -18,17 +17,17 @@ export default function UsersTableModal({ closeModal, coords }) {
         }}
       >
         <div className={styles.main}>
-          <Button href="/clients-area/profile" className="navLeftButton" light>
-            <EditIcon width="16" height="16" />
+          <Button href='/clients-area/profile' className='navLeftButton' light>
+            <EditIcon width='16' height='16' />
             Editar
           </Button>
-          <Button href="/clients-area/profile" className="navLeftButton" red light>
-            <TrashCanIcon width="16" height="16" />
+          <Button href='/clients-area/profile' className='navLeftButton' red light>
+            <TrashCanIcon width='16' height='16' />
             Eliminar
           </Button>
         </div>
       </div>
-    </>,
+    </div>,
     document.getElementById('modal-root')
   )
 }

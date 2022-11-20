@@ -1,4 +1,6 @@
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+
 import useUser from '../../hooks/useUser'
 
 import ClientsAreaAdmin from './ClientsAreaAdmin'
@@ -15,22 +17,42 @@ import ClientsAreaOrder from './ClientsAreaOrder'
 
 export default function Main() {
   const { user, orderStatusCode, userStatusCode, updateProfile, createOrder, deleteOrder } = useUser()
-
+  const [query, setQuery] = useState()
   const router = useRouter()
-  const { id } = router.query
 
-  if (router.asPath === '/clients-area/admin') return <ClientsAreaAdmin user={user} />
-  if (router.asPath === '/clients-area/create-order')
-    return <ClientsAreaCreateOrder user={user} createOrder={createOrder} orderStatusCode={orderStatusCode} />
-  if (router.asPath === '/clients-area/import-orders') return <ClientsAreaImportOrders user={user} />
-  if (router.asPath === '/clients-area/my-orders') return <ClientsAreaMyOrders user={user} deleteOrder={deleteOrder} />
-  if (router.asPath === `/clients-area/order/${id}`) return <ClientsAreaOrder user={user} id={id} />
-  if (router.asPath === '/clients-area/users') return <ClientsAreaUsers user={user} />
-  if (router.asPath === '/clients-area/profile')
-    return <ClientsAreaProfile user={user} updateProfile={updateProfile} userStatusCode={userStatusCode} />
-  if (router.asPath === '/clients-area/account') return <ClientsAreaAccount user={user} />
-  if (router.asPath === '/clients-area/rates') return <ClientsAreaRates user={user} />
-  if (router.asPath === '/docs/packing-conditions') return <DocsPackingConditions />
+  useEffect(() => {
+    if (!router.isReady) return
+    const { site } = router.query
+    setQuery(site)
+  }, [router.query, router.isReady])
 
-  return
+  if (!query) return
+
+  const [site, id] = query
+
+  switch (site) {
+    case 'admin':
+      return <ClientsAreaAdmin user={user} />
+    case 'create-order':
+      return <ClientsAreaCreateOrder user={user} createOrder={createOrder} orderStatusCode={orderStatusCode} />
+    case 'import-orders':
+      return <ClientsAreaImportOrders user={user} />
+    case 'my-orders':
+      return <ClientsAreaMyOrders user={user} deleteOrder={deleteOrder} />
+    case 'order':
+      return <ClientsAreaOrder user={user} id={id} />
+    case 'users':
+      return <ClientsAreaUsers user={user} />
+    case 'profile':
+      return <ClientsAreaProfile user={user} updateProfile={updateProfile} userStatusCode={userStatusCode} />
+    case 'account':
+      return <ClientsAreaAccount user={user} />
+    case 'rates':
+      return <ClientsAreaRates user={user} />
+    case 'packing-conditions':
+      return <DocsPackingConditions />
+    default:
+      router.replace('/404')
+      break
+  }
 }

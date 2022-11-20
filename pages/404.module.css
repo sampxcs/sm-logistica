@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: show-up 1s ease forwards;
+}
+.code {
+  color: var(--color-primary-100);
+  display: flex;
+  font-size: 180px;
+  font-weight: 900;
+  font-family: var(--font-family-code);
+}
+.button {
+  margin: 15px 0;
+}
+@keyframes show-up {
+  0% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

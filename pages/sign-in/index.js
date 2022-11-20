@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import Form from '../../components/Form'
+import SignInForm from '../../components/Form/SignInForm'
 import Container from '../../components/Container'
 import AnimationBackground from '../../components/AnimationBackground'
 
@@ -11,7 +11,7 @@ export default function SignIn() {
         <title>Inicia Sesion &middot; SM Logística</title>
       </Head>
       <Container>
-        <Form />
+        <SignInForm />
         <AnimationBackground />
       </Container>
     </>

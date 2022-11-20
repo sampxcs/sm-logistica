@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import Form from '../../components/Form'
+import SignUpForm from '../../components/Form/SignUpForm'
 import Container from '../../components/Container'
 import AnimationBackground from '../../components/AnimationBackground'
 
@@ -11,7 +11,7 @@ export default function SignUp() {
         <title>Crear Cuenta &middot; SM Logística</title>
       </Head>
       <Container>
-        <Form />
+        <SignUpForm />
         <AnimationBackground />
       </Container>
     </>

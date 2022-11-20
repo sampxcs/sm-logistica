@@ -12,7 +12,7 @@ export default function ClientsAreaImportOrdersMain() {
         <Link href={'/clients-area/admin'}>
           <div className={styles.link}>(+) Crear usuario</div>
         </Link>
-        <Table />
+        <Table className={'usersTable'} />
       </div>
       <Footer />
     </section>
