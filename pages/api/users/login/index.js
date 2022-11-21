@@ -19,10 +19,7 @@ export default async function login(req, res) {
           displayName,
           id,
         }
-        console.log('antes de la variable de entorno')
-        console.log(process.env.SECRET)
         const token = jwt.sign(userForToken, process.env.SECRET, { expiresIn: 60 * 60 * 24 * 7 })
-        console.log('despues de la variable')
         return res.send({
           displayName,
           email,
