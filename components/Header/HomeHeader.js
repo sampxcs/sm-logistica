@@ -16,7 +16,7 @@ export default function HomeHeader() {
     <header
       className={styles.homeHeader}
       style={{
-        backgroundColor: scrollY > 10 && 'var(--color-black-custom-100)',
+        backgroundColor: scrollY > 10 ? 'var(--color-black-custom-100)' : 'transparent',
       }}
     >
       <div className={styles.container}>

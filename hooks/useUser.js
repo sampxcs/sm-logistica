@@ -161,8 +161,8 @@ const useUser = () => {
   const signOut = useCallback(() => {
     setUserStatusCode(USER_STATUS.NULL)
     window.localStorage.removeItem('loggedUser')
-    window.location.reload()
-  }, [])
+    router.reload()
+  }, [router])
 
   /* ---------------------- ORDER --------------------------- */
 

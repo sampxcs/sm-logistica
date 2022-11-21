@@ -37,16 +37,20 @@ export default function CreateOrderModal({ closeModal, createOrder, orderStatusC
           </small>
           <OrderLabel order={data} />
           <div className={styles.orderPayment}>
-            <Input type='radio' /> <label>MERCADO PAGO</label>
-            <Input type='radio' /> <label>DINERO EN CUENTA</label>
+            <div className={styles.paymentInput}>
+              <Input type='radio' id='mercado-pago' name='payment-type' /> <label htmlFor='mercado-pago'>MERCADO PAGO</label>
+            </div>
+            <div className={styles.paymentInput}>
+              <Input type='radio' id='dinero-en-cuenta' name='payment-type' /> <label htmlFor='dinero-en-cuenta'>DINERO EN CUENTA</label>
+            </div>
           </div>
           <div className={styles.buttons}>
             <div>
-              <Button className='buttonPrimary' onClick={closeModal} light>
+              <Button className='buttonPrimary' width='150px' onClick={closeModal} light>
                 <EditIcon width='16' height='16' />
                 Editar
               </Button>
-              <Button className='buttonPrimary' red light>
+              <Button className='buttonPrimary' width='150px' red light>
                 <TrashCanIcon width='16' height='16' />
                 Eliminar
               </Button>
@@ -54,15 +58,15 @@ export default function CreateOrderModal({ closeModal, createOrder, orderStatusC
             <div>
               <Button
                 className='buttonPrimary'
+                width='150px'
                 onClick={handleCreateOrder}
                 loading={orderStatusCode === CREATE_ORDER_STATUS.LOADING}
                 light
-                width={'130px'}
               >
                 <PrintIcon width='16' height='16' />
                 Imprimir *
               </Button>
-              <Button className='buttonPrimary' disabled light>
+              <Button className='buttonPrimary' width='150px' disabled light>
                 Pagar
               </Button>
             </div>

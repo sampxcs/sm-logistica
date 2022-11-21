@@ -28,7 +28,7 @@ export default function ClientsAreaHeader() {
           {user.displayName}
           <i></i>
         </Button>
-        {showModal && <Modal className={'profileModal'} closeModal={handleShowModal} coords={coords} />}
+        {showModal && <Modal modalType={'profile'} closeModal={handleShowModal} coords={coords} />}
       </ul>
     </header>
   )

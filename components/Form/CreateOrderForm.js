@@ -236,6 +236,7 @@ export default function CreateOrderForm({ user, createOrder, orderStatusCode }) 
           <Input
             type='select'
             options={bultos}
+            defaultValue={1}
             selected={1}
             id='cant'
             name='cant'

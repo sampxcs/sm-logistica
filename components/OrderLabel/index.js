@@ -1,5 +1,3 @@
-import styles from './OrderLabel.module.css'
-
 export default function OrderLabel({ order }) {
   console.log(order)
   return (
@@ -9,7 +7,7 @@ export default function OrderLabel({ order }) {
           boxSizing: 'border-box',
           fontSize: '16px',
           height: '370px',
-          maxWidth: '450px',
+          maxWidth: '460px',
           border: '2px dotted #1b1b1b33',
           margin: '15px',
           borderRadius: '5px',
@@ -48,7 +46,7 @@ export default function OrderLabel({ order }) {
               width: '100px',
             }}
           >
-            CORREO ARGENTINO
+            {order.transport}
           </div>
           <div
             style={{

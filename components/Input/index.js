@@ -1,7 +1,6 @@
-import { useRef, useState } from 'react'
-import styles from './Input.module.css'
-import EyeIcon from '../Icons/EyeIcon'
-import EyeSlashIcon from '../Icons/EyeSlashIcon'
+import InputFile from './InputFile'
+import InputSelect from './InputSelect'
+import InputDefault from './InputDefault'
 
 export default function Input({
   defaultValue,
@@ -22,71 +21,52 @@ export default function Input({
   checked,
   selected,
 }) {
-  const [value, setValue] = useState(defaultValue || '')
-  const [inputType, setInputType] = useState(type)
-
   if (type === 'select')
     return (
-      <div className={value ? styles.activeGroup : styles.group}>
-        <select
-          className={`${styles.input} ${error && styles.error}`}
-          id={id}
-          name={name}
-          onChange={(e) => {
-            setValue(e.target.value)
-            onChange && onChange(e)
-          }}
-        >
-          <option style={{ display: 'none' }}></option>
-          {options.map((option) => (
-            <option key={option} selected={option === selected} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-        {label && (
-          <label htmlFor={id} className={styles.label}>
-            {label}
-          </label>
-        )}
-        <i className={styles.selectButton}></i>
-        {error ? <small className={styles.errorMessage}>{error}</small> : info && <small className={styles.info}>{info}</small>}
-      </div>
+      <InputSelect
+        defaultValue={defaultValue}
+        error={error}
+        id={id}
+        name={name}
+        options={options}
+        info={info}
+        selected={selected}
+        label={label}
+        onChange={onChange}
+      />
+    )
+
+  if (type === 'file')
+    return (
+      <InputFile
+        name={name}
+        required={required}
+        disabled={disabled}
+        error={error}
+        id={id}
+        label={label}
+        title={title}
+        onChange={onChange}
+      />
     )
 
   return (
-    <>
-      <div className={type == 'radio' || type == 'checkbox' ? styles.radioGroup : value ? styles.activeGroup : styles.group}>
-        <input
-          disabled={disabled}
-          className={`${styles.input} ${error && styles.error}`}
-          id={id}
-          name={name}
-          pattern={pattern}
-          placeholder={placeholder}
-          required={required}
-          title={title}
-          type={inputType}
-          value={value}
-          checked={checked}
-          autoFocus={autofocus}
-          onChange={(e) => {
-            setValue(e.target.value)
-            onChange && onChange(e)
-          }}
-        />
-        {label && (
-          <label htmlFor={id} className={styles.label}>
-            {label}
-          </label>
-        )}
-        {error ? <small className={styles.errorMessage}>{error}</small> : info && <small className={styles.info}>{info}</small>}
-        {type === 'password' && (
-          <i className={styles.icon} onClick={() => (inputType === 'password' ? setInputType('text') : setInputType('password'))}>
-            {inputType === 'password' ? <EyeIcon width={12} /> : <EyeSlashIcon width={13} />}
-          </i>
-        )}
-      </div>
-    </>
+    <InputDefault
+      defaultValue={defaultValue}
+      disabled={disabled}
+      error={error}
+      id={id}
+      info={info}
+      label={label}
+      name={name}
+      onChange={onChange}
+      pattern={pattern}
+      placeholder={placeholder}
+      required={required}
+      title={title}
+      autofocus={autofocus}
+      type={type}
+      checked={checked}
+    />
   )
 }

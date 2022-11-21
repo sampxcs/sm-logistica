@@ -48,6 +48,15 @@
   padding: 5px 0px;
   height: 100%;
 }
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.contentText {
+  margin-bottom: 35px;
+  padding: 0 25px;
+  font-size: var(--font-size-m);
+}
 .footer {
   border-top: 1px solid var(--color-black-custom-05);
 }
@@ -82,7 +91,7 @@
   max-width: 550px;
   height: max-content;
   max-height: 90vh;
-  overflow: scroll;
+  /*   overflow: scroll; */
   position: fixed;
   padding: 20px;
   left: 0;
@@ -92,16 +101,29 @@
   bottom: 0;
 }
 .orderPayment {
-  height: 90px;
-  border: 1px solid var(--color-black-custom-20);
   margin: 15px;
-  border-radius: var(--border-radius-s);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: space-between;
 }
+.paymentInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 25px;
+  width: 100%;
+  border: 1px solid var(--color-black-custom-20);
+  border-radius: var(--border-radius-s);
+  gap: 5px;
+}
+
 .buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 15px 10px;
+  gap: 15px;
 }
 .buttons div {
   display: flex;
