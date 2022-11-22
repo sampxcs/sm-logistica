@@ -15,10 +15,10 @@ export default function OrderInfoModal() {
             datos de envio.
           </p>
           <div className={styles.buttons}>
-            <Button className='buttonPrimary' width='150px' href='/clients-area/admin' light>
+            <Button className="buttonPrimary" width="150px" href="/clients-area/admin" light>
               VOLVER
             </Button>
-            <Button className='buttonPrimary' width='150px' href='/clients-area/profile'>
+            <Button className="buttonPrimary" width="150px" href="/clients-area/profile">
               EDITAR PERFIL
             </Button>
           </div>

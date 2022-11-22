@@ -8,11 +8,11 @@ import Modal from '../Modal'
 export default function ClientsAreaCreateOrder({ user, createOrder, orderStatusCode }) {
   const [showModal, setShowModal] = useState()
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!user.document || !user.cuit || !user.email || !user.tel || !user.address || !user.cp) {
       setShowModal(true)
     }
-  }, [setShowModal, user])
+  }, [setShowModal, user]) */
 
   return (
     <section className={styles.main}>

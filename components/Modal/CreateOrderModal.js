@@ -1,5 +1,7 @@
 import styles from './Modal.module.css'
-import ReactDOM, { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { useDispatch } from 'react-redux'
+import { addOrder } from '../../store/features/orders/orderSlice'
 
 import Button from '../Button'
 import OrderLabel from '../OrderLabel'
@@ -12,15 +14,16 @@ import { CREATE_ORDER_STATUS } from '../../utils/dictionary'
 import Input from '../Input'
 
 export default function CreateOrderModal({ closeModal, createOrder, orderStatusCode, data }) {
+  const dispatch = useDispatch()
   const handleCreateOrder = async () => {
     try {
-      await createOrder(data)
-      const orderLabel = document.getElementById('order-label')
+      await dispatch(addOrder(data))
+      /* const orderLabel = document.getElementById('order-label')
       const orderLabelWindow = window.open('', `PEDIDO ${data.orderId}`, 'width=600')
       orderLabelWindow.document.write(orderLabel.innerHTML)
       orderLabelWindow.print()
       orderLabelWindow.close()
-      window.location.reload()
+      window.location.reload() */
     } catch (error) {
       console.log(error)
     }
@@ -38,35 +41,35 @@ export default function CreateOrderModal({ closeModal, createOrder, orderStatusC
           <OrderLabel order={data} />
           <div className={styles.orderPayment}>
             <div className={styles.paymentInput}>
-              <Input type='radio' id='mercado-pago' name='payment-type' /> <label htmlFor='mercado-pago'>MERCADO PAGO</label>
+              <Input type="radio" id="mercado-pago" name="payment-type" /> <label htmlFor="mercado-pago">MERCADO PAGO</label>
             </div>
             <div className={styles.paymentInput}>
-              <Input type='radio' id='dinero-en-cuenta' name='payment-type' /> <label htmlFor='dinero-en-cuenta'>DINERO EN CUENTA</label>
+              <Input type="radio" id="dinero-en-cuenta" name="payment-type" /> <label htmlFor="dinero-en-cuenta">DINERO EN CUENTA</label>
             </div>
           </div>
           <div className={styles.buttons}>
             <div>
-              <Button className='buttonPrimary' width='150px' onClick={closeModal} light>
-                <EditIcon width='16' height='16' />
+              <Button className="buttonPrimary" width="150px" onClick={closeModal} light>
+                <EditIcon width="16" height="16" />
                 Editar
               </Button>
-              <Button className='buttonPrimary' width='150px' red light>
-                <TrashCanIcon width='16' height='16' />
+              <Button className="buttonPrimary" width="150px" red light>
+                <TrashCanIcon width="16" height="16" />
                 Eliminar
               </Button>
             </div>
             <div>
               <Button
-                className='buttonPrimary'
-                width='150px'
+                className="buttonPrimary"
+                width="150px"
                 onClick={handleCreateOrder}
                 loading={orderStatusCode === CREATE_ORDER_STATUS.LOADING}
                 light
               >
-                <PrintIcon width='16' height='16' />
+                <PrintIcon width="16" height="16" />
                 Imprimir *
               </Button>
-              <Button className='buttonPrimary' width='150px' disabled light>
+              <Button className="buttonPrimary" width="150px" disabled light>
                 Pagar
               </Button>
             </div>

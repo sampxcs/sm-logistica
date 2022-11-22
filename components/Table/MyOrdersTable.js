@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import styles from './Table.module.css'
 
+import { useSelector } from 'react-redux'
+
 import DataTable, { createTheme } from 'react-data-table-component'
 
 import DotMenuIcon from '../Icons/DotMenuIcon'
@@ -81,7 +83,8 @@ export default function MyOrdersTable({ user, deleteOrder }) {
   const [showModal, setShowModal] = useState()
   const [selectRow, setSelectRow] = useState()
 
-  const data = user.orders
+  const data = useSelector((state) => state.orders)
+  console.log(data)
 
   const handleShowModal = (e) => {
     const rect = e.target.getBoundingClientRect()
@@ -110,7 +113,7 @@ export default function MyOrdersTable({ user, deleteOrder }) {
       name: 'Opciones',
       cell: (row) => (
         <Button className={'circleButton'} light onClick={(e) => handleClickButton(e, row)}>
-          <DotMenuIcon width='18' />
+          <DotMenuIcon width="18" />
         </Button>
       ),
     },
@@ -130,9 +133,9 @@ export default function MyOrdersTable({ user, deleteOrder }) {
         responsive
         selectableRows
         selectableRowsHighlight
-        theme='solarized'
+        theme="solarized"
         noDataComponent={<NoDataTable />}
-        defaultSortFieldId='date'
+        defaultSortFieldId="date"
         sortFunction={customSort}
       />
       {showModal && (
