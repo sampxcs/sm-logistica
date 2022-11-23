@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { ERRORS } from '../../utils/dictionary'
+import { ERRORS, USER_STATUS } from '../../utils/dictionary'
 import useUser from '../../hooks/useUser'
 
 import Title from '../Title'
@@ -19,9 +19,11 @@ export default function SignInForm() {
   const [errorMessage, setErrorMessage] = useState()
   const { user, userStatusCode, signIn } = useUser()
 
+  console.log(userStatusCode, 'user status')
+
   useEffect(() => {
-    user && router.replace('/clients-area/admin')
-  }, [user, router])
+    userStatusCode === USER_STATUS.OK && router.replace('/clients-area/admin')
+  }, [userStatusCode, router])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

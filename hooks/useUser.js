@@ -1,108 +1,81 @@
 import { useRouter } from 'next/router'
-import { useCallback, useContext, useEffect, useState } from 'react'
-import UserContext from '../context/userContext'
+import { useCallback, useEffect, useState } from 'react'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { setUser } from '../store/features/users/userSlice'
+import { setUserStatusCode } from '../store/features/users/userStatusCodeSlice'
+
+import { getUser } from '../services/getUser'
+import { postUser } from '../services/postUser'
+import { postOrder } from '../services/postOrder'
+
 import { ERRORS, USER_STATUS, ORDER_STATUS, CREATE_ORDER_STATUS } from '../utils/dictionary'
 
 const useUser = () => {
   const router = useRouter()
-  const [userStatusCode, setUserStatusCode] = useState(USER_STATUS.UNDEFINED)
+  // const [userStatusCode, setUserStatusCode] = useState(USER_STATUS.UNDEFINED)
   const [orderStatusCode, setOrderStatusCode] = useState(CREATE_ORDER_STATUS.UNDEFINED)
-  const { user, setUser } = useContext(UserContext)
+  const user = useSelector((state) => state.user)
+  const dispatch = useDispatch()
   const [updateUser, setUpdateUser] = useState()
 
+  // init user
   useEffect(() => {
     setUserStatusCode(USER_STATUS.LOADING)
+    console.log('LOADING')
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
       const loggedUser = JSON.parse(loggedUserJSON)
-      setUserStatusCode(USER_STATUS.OK)
-      setUser(loggedUser)
+      dispatch(setUser(loggedUser))
+      dispatch(setUserStatusCode(USER_STATUS.OK))
+      console.log('OK')
     } else {
-      setUserStatusCode(USER_STATUS.NULL)
+      dispatch(setUserStatusCode(USER_STATUS.NULL))
+      console.log('NULL')
     }
-  }, [setUser])
+  }, [dispatch])
 
+  // update user
   useEffect(() => {
     if (updateUser) {
-      console.log(1)
-      const endpoint = `/api/users/get/${updateUser.userId}`
-      const options = { method: 'GET' }
-      console.log(2)
-      const fetchUser = async () => {
-        console.log(3)
-        const response = await fetch(endpoint, options)
-        console.log(response)
-        const user = await response.json()
-        console.log(user)
-        return user
-      }
-
-      fetchUser()
+      getUser(updateUser.userId)
         .then((user) => {
-          console.log('user en then: ', user)
           window.localStorage.setItem('loggedUser', JSON.stringify(user))
           setUser(user)
         })
-        .catch((e) => {
-          console.log(e)
+        .catch((error) => {
+          console.log(error)
         })
     }
-  }, [updateUser, setUser])
+  }, [updateUser])
 
   /* ---------------------- USER --------------------------- */
 
   // CREATE USER WITH EMAIL AND PASSWORD
 
-  const createUserWithEmail = useCallback(
-    async (data) => {
-      setUserStatusCode(USER_STATUS.LOADING)
-      const { checkbox, confirmPassword, password, email, company, name, lastName, role } = data
-      let error
+  const createUserWithEmail = useCallback((data) => {
+    setUserStatusCode(USER_STATUS.LOADING)
+    const { password, email, company, name, lastName, role } = data
 
-      if (!checkbox) error = ERRORS.CHECK_BOX_REQUIRED
-      if (!confirmPassword) error = ERRORS.CONFIRM_PASSWORD_REQUIRED
-      if (password !== confirmPassword) error = ERRORS.INVALID_CONFIRMED_PASSWORD
-      if (password.length < 6) error = ERRORS.PASSWORD_REQUIRED
-      if (!email) error = ERRORS.EMAIL_REQUIRED
-      if (name.length < 2) error = ERRORS.NAME_REQUIRED
+    const newUser = {
+      displayName: `${name} ${lastName && lastName}`.trim(),
+      company,
+      role,
+      email,
+      password,
+    }
 
-      if (!error) {
-        const newUser = {
-          displayName: `${name} ${lastName && lastName}`.trim(),
-          company,
-          role,
-          email,
-          password,
-        }
-
-        const endpoint = '/api/users/post'
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newUser),
-        }
-        try {
-          const response = await fetch(endpoint, options)
-          const result = await response.json()
-          console.log(result)
-          if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
-          if (response.status === 400) throw new Error(result.error.message)
-          if (response.status === 201) router.replace('/sign-in')
-          setUserStatusCode(USER_STATUS.OK)
-        } catch (e) {
-          setUserStatusCode(USER_STATUS.NULL)
-          console.log({ e })
-          throw new Error(e.message)
-        }
-      } else {
+    postUser(newUser)
+      .then((user) => {
+        setUser(user)
+        setUserStatusCode(USER_STATUS.OK)
+      })
+      .catch((error) => {
         setUserStatusCode(USER_STATUS.NULL)
-        throw new Error(error)
-      }
-    },
-    [router]
-  )
+        console.log({ error })
+        throw new Error(error.message)
+      })
+  }, [])
 
   // UPDATE PROFILE
 
@@ -147,7 +120,7 @@ const useUser = () => {
         setUserStatusCode(USER_STATUS.OK)
       } catch (e) {
         setUserStatusCode(USER_STATUS.NULL)
-        console.log({ e })
+        console.error(e)
         throw new Error(e.message)
       }
     } else {
@@ -168,94 +141,81 @@ const useUser = () => {
 
   // CREATE ORDER
 
-  /* const createOrder = useCallback(
-    async (data) => {
-      setOrderStatusCode(CREATE_ORDER_STATUS.LOADING)
-      const {
-        orderId,
-        userId,
-        name,
-        document,
-        cuit,
-        tel,
-        email,
-        type,
-        cp,
-        province,
-        location,
-        street,
-        streetHeight,
-        flat,
-        department,
-        specification,
-        transport,
-        amount,
-        cant,
-        weight,
-        description,
-      } = data
+  const createOrder = useCallback((data) => {
+    setOrderStatusCode(CREATE_ORDER_STATUS.LOADING)
+    const {
+      orderId,
+      userId,
+      name,
+      document,
+      cuit,
+      tel,
+      email,
+      type,
+      cp,
+      province,
+      location,
+      street,
+      streetHeight,
+      flat,
+      department,
+      specification,
+      transport,
+      amount,
+      cant,
+      weight,
+      description,
+    } = data
 
-      const date = new Date()
-      let hours = date.getHours()
-      let minutes = date.getMinutes()
+    const date = new Date()
+    let hours = date.getHours()
+    let minutes = date.getMinutes()
 
-      if (hours < 10) hours = `0${hours}`
-      if (minutes < 10) minutes = `0${minutes}`
+    if (hours < 10) hours = `0${hours}`
+    if (minutes < 10) minutes = `0${minutes}`
 
-      const newOrder = {
-        orderId,
-        userId,
-        name,
-        document,
-        cuit,
-        tel,
-        email,
-        type,
-        cp,
-        province,
-        location,
-        street,
-        streetHeight,
-        flat,
-        department,
-        specification,
-        transport,
-        amount,
-        cant,
-        weight,
-        description,
-        date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
-        status: ORDER_STATUS.PENDING,
-        traking: '',
-      }
+    const newOrder = {
+      orderId,
+      userId,
+      name,
+      document,
+      cuit,
+      tel,
+      email,
+      type,
+      cp,
+      province,
+      location,
+      street,
+      streetHeight,
+      flat,
+      department,
+      specification,
+      transport,
+      amount,
+      cant,
+      weight,
+      description,
+      date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
+      status: ORDER_STATUS.PENDING,
+      traking: '',
+    }
 
-      const endpoint = '/api/orders/post'
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newOrder),
-      }
-      try {
-        const response = await fetch(endpoint, options)
-        const result = await response.json()
-        console.log(result)
-        if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
-        if (response.status === 400) throw new Error(result.error.message)
-        if (response.status === 201) {
-          window.localStorage.setItem('loggedUser', JSON.stringify(result))
-          setOrderStatusCode(CREATE_ORDER_STATUS.OK)
-          return result
-        }
-      } catch (e) {
+    postOrder(newOrder)
+      .then((order) => {
+        console.log(order)
+        /* ----------------------------------------------------------- */
+        /* FALTA ACTUALIZAR EL STATE DE LAS ORDENES CON LA NUEVA ORDEN */
+        /* ----------------------------------------------------------- */
+
+        return order
+      })
+      .catch((error) => {
         setOrderStatusCode(CREATE_ORDER_STATUS.NULL)
-        console.log({ e })
-        throw new Error(e.message)
-      }
-    },
-    [setUser ]
-  ) */
+        throw new Error(error.message)
+      })
+  }, [])
+
   // DELETE ORDER
 
   const deleteOrder = useCallback(async (data) => {
@@ -283,7 +243,7 @@ const useUser = () => {
 
   return {
     user,
-    userStatusCode,
+    // userStatusCode,
     orderStatusCode,
     createUserWithEmail,
     updateProfile,
@@ -291,90 +251,6 @@ const useUser = () => {
     signOut,
     createOrder,
     deleteOrder,
-  }
-}
-
-export const createOrder = async (data) => {
-  const {
-    orderId,
-    userId,
-    name,
-    document,
-    cuit,
-    tel,
-    email,
-    type,
-    cp,
-    province,
-    location,
-    street,
-    streetHeight,
-    flat,
-    department,
-    specification,
-    transport,
-    amount,
-    cant,
-    weight,
-    description,
-  } = data
-
-  const date = new Date()
-  let hours = date.getHours()
-  let minutes = date.getMinutes()
-
-  if (hours < 10) hours = `0${hours}`
-  if (minutes < 10) minutes = `0${minutes}`
-
-  const newOrder = {
-    orderId,
-    userId,
-    name,
-    document,
-    cuit,
-    tel,
-    email,
-    type,
-    cp,
-    province,
-    location,
-    street,
-    streetHeight,
-    flat,
-    department,
-    specification,
-    transport,
-    amount,
-    cant,
-    weight,
-    description,
-    date: `${date.toLocaleDateString()} ${hours}:${minutes} hs`,
-    status: ORDER_STATUS.PENDING,
-    traking: '',
-  }
-
-  const endpoint = '/api/orders/post'
-  const options = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newOrder),
-  }
-  try {
-    const response = await fetch(endpoint, options)
-    const result = await response.json()
-    console.log(result)
-    if (response.status === 400 && result.error.code === 11000) throw new Error(ERRORS.EMAIL_DUPLICATE)
-    if (response.status === 400) throw new Error(result.error.message)
-    if (response.status === 201) {
-      window.localStorage.setItem('loggedUser', JSON.stringify(result))
-
-      return result
-    }
-  } catch (e) {
-    console.log({ e })
-    throw new Error(e.message)
   }
 }
 

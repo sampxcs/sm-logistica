@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import connectMongo from '../../../../utils/connectMongo'
+import connectMongo from '../../../../services/connectMongo'
 import bcrypt from 'bcrypt'
 import User from '../../../../models/userSchema'
 

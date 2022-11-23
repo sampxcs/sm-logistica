@@ -1,4 +1,4 @@
-import connectMongo from '../../../../utils/connectMongo'
+import connectMongo from '../../../../services/connectMongo'
 import User from '../../../../models/userSchema'
 
 export default async function getUsers(req, res) {

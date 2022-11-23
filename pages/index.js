@@ -2,8 +2,6 @@ import styles from './index.module.css'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useSelector, useDispatch } from 'react-redux'
-import { incremented, decremented } from '../store/features/users/userSlice'
 
 import Button from '../components/Button'
 import Header from '../components/Header'
@@ -24,8 +22,6 @@ import HeadsetIcon from '../components/Icons/HeadsetIcon'
 import ArrowRightToBracketIcon from '../components/Icons/ArrowRightToBracketIcon'
 
 export default function Home() {
-  const user = useSelector((state) => state.user)
-  const dispatch = useDispatch()
   return (
     <>
       <Head>
@@ -40,30 +36,17 @@ export default function Home() {
             <div className={styles.textBox}>
               <h2 className={styles.subTitle}>
                 <span>
-                  EN <strong>{user}</strong>
+                  EN <strong>LOGISTICA</strong>
                 </span>
                 Diseñamos soliciones logisticas a la medida de <strong>tus necesidades.</strong> <br />
                 Expandemos tu negocio y hacemos crecer tus ventas <strong>facil y rapido.</strong> <br />
                 Realizamos envios de forma masiva a <strong>todo el pais.</strong>
               </h2>
               <div className={styles.buttons}>
-                <Button
-                  onClick={() => {
-                    dispatch(incremented())
-                  }}
-                  className="buttonPrimary"
-                  light
-                  color={'var(--color-white-100)'}
-                >
+                <Button className="buttonPrimary" light color={'var(--color-white-100)'}>
                   SERVICIOS
                 </Button>
-                <Button
-                  onClick={() => {
-                    dispatch(decremented())
-                  }}
-                  className="buttonPrimary"
-                  background={'var(--color-primary-80)'}
-                >
+                <Button className="buttonPrimary" background={'var(--color-primary-80)'}>
                   AREA CLIENTES
                 </Button>
               </div>

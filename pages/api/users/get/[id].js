@@ -1,4 +1,4 @@
-import connectMongo from '../../../../utils/connectMongo'
+import connectMongo from '../../../../services/connectMongo'
 import Order from '../../../../models/orderSchema'
 import User from '../../../../models/userSchema'
 

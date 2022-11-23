@@ -1,4 +1,4 @@
-import connectMongo from '../../../../utils/connectMongo'
+import connectMongo from '../../../../services/connectMongo'
 import Order from '../../../../models/orderSchema'
 
 export default async function getOrders(req, res) {

@@ -1,4 +1,4 @@
-import connectMongo from '../../../../utils/connectMongo'
+import connectMongo from '../../../../services/connectMongo'
 import Order from '../../../../models/orderSchema'
 import User from '../../../../models/userSchema'
 
@@ -66,7 +66,7 @@ export default async function createOrder(req, res) {
     user.orders = user.orders.concat(saveOrder)
     await user.save()
 
-    res.status(201).json(user)
+    res.status(201).json(saveOrder)
   } catch (error) {
     res.status(400).json({ error })
   }

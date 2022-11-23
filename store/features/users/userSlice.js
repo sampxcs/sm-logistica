@@ -2,17 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: 0,
+  initialState: {},
   reducers: {
-    incremented: (state) => {
-      return (state += 1)
-    },
-    decremented: (state) => {
-      return (state -= 1)
+    setUser: (state, action) => {
+      return (state = action.payload)
     },
   },
 })
 
-export const { incremented, decremented } = userSlice.actions
+export const { setUser } = userSlice.actions
 
 export default userSlice.reducer

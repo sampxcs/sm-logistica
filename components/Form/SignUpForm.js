@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { ERRORS } from '../../utils/dictionary'
+import { ERRORS, USER_STATUS } from '../../utils/dictionary'
 import useUser from '../../hooks/useUser'
 
 import Button from '../Button'
@@ -17,15 +17,16 @@ import GoogleIcon from '../Icons/GoogleIcon'
 export default function SignUpForm() {
   const router = useRouter()
   const [errorMessage, setErrorMessage] = useState()
-  const { user, userStatusCode, createUserWithEmail } = useUser()
+  const { userStatusCode, createUserWithEmail } = useUser()
 
   useEffect(() => {
-    user && router.replace('/clients-area/admin')
-  }, [user, router])
+    userStatusCode === USER_STATUS.OK && router.replace('/clients-area/admin')
+  }, [userStatusCode, router])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setErrorMessage('')
+    let error
 
     const data = {
       role: 'admin',
@@ -38,11 +39,22 @@ export default function SignUpForm() {
       checkbox: e.target.checkbox.checked,
     }
 
-    try {
-      await createUserWithEmail(data)
-    } catch (e) {
-      console.log({ e })
-      setErrorMessage(e.message)
+    if (!data.checkbox) error = ERRORS.CHECK_BOX_REQUIRED
+    if (!data.confirmPassword) error = ERRORS.CONFIRM_PASSWORD_REQUIRED
+    if (data.password !== data.confirmPassword) error = ERRORS.INVALID_CONFIRMED_PASSWORD
+    if (data.password.length < 6) error = ERRORS.PASSWORD_REQUIRED
+    if (!data.email) error = ERRORS.EMAIL_REQUIRED
+    if (data.name.length < 2) error = ERRORS.NAME_REQUIRED
+
+    if (!error) {
+      try {
+        await createUserWithEmail(data)
+      } catch (e) {
+        console.log({ e })
+        setErrorMessage(e.message)
+      }
+    } else {
+      setErrorMessage(error)
     }
   }
 

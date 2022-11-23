@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+
 import Head from 'next/head'
 
 import Nav from '../../components/Nav'
@@ -14,10 +16,14 @@ import { USER_STATUS } from '../../utils/dictionary'
 
 export default function ClientsArea() {
   const router = useRouter()
-  const { userStatusCode } = useUser()
+  const { user } = useUser()
+  const userStatusCode = useSelector((state) => state.userStatusCode)
 
   useEffect(() => {
-    userStatusCode === USER_STATUS.NULL && router.replace('/sign-in')
+    if (userStatusCode === USER_STATUS.NULL) {
+      router.replace('/sign-in')
+      console.log('de vuelta')
+    }
   }, [userStatusCode, router])
 
   if (userStatusCode === USER_STATUS.OK)
