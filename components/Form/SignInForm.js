@@ -1,7 +1,6 @@
 import styles from './Form.module.css'
 
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import { useState } from 'react'
 import Link from 'next/link'
 
 import { ERRORS, USER_STATUS } from '../../utils/dictionary'
@@ -15,15 +14,8 @@ import ArrowRightToBracketIcon from '../Icons/ArrowRightToBracketIcon'
 import GoogleIcon from '../Icons/GoogleIcon'
 
 export default function SignInForm() {
-  const router = useRouter()
   const [errorMessage, setErrorMessage] = useState()
-  const { user, userStatusCode, signIn } = useUser()
-
-  console.log(userStatusCode, 'user status')
-
-  useEffect(() => {
-    userStatusCode === USER_STATUS.OK && router.replace('/clients-area/admin')
-  }, [userStatusCode, router])
+  const { userStatusCode, signIn } = useUser()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -65,17 +57,17 @@ export default function SignInForm() {
             (errorMessage === ERRORS.PASSWORD_REQUIRED && ERRORS.PASSWORD_REQUIRED) ||
             (errorMessage === ERRORS.INVALID_PASSWORD && ERRORS.INVALID_PASSWORD)
           }
-          title="Por favor, introduzca su contraseña"
+          title='Por favor, introduzca su contraseña'
           onChange={() => setErrorMessage('')}
         />
         <small className={styles.small}>
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>¿Has olvidado tu contraseña?</a>
           </Link>
         </small>
       </div>
       <div className={styles.div}>
-        <Button loading={userStatusCode === 1} className={'formButton'}>
+        <Button loading={userStatusCode === USER_STATUS.LOADING} className={'formButton'}>
           Inicia Sesion <ArrowRightToBracketIcon width={16} />
         </Button>
         <p className={styles.subTitle}>O continua con</p>
@@ -85,7 +77,7 @@ export default function SignInForm() {
         </Button>
         <small className={styles.small}>
           ¿No tenes una cuenta?,{' '}
-          <Link href="/sign-up">
+          <Link href='/sign-up'>
             <a className={styles.a}>Registrate ahora!</a>
           </Link>
         </small>

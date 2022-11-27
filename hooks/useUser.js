@@ -13,129 +13,134 @@ import { ERRORS, USER_STATUS, ORDER_STATUS, CREATE_ORDER_STATUS } from '../utils
 
 const useUser = () => {
   const router = useRouter()
-  // const [userStatusCode, setUserStatusCode] = useState(USER_STATUS.UNDEFINED)
   const [orderStatusCode, setOrderStatusCode] = useState(CREATE_ORDER_STATUS.UNDEFINED)
   const user = useSelector((state) => state.user)
+  const userStatusCode = useSelector((state) => state.userStatusCode)
   const dispatch = useDispatch()
   const [updateUser, setUpdateUser] = useState()
 
   // init user
   useEffect(() => {
-    setUserStatusCode(USER_STATUS.LOADING)
-    console.log('LOADING')
+    dispatch(setUserStatusCode(USER_STATUS.LOADING))
     const loggedUserJSON = window.localStorage.getItem('loggedUser')
     if (loggedUserJSON) {
       const loggedUser = JSON.parse(loggedUserJSON)
       dispatch(setUser(loggedUser))
       dispatch(setUserStatusCode(USER_STATUS.OK))
-      console.log('OK')
     } else {
       dispatch(setUserStatusCode(USER_STATUS.NULL))
-      console.log('NULL')
     }
   }, [dispatch])
 
   // update user
   useEffect(() => {
     if (updateUser) {
+      dispatch(setUserStatusCode(USER_STATUS.LOADING))
       getUser(updateUser.userId)
         .then((user) => {
           window.localStorage.setItem('loggedUser', JSON.stringify(user))
           setUser(user)
+          dispatch(setUserStatusCode(USER_STATUS.OK))
         })
         .catch((error) => {
           console.log(error)
+          dispatch(setUserStatusCode(USER_STATUS.NULL))
         })
     }
-  }, [updateUser])
+  }, [updateUser, dispatch])
 
   /* ---------------------- USER --------------------------- */
 
   // CREATE USER WITH EMAIL AND PASSWORD
 
-  const createUserWithEmail = useCallback((data) => {
-    setUserStatusCode(USER_STATUS.LOADING)
-    const { password, email, company, name, lastName, role } = data
+  const createUserWithEmail = useCallback(
+    (data) => {
+      dispatch(setUserStatusCode(USER_STATUS.LOADING))
+      const { password, email, company, name, lastName, role } = data
 
-    const newUser = {
-      displayName: `${name} ${lastName && lastName}`.trim(),
-      company,
-      role,
-      email,
-      password,
-    }
+      const newUser = {
+        displayName: `${name} ${lastName && lastName}`.trim(),
+        company,
+        role,
+        email,
+        password,
+      }
 
-    postUser(newUser)
-      .then((user) => {
-        setUser(user)
-        setUserStatusCode(USER_STATUS.OK)
-      })
-      .catch((error) => {
-        setUserStatusCode(USER_STATUS.NULL)
-        console.log({ error })
-        throw new Error(error.message)
-      })
-  }, [])
+      postUser(newUser)
+        .then((user) => {
+          setUser(user)
+          dispatch(setUserStatusCode(USER_STATUS.OK))
+        })
+        .catch((error) => {
+          dispatch(setUserStatusCode(USER_STATUS.NULL))
+          console.log({ error })
+          throw new Error(error.message)
+        })
+    },
+    [dispatch]
+  )
 
   // UPDATE PROFILE
 
   const updateProfile = useCallback(() => {
-    setUserStatusCode(USER_STATUS.LOADING)
-    setTimeout(() => setUserStatusCode(USER_STATUS.OK), 3000)
-  }, [])
+    dispatch(setUserStatusCode(USER_STATUS.LOADING))
+    setTimeout(() => dispatch(setUserStatusCode(USER_STATUS.OK)), 3000)
+  }, [dispatch])
 
   // SIGN IN
 
-  const signIn = useCallback(async (data) => {
-    setUserStatusCode(USER_STATUS.LOADING)
-    const { password, email } = data
-    let error
+  const signIn = useCallback(
+    async (data) => {
+      dispatch(setUserStatusCode(USER_STATUS.LOADING))
+      const { password, email } = data
+      let error
 
-    if (!password) error = ERRORS.PASSWORD_REQUIRED
-    if (!email) error = ERRORS.EMAIL_REQUIRED
+      if (!password) error = ERRORS.PASSWORD_REQUIRED
+      if (!email) error = ERRORS.EMAIL_REQUIRED
 
-    if (!error) {
-      const user = {
-        email: email,
-        password: password,
-      }
-
-      const endpoint = '/api/users/login'
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
-      }
-
-      try {
-        const response = await fetch(endpoint, options)
-        const result = await response.json()
-        console.log(result)
-        if (response.status === 401) throw new Error(result.message)
-        if (response.status === 200) {
-          setUpdateUser({ userId: result.id, date: new Date() })
+      if (!error) {
+        const user = {
+          email: email,
+          password: password,
         }
-        setUserStatusCode(USER_STATUS.OK)
-      } catch (e) {
-        setUserStatusCode(USER_STATUS.NULL)
-        console.error(e)
-        throw new Error(e.message)
+
+        const endpoint = '/api/users/login'
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(user),
+        }
+
+        try {
+          const response = await fetch(endpoint, options)
+          const result = await response.json()
+          if (response.status === 401) throw new Error(result.message)
+          if (response.status === 200) {
+            setUpdateUser({ userId: result.id, date: new Date() })
+            dispatch(setUserStatusCode(USER_STATUS.OK))
+          }
+        } catch (e) {
+          dispatch(setUserStatusCode(USER_STATUS.NULL))
+          console.error(e)
+          throw new Error(e.message)
+        }
+      } else {
+        dispatch(setUserStatusCode(USER_STATUS.NULL))
+        throw new Error(error)
       }
-    } else {
-      setUserStatusCode(USER_STATUS.NULL)
-      throw new Error(error)
-    }
-  }, [])
+    },
+    [dispatch]
+  )
 
   // SIGN OUT
 
   const signOut = useCallback(() => {
-    setUserStatusCode(USER_STATUS.NULL)
+    dispatch(setUserStatusCode(USER_STATUS.NULL))
     window.localStorage.removeItem('loggedUser')
     router.reload()
-  }, [router])
+  }, [router, dispatch])
 
   /* ---------------------- ORDER --------------------------- */
 
@@ -243,7 +248,7 @@ const useUser = () => {
 
   return {
     user,
-    // userStatusCode,
+    userStatusCode,
     orderStatusCode,
     createUserWithEmail,
     updateProfile,

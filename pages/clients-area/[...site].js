@@ -16,15 +16,9 @@ import { USER_STATUS } from '../../utils/dictionary'
 
 export default function ClientsArea() {
   const router = useRouter()
-  const { user } = useUser()
-  const userStatusCode = useSelector((state) => state.userStatusCode)
+  const { userStatusCode } = useUser()
 
-  useEffect(() => {
-    if (userStatusCode === USER_STATUS.NULL) {
-      router.replace('/sign-in')
-      console.log('de vuelta')
-    }
-  }, [userStatusCode, router])
+  userStatusCode === USER_STATUS.NULL && router.replace('/sign-in')
 
   if (userStatusCode === USER_STATUS.OK)
     return (
